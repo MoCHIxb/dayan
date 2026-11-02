@@ -9,8 +9,10 @@ Exploration of Personalized Adaptation Methods for LLMs via Low-Resource Fine-Tu
 ## 当前可核验成果
 
 - 小样本v1完成16次训练、12个所选适配器的完整评价及36项原始语料级配对bootstrap；三种子有画像BLEU均值为50条20.7858、100条20.6277、200条21.8018、500条22.0421。不是严格单调改善，也不能将多个训练因素变化归因为单一机制。
-- 本地PEFT轮新增9次训练，复用3次BF16基线；20组完整test生成及9套辅助评价完成。18项原始bootstrap尚未完成：用户关机暂停，第一项仅日志到800/2000，中间数组未保存，恢复时重算。**不提供尚未形成的PEFT最终置信区间。**
+- 本地PEFT轮新增9次训练，复用3次BF16基线；20组完整test生成及9套辅助评价完成。2026-11-02用户明确恢复本地收尾，18项原始bootstrap正由原冻结执行器串行计算；已中断首项按原种子从0重算，不重训或重生成。**不提供尚未形成的PEFT最终置信区间。**
 - 数据准备、训练、完整评价、独立推理、哈希核验和统一入口已经在本机验证；云端Linux/RTX4090尚未实机验证。
+
+新增[客观风格/内容辅助证据](docs/30_objective_supplement_results.md)和[PEFT质量/资源分析](docs/31_peft_quality_cost_analysis.md)。后者在统计完成前明确标为描述性草稿，不提供虚构置信区间。
 
 结果和边界见[小样本解释](docs/23_small_sample_interpretation.md)、[本地500条参考汇总](results/local_500_reference.json)。50–500仅指训练条数，另用了1500条有标签dev；不能声称总标签预算仅有50–500条。
 

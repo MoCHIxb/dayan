@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-02",
+  "stage": "cpu_original_bootstrap_running",
+  "completed_new_trainings": 9,
+  "completed_test_generations": 20,
+  "completed_auxiliary_sets": 9,
+  "completed_original_bootstrap_tasks": 0,
+  "planned_original_bootstrap_tasks": 18,
+  "objective_supplement_conditions": 28,
+  "monitor": "ACTIVE",
+  "gpu_work": "complete; not restarted",
+  "cloud_experiment": "not started",
+  "note": "Snapshot at local resumption; actual statistical stage is in private execution_state.json. No final confidence intervals yet."
+}

@@ -1,0 +1,559 @@
+{
+  "status": "descriptive_draft_statistics_pending",
+  "new_trainings_verified": 9,
+  "reused_control_trainings_verified": 3,
+  "complete_test_records": 1496,
+  "full_dev_records": 1500,
+  "completed_original_bootstrap_tasks": 0,
+  "planned_original_bootstrap_tasks": 18,
+  "missing_original_bootstrap": [
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251206\\paired_2x2_bootstrap.json",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251206\\paired_vs_bf16_r16_a32.json",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251207\\paired_2x2_bootstrap.json",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251207\\paired_vs_bf16_r16_a32.json",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251208\\paired_2x2_bootstrap.json",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251208\\paired_vs_bf16_r16_a32.json",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251206\\paired_2x2_bootstrap.json",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251206\\paired_vs_bf16_r16_a32.json",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251207\\paired_2x2_bootstrap.json",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251207\\paired_vs_bf16_r16_a32.json",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251208\\paired_2x2_bootstrap.json",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251208\\paired_vs_bf16_r16_a32.json",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251206\\paired_2x2_bootstrap.json",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251206\\paired_vs_bf16_r16_a32.json",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251207\\paired_2x2_bootstrap.json",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251207\\paired_vs_bf16_r16_a32.json",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251208\\paired_2x2_bootstrap.json",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251208\\paired_vs_bf16_r16_a32.json"
+  ],
+  "aggregate": {
+    "bf16_r16_a32": {
+      "bleu": {
+        "mean": 22.04209155904579,
+        "sample_sd": 0.699547012666815
+      },
+      "chrf": {
+        "mean": 43.29753705774087,
+        "sample_sd": 0.3476449906501447
+      },
+      "rougeL": {
+        "mean": 0.4909135264488942,
+        "sample_sd": 0.004772200821182707
+      },
+      "bert_f1": {
+        "mean": 0.4542648990948995,
+        "sample_sd": 0.008874555349052356
+      },
+      "profile_delta_bleu": {
+        "mean": 6.287358939958477,
+        "sample_sd": 0.7100482070004319
+      },
+      "copy_rate": {
+        "mean": 0.03297682709447415,
+        "sample_sd": 0.0013914879675575743
+      },
+      "trainable_parameters": {
+        "mean": 33030144,
+        "sample_sd": 0.0
+      },
+      "training_minutes": {
+        "mean": 31.66332658926646,
+        "sample_sd": 0.7217389760769579
+      },
+      "allocated_gib": {
+        "mean": 9.169403235117594,
+        "sample_sd": 0.0009446678855763011
+      },
+      "reserved_gib": {
+        "mean": 14.669270833333334,
+        "sample_sd": 1.3282748268737086
+      },
+      "generation_samples_per_second": {
+        "mean": 1.9092308322344709,
+        "sample_sd": 0.08277311699453758
+      },
+      "relative_to_bf16_r16_a32": {
+        "trainable_parameters": 0.0,
+        "training_minutes": 0.0,
+        "allocated_gib": 0.0
+      }
+    },
+    "bf16_r8_a16": {
+      "bleu": {
+        "mean": 22.67343301389406,
+        "sample_sd": 0.33560329217231916
+      },
+      "chrf": {
+        "mean": 43.74008160102995,
+        "sample_sd": 0.3955639148772581
+      },
+      "rougeL": {
+        "mean": 0.4940301480109391,
+        "sample_sd": 0.0029606825671206543
+      },
+      "bert_f1": {
+        "mean": 0.4619520803292592,
+        "sample_sd": 0.0032481837458051372
+      },
+      "profile_delta_bleu": {
+        "mean": 6.982814487939631,
+        "sample_sd": 0.2614158799076488
+      },
+      "copy_rate": {
+        "mean": 0.03163992869875223,
+        "sample_sd": 0.002042146031620251
+      },
+      "trainable_parameters": {
+        "mean": 16515072,
+        "sample_sd": 0.0
+      },
+      "training_minutes": {
+        "mean": 30.337262284755706,
+        "sample_sd": 1.1720350042930434
+      },
+      "allocated_gib": {
+        "mean": 8.923309485117594,
+        "sample_sd": 0.0009446678855763011
+      },
+      "reserved_gib": {
+        "mean": 14.34765625,
+        "sample_sd": 1.3293264900829773
+      },
+      "generation_samples_per_second": {
+        "mean": 2.271644921376534,
+        "sample_sd": 0.012767662480899293
+      },
+      "relative_to_bf16_r16_a32": {
+        "trainable_parameters": -50.0,
+        "training_minutes": -4.188013223349307,
+        "allocated_gib": -2.6838578660985712
+      }
+    },
+    "bf16_r16_a16": {
+      "bleu": {
+        "mean": 22.626709005208202,
+        "sample_sd": 0.15228670724360308
+      },
+      "chrf": {
+        "mean": 43.50269033035892,
+        "sample_sd": 0.0803019270839656
+      },
+      "rougeL": {
+        "mean": 0.4928550379032176,
+        "sample_sd": 0.0009785117838621924
+      },
+      "bert_f1": {
+        "mean": 0.45923460523287457,
+        "sample_sd": 0.0005813786219581988
+      },
+      "profile_delta_bleu": {
+        "mean": 6.943520617067013,
+        "sample_sd": 0.1403367599936297
+      },
+      "copy_rate": {
+        "mean": 0.030303030303030304,
+        "sample_sd": 0.003364453848159872
+      },
+      "trainable_parameters": {
+        "mean": 33030144,
+        "sample_sd": 0.0
+      },
+      "training_minutes": {
+        "mean": 30.391053556071387,
+        "sample_sd": 1.012961366079776
+      },
+      "allocated_gib": {
+        "mean": 9.169403235117594,
+        "sample_sd": 0.0009446678855763011
+      },
+      "reserved_gib": {
+        "mean": 14.669270833333334,
+        "sample_sd": 1.3282748268737086
+      },
+      "generation_samples_per_second": {
+        "mean": 2.2554699372935016,
+        "sample_sd": 0.025512917045312486
+      },
+      "relative_to_bf16_r16_a32": {
+        "trainable_parameters": 0.0,
+        "training_minutes": -4.018128131951748,
+        "allocated_gib": 0.0
+      }
+    },
+    "nf4_r16_a32": {
+      "bleu": {
+        "mean": 22.016723651736527,
+        "sample_sd": 0.5416318590723394
+      },
+      "chrf": {
+        "mean": 43.371151501589424,
+        "sample_sd": 0.04699458644504279
+      },
+      "rougeL": {
+        "mean": 0.48914843075008857,
+        "sample_sd": 0.003269666906647164
+      },
+      "bert_f1": {
+        "mean": 0.4562157293160756,
+        "sample_sd": 0.005205253168432239
+      },
+      "profile_delta_bleu": {
+        "mean": 6.522349069767419,
+        "sample_sd": 0.3913808984030269
+      },
+      "copy_rate": {
+        "mean": 0.03230837789661319,
+        "sample_sd": 0.001682226924079933
+      },
+      "trainable_parameters": {
+        "mean": 33030144,
+        "sample_sd": 0.0
+      },
+      "training_minutes": {
+        "mean": 36.26712759335836,
+        "sample_sd": 0.4822016264922544
+      },
+      "allocated_gib": {
+        "mean": 5.657124360402425,
+        "sample_sd": 0.0004994061350830423
+      },
+      "reserved_gib": {
+        "mean": 6.093098958333333,
+        "sample_sd": 0.17944673634506655
+      },
+      "generation_samples_per_second": {
+        "mean": 1.7240226210911096,
+        "sample_sd": 0.10795320665999299
+      },
+      "relative_to_bf16_r16_a32": {
+        "trainable_parameters": 0.0,
+        "training_minutes": 14.53985256764696,
+        "allocated_gib": -38.30433436784205
+      }
+    }
+  },
+  "runs": [
+    {
+      "variant": "bf16_r16_a32",
+      "seed": 20251206,
+      "best_step": 64,
+      "best_dev_loss": 1.8929885625839233,
+      "bleu": 21.54699999694989,
+      "chrf": 43.061099956934214,
+      "rougeL": 0.48828540488870714,
+      "bert_f1": 0.4480587840080261,
+      "profile_delta_bleu": 5.805567477907971,
+      "copy_rate": 0.03141711229946524,
+      "trainable_parameters": 33030144,
+      "training_minutes": 31.024201158682505,
+      "allocated_gib": 9.169990062713623,
+      "reserved_gib": 13.474609375,
+      "generation_samples_per_second": 1.829455339357678
+    },
+    {
+      "variant": "bf16_r16_a32",
+      "seed": 20251207,
+      "best_step": 64,
+      "best_dev_loss": 1.8960269689559937,
+      "bleu": 22.842384372457683,
+      "chrf": 43.696700731870784,
+      "rougeL": 0.49642206377277204,
+      "bert_f1": 0.4644298851490021,
+      "profile_delta_bleu": 7.102777252425012,
+      "copy_rate": 0.03409090909090909,
+      "trainable_parameters": 33030144,
+      "training_minutes": 32.44608058532079,
+      "allocated_gib": 9.16990613937378,
+      "reserved_gib": 16.099609375,
+      "generation_samples_per_second": 1.9947068660852059
+    },
+    {
+      "variant": "bf16_r16_a32",
+      "seed": 20251208,
+      "best_step": 64,
+      "best_dev_loss": 1.8941261768341064,
+      "bleu": 21.736890307729798,
+      "chrf": 43.13481048441761,
+      "rougeL": 0.4880331106852034,
+      "bert_f1": 0.4503060281276703,
+      "profile_delta_bleu": 5.953732089542447,
+      "copy_rate": 0.03342245989304813,
+      "trainable_parameters": 33030144,
+      "training_minutes": 31.51969802379608,
+      "allocated_gib": 9.16831350326538,
+      "reserved_gib": 14.43359375,
+      "generation_samples_per_second": 1.9035302912605288
+    },
+    {
+      "variant": "bf16_r8_a16",
+      "seed": 20251206,
+      "best_step": 80,
+      "best_dev_loss": 1.9009931087493896,
+      "bleu": 23.017900511975594,
+      "chrf": 44.1968331180229,
+      "rougeL": 0.49738443201961036,
+      "bert_f1": 0.4656977951526642,
+      "profile_delta_bleu": 7.213631700523038,
+      "copy_rate": 0.03342245989304813,
+      "trainable_parameters": 16515072,
+      "training_minutes": 29.423177162806194,
+      "allocated_gib": 8.923896312713623,
+      "reserved_gib": 13.15234375,
+      "generation_samples_per_second": 2.2592068257886018
+    },
+    {
+      "variant": "bf16_r8_a16",
+      "seed": 20251207,
+      "best_step": 96,
+      "best_dev_loss": 1.903432011604309,
+      "bleu": 22.65493988014731,
+      "chrf": 43.51379139917429,
+      "rougeL": 0.4929250421550515,
+      "bert_f1": 0.45991215109825134,
+      "profile_delta_bleu": 7.035871970369991,
+      "copy_rate": 0.029411764705882353,
+      "trainable_parameters": 16515072,
+      "training_minutes": 29.93001187245051,
+      "allocated_gib": 8.92381238937378,
+      "reserved_gib": 15.779296875,
+      "generation_samples_per_second": 2.2847184231119355
+    },
+    {
+      "variant": "bf16_r8_a16",
+      "seed": 20251208,
+      "best_step": 64,
+      "best_dev_loss": 1.9032628536224365,
+      "bleu": 22.347458649559268,
+      "chrf": 43.509620285892666,
+      "rougeL": 0.4917809698581554,
+      "bert_f1": 0.4602462947368622,
+      "profile_delta_bleu": 6.698939792925865,
+      "copy_rate": 0.03208556149732621,
+      "trainable_parameters": 16515072,
+      "training_minutes": 31.658597819010417,
+      "allocated_gib": 8.92221975326538,
+      "reserved_gib": 14.111328125,
+      "generation_samples_per_second": 2.271009515229065
+    },
+    {
+      "variant": "bf16_r16_a16",
+      "seed": 20251206,
+      "best_step": 96,
+      "best_dev_loss": 1.9028550386428833,
+      "bleu": 22.60822239454868,
+      "chrf": 43.47017177409624,
+      "rougeL": 0.4924027468220676,
+      "bert_f1": 0.4587363302707672,
+      "profile_delta_bleu": 6.957296017937091,
+      "copy_rate": 0.03074866310160428,
+      "trainable_parameters": 33030144,
+      "training_minutes": 30.01925361553828,
+      "allocated_gib": 9.169990062713623,
+      "reserved_gib": 13.474609375,
+      "generation_samples_per_second": 2.232487378610014
+    },
+    {
+      "variant": "bf16_r16_a16",
+      "seed": 20251207,
+      "best_step": 96,
+      "best_dev_loss": 1.9038418531417847,
+      "bleu": 22.48450949914422,
+      "chrf": 43.44374783246508,
+      "rougeL": 0.4921844895748545,
+      "bert_f1": 0.45987334847450256,
+      "profile_delta_bleu": 6.796804146510581,
+      "copy_rate": 0.026737967914438502,
+      "trainable_parameters": 33030144,
+      "training_minutes": 31.537377564112344,
+      "allocated_gib": 9.16990613937378,
+      "reserved_gib": 16.099609375,
+      "generation_samples_per_second": 2.2829224331750657
+    },
+    {
+      "variant": "bf16_r16_a16",
+      "seed": 20251208,
+      "best_step": 96,
+      "best_dev_loss": 1.902462363243103,
+      "bleu": 22.78739512193171,
+      "chrf": 43.59415138451544,
+      "rougeL": 0.4939778773127308,
+      "bert_f1": 0.4590941369533539,
+      "profile_delta_bleu": 7.076461686753365,
+      "copy_rate": 0.03342245989304813,
+      "trainable_parameters": 33030144,
+      "training_minutes": 29.616529488563536,
+      "allocated_gib": 9.16831350326538,
+      "reserved_gib": 14.43359375,
+      "generation_samples_per_second": 2.251000000095426
+    },
+    {
+      "variant": "nf4_r16_a32",
+      "seed": 20251206,
+      "best_step": 64,
+      "best_dev_loss": 1.923980951309204,
+      "bleu": 21.551858885756666,
+      "chrf": 43.329735811485534,
+      "rougeL": 0.48594283981968933,
+      "bert_f1": 0.4525188207626343,
+      "profile_delta_bleu": 6.255070496828369,
+      "copy_rate": 0.03409090909090909,
+      "trainable_parameters": 33030144,
+      "training_minutes": 35.998852014541626,
+      "allocated_gib": 5.656838893890381,
+      "reserved_gib": 6.166015625,
+      "generation_samples_per_second": 1.6291103527268003
+    },
+    {
+      "variant": "nf4_r16_a32",
+      "seed": 20251207,
+      "best_step": 64,
+      "best_dev_loss": 1.9220283031463623,
+      "bleu": 22.611496527598874,
+      "chrf": 43.422224567125575,
+      "rougeL": 0.4924786120351415,
+      "bert_f1": 0.4621683657169342,
+      "profile_delta_bleu": 6.971584032649833,
+      "copy_rate": 0.03074866310160428,
+      "trainable_parameters": 33030144,
+      "training_minutes": 35.97872595389684,
+      "allocated_gib": 5.657701015472412,
+      "reserved_gib": 6.224609375,
+      "generation_samples_per_second": 1.701495608633297
+    },
+    {
+      "variant": "nf4_r16_a32",
+      "seed": 20251208,
+      "best_step": 64,
+      "best_dev_loss": 1.9190962314605713,
+      "bleu": 21.886815541854045,
+      "chrf": 43.361494126157154,
+      "rougeL": 0.48902384039543484,
+      "bert_f1": 0.45396000146865845,
+      "profile_delta_bleu": 6.340392679824054,
+      "copy_rate": 0.03208556149732621,
+      "trainable_parameters": 33030144,
+      "training_minutes": 36.823804811636606,
+      "allocated_gib": 5.656833171844482,
+      "reserved_gib": 5.888671875,
+      "generation_samples_per_second": 1.8414619019132314
+    }
+  ],
+  "sources_sha256": {
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251206\\adapter_profile_test_metrics.json": "a693218b47fb8558bcf0886cd0c1eb5c4ca976a69c53a66e5b58f8af01e90caa",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251206\\adapter_profile_test_metrics.predictions.jsonl": "fa6b84931dd69ce6d10193d1e5b31f9aa4032f29ee6d6721ca07473a02d3eff2",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251206\\adapter_no_profile_test_metrics.json": "47b3dc792266ef5c90404b0dad5d64169fb4f59867d0506e17eaf9aec0da5d7d",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251206\\adapter_no_profile_test_metrics.predictions.jsonl": "8196e526d3fc9ae6834287074eb4b4ace08742840fcbc3ec3bb8f7baa03b3a15",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251206\\training_summary.json": "19e7a6eed2af50370bb868a896ff52d9be228428a86b6a3f606944a2169ef16c",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251206\\full_dev.json": "2bb310a6dc3aac708bc56957105920074e328f07e5e4af1f40787b848ea83f80",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251206\\bertscore.json": "40fd748af3a508be9471959cdc2a39b6570652251e3298eb454b88ec0cc16ab8",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251206\\error_analysis.json": "26ffbe362908c51b6691278bef6d5232ac40e5b126d3b388fa3afa692f2e8ad2",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251206\\copy_diagnostics.json": "ad607e30682d5b95f48e5daa81c0b39abb82e47c6a90568981c64806e4a298f8",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251207\\adapter_profile_test_metrics.json": "ad2e426b9943465b4dae9620517193a47f2df0778224a42927ff9afa2b0cac19",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251207\\adapter_profile_test_metrics.predictions.jsonl": "11c3752dee762c7b85f6e9c0a679b7e8097547183746989f255f348cef6cf4a3",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251207\\adapter_no_profile_test_metrics.json": "7807ba3fdf0d5176555d3c921cfa757b42f9e2fdd6ffe99b83a32c9b4b6dd430",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251207\\adapter_no_profile_test_metrics.predictions.jsonl": "5ffe0688964066d77c0a1e72526a853c8d5b904b68cedcd14a04298b13c5c882",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251207\\training_summary.json": "05de8a74b2d920d510d3f446b2225d420a25574b6f827888c3c6b6f7b9de2399",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251207\\full_dev.json": "5ce2595c2ab4337656280e3273db338b6882812e57b93526c9445e995e34b9f0",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251207\\bertscore.json": "8ab393282d185ce6e13f42d0a3646977b1bba7df38e13bf41efec91d498ac505",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251207\\error_analysis.json": "a91d05951a2d79cdbb88734eb92ed3ae8e60e22de3e7c0c4cd08b2a0e7c9fc32",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251207\\copy_diagnostics.json": "96ace596f3f8528e9435e257fefd542f80421c7ca88aae407c9540cd92645fcf",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251208\\adapter_profile_test_metrics.json": "3d3a2f203f8b151cbc7b9c0faf500b1da921861e6d830cf11f754169fcf904af",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251208\\adapter_profile_test_metrics.predictions.jsonl": "9af1a8d25e15b0f5c0b11645cb5d9486219c1a2c7b06089e747033f9b8c66fcc",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251208\\adapter_no_profile_test_metrics.json": "9e7ef5cb3f490f1079d8afb4bbebb21e0b51d6ad19c8673ac4c2ebab767994cf",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251208\\adapter_no_profile_test_metrics.predictions.jsonl": "acff24e8a40d02fbeba9e15c8aa94168903b9a92f6ac11ad524c2b8070ac9ea0",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251208\\training_summary.json": "ce28cb1bdc00538d3e1348cc6e789b3406c42874e274edea22b6a7bc7c4baa0b",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251208\\full_dev.json": "b3ba102ad69f4cc2350d9e2688c03a741bb4a716774c86de0d6cb053567f97e7",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251208\\bertscore.json": "83a774ad5ace6ae2aad05fd48d0c9ee63f03061634bc47add157be61da068868",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251208\\error_analysis.json": "c1a924cad6329dbbd5d6bd1de996a51aedc4592ab45db96a8682d1a9dbe01c3f",
+    "experiments\\runs\\small-sample-v1-n500_lr1e4_seed20251208\\copy_diagnostics.json": "f70d693a6424a35e60313503e87be9c7ffdf469df368adad7d5484402f69467e",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251206\\adapter_profile_test_metrics.json": "5d65f68b06b163e9010fbc25567ac4b152013c1517df3f24425bc59520ca37dd",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251206\\adapter_profile_test_metrics.predictions.jsonl": "071547cdfc834ef1364b13b118e437c6f76c7d5b036cb76abe236ed741baaf7c",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251206\\adapter_no_profile_test_metrics.json": "7183579e8eac299096c6f6563503c8b7bc96e0d45ae628c34a69a5dff3c29314",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251206\\adapter_no_profile_test_metrics.predictions.jsonl": "c50f7eacfdc0bf824f296577e6d373d194916842ab96e4ea85c9269c8168075f",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251206\\training_summary.json": "3765267052c8c916ce9a7aaf473ab00de83bfa3e358dd3d3bc2a3b5a7d510db7",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251206\\full_dev.json": "a78aae782c0ddada12da7a2369a7226cb0437a7ad38b29c115ad90af929fe6de",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251206\\bertscore.json": "ce3da9dace638420c01cb9f0fbd00823706cc691f8ee0978e91098316cba4727",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251206\\error_analysis.json": "0ca75116d7d4a32c1bdbcd2df06a334f4c0e6a9341a3a65f49a5b4ad7327b72c",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251206\\copy_diagnostics.json": "db25d3539cad5ff2fa55c70a996007bf4eb25e324c6e23c2beb64c3820900639",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251207\\adapter_profile_test_metrics.json": "f3d9505177ee55c2a3600b8a35e2db4fcd47236d055f56c28acf9b11f045594c",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251207\\adapter_profile_test_metrics.predictions.jsonl": "d9a0203df7ef8708998cee695c1c19fe39dc297f9dd4a71ead66ed1698c9cb6a",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251207\\adapter_no_profile_test_metrics.json": "8b3a53c065194c209f99f411116d8bdb75f5fbca5edfcb67d5f1bdb5ed8a1338",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251207\\adapter_no_profile_test_metrics.predictions.jsonl": "83ab3fe63c59821c47d82d913e89a064c5994901792c668be41086729f0aed0d",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251207\\training_summary.json": "c775154e632aa6a14f73b5d6886c49386f0c461d4861a609f2d5e38eda303c81",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251207\\full_dev.json": "360898547feab391f4bc3204cf0f202620529a20647cb1a48ff6e90b5db47d1e",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251207\\bertscore.json": "25fda9cd8d9d88ed0ed957fba9d7de4ec56a83e95c18c979ac67aaf80fa874a6",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251207\\error_analysis.json": "784c132925051fc006678a76d643969da296d19e31c9b64811d937f13d510650",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251207\\copy_diagnostics.json": "adc121c4ba62b8fbe94a89e11e44d30e7b3441f15b009b28f595bbed02fe257d",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251208\\adapter_profile_test_metrics.json": "27311a5b2aa47aca76c69f4c9f0121f2f5806c2607df070653ae5c8942a08ac4",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251208\\adapter_profile_test_metrics.predictions.jsonl": "31e30a1c15109a778771373bee4aee4ee94f44df20eb5c3b797338f2a2ca2fb7",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251208\\adapter_no_profile_test_metrics.json": "20bdbc5d13a3e3f365e1f0bd5eb91a0b80a0f12edb3f0637b53ea4007a09901b",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251208\\adapter_no_profile_test_metrics.predictions.jsonl": "c25d8d52c43dabe9b878f44b3f577b3bdb1a36827866b8566a3223b30390ea6a",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251208\\training_summary.json": "60aad38952f666e5fd4c1359423f34ad1da673a07e71e23ed1c2e571fccea5b8",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251208\\full_dev.json": "72aa9f24a9be88cfa7c493438a028eecf91f379d500b91388b90c681aad6562f",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251208\\bertscore.json": "239eb27342d0f4739afcf80c3a50663c3b72aa12e06e382bf61788c6a70ab0c2",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251208\\error_analysis.json": "b7836580c2a2df0f95a7a2991904ec13e65731a15fe4522d8fbd40fbd5109299",
+    "experiments\\runs\\peft-v1-bf16_r8_a16_seed20251208\\copy_diagnostics.json": "ecb7325964525d1262103e0aa0ace7a89618a528872d41b1a2dc9fdf881cf798",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251206\\adapter_profile_test_metrics.json": "856605c84818d891296e8fc217323cd593862ca87737ee4e3fe7cb744f59de88",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251206\\adapter_profile_test_metrics.predictions.jsonl": "3a410dfe1c97670fe55ff890ed60957f3147efd98474fac32a6d39a2f1ed0e4b",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251206\\adapter_no_profile_test_metrics.json": "ae7fabe232b69820d816330c0727a4405a24e97610ff3ec462209336f5c6a6f6",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251206\\adapter_no_profile_test_metrics.predictions.jsonl": "29191383076f93e22dc9e367ed563f748349bb9af792607ff62174dae272b8da",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251206\\training_summary.json": "2a62564f3b814f12300d614a096e4d630284d18bcf3f46656380f6c12e734d29",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251206\\full_dev.json": "9ec436251338ef40b8fbf650137e08a8872fe4b963baf9098cb635041c7adf6c",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251206\\bertscore.json": "f340b4662ae7f9cf0bb4003de89ece64c431fe73891528a2d25d48163c79e48e",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251206\\error_analysis.json": "20103c46be3a10da10d48de6c6d096feed6c6447240f1a1baf62e694d759acb8",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251206\\copy_diagnostics.json": "b917adda88db8fee65aa42f25caddca0717713e0cba15aaaa5e3fe2f7b93275c",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251207\\adapter_profile_test_metrics.json": "2a9e85f65a9d711bba385265e71150ad1475d7e98ad66ba4b357d1a39ceb93bb",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251207\\adapter_profile_test_metrics.predictions.jsonl": "2583ecd8aaa3d4619a15c29c11babbf6879961d697b970b97cad3ee135d437d0",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251207\\adapter_no_profile_test_metrics.json": "bcb1a3fc334b332c70cd9dd5fa831c02e6b7226577cb38971df6b1270f960707",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251207\\adapter_no_profile_test_metrics.predictions.jsonl": "79d8a67b7f7ff98e311412839b29f8aeafaab7e492c2a623dc63206a31f941ff",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251207\\training_summary.json": "2e85b679d1bc64b9a00c0e606fc3b2ecbb9d521c2f4c6ed5869936adff895bd7",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251207\\full_dev.json": "05d375daa8e90251e6fd31f27e32fa1d7066db0098247ccbed79dfdb9d380def",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251207\\bertscore.json": "60e15797648cd507a1c7cad948e6a150fd9b6c543fbf6b9e61aced216efd08d0",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251207\\error_analysis.json": "34d938f6e5e776d562f87ed3a53c64ced0bdd8d081439441639c6b0d48c48c6b",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251207\\copy_diagnostics.json": "25221f406e3fa2cce5f3cf7d3488a9b3e01803f051af784895c76c8503957507",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251208\\adapter_profile_test_metrics.json": "0914dd6afbbd7cc2a6d2c5254f3716b5a13a781f01185a5665af2627b5c3d2e7",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251208\\adapter_profile_test_metrics.predictions.jsonl": "41136ad4c14b14f4a85da446e3283241c149b1e8acd9d323c1aabcba42d945a0",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251208\\adapter_no_profile_test_metrics.json": "9735d78173a1cb49a96d684ebf5864de0296f241bffd4b68df5f2dfdb2c4649d",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251208\\adapter_no_profile_test_metrics.predictions.jsonl": "4f9ac4800c06ad51787ef87306808c7e6ef9d1d0a9baeaced1f8007683167793",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251208\\training_summary.json": "9ca4ae01bb7b85d4cedca72e8a4794ec9877d4f45cf8c5ff3f8720d8d70ae551",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251208\\full_dev.json": "24ab9097804028f4377fb5fa42ece7451ec403d0063ff728be4d80842276b6a1",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251208\\bertscore.json": "eeec2c182b8efd0269fceb1c6b13afe967982f6d9bb7ec5c12dbcc5a3890cbcc",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251208\\error_analysis.json": "6a531ad3ba15f63ae72a1886060f2e3249d580acd5ef93ab11299ed52e792fb7",
+    "experiments\\runs\\peft-v1-bf16_r16_a16_seed20251208\\copy_diagnostics.json": "db25d3539cad5ff2fa55c70a996007bf4eb25e324c6e23c2beb64c3820900639",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251206\\adapter_profile_test_metrics.json": "4c0effac01b2ad7b271838ddf2530414c459b37d4e2263849c81177fce1669f4",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251206\\adapter_profile_test_metrics.predictions.jsonl": "19075a5b636773398d3663747a8903f09fe29b505fd947dee2ce08d7bcdac2a2",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251206\\adapter_no_profile_test_metrics.json": "f8247492b94fa063916cddd75fa248197a9b279157abd44b072bd419e956611c",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251206\\adapter_no_profile_test_metrics.predictions.jsonl": "84c573968c01a3b1b61068f1ef4c55e358a60b8fa858a954f47b0e998582d57e",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251206\\training_summary.json": "f2848ecc343558c875db79d8c73d40baaab95c4afb82bd5b1534d065bccd53a6",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251206\\full_dev.json": "89a756f2ebaf805f711212d6447ecf2380371bba0ae953c5e1ef27c4bf52f3e7",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251206\\bertscore.json": "4118113ef97f6f2b6eae00ee19737d81f13b08f938b439f4303c3892442f7cb2",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251206\\error_analysis.json": "7bb3576108f0de895ba58cf6043d7b6f1818e29c75744193a3df3589a55bb677",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251206\\copy_diagnostics.json": "58a3c44d3d3836c8c6ad4e0acdb4f80fba064999ddddf97ced1f0e8f67118e83",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251207\\adapter_profile_test_metrics.json": "25a9112cf634f4d1cf0daeac5bc09014c5aad80a76720b1aaeb887ac31cc6c83",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251207\\adapter_profile_test_metrics.predictions.jsonl": "873a1fd197808bd4f3d93d50f742810fb611ddf30dc632e73387cc04578d58f2",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251207\\adapter_no_profile_test_metrics.json": "f5c293d2ca081b9784604027752de6269c493053793fb13881f8e2e81d84328f",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251207\\adapter_no_profile_test_metrics.predictions.jsonl": "93d3f10b97fb692344a75663f8773570f5943390c218bd4472547b37b1c64caa",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251207\\training_summary.json": "7528329f48631604e7ff308759f6283df04fd7550c1444946ae33e6395aafe22",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251207\\full_dev.json": "486ec893ed0a900a975ab0a4617139071dbe873f18ed6abb20593dbfedc0593b",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251207\\bertscore.json": "3755e9694ef3d8371f1d3465af1091c561c0fa566cc0cfb8c123da8e0a6da325",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251207\\error_analysis.json": "3aa732a2be6deffe654701d484138db335438fbcf0ca18e1443df4121d54e947",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251207\\copy_diagnostics.json": "6615b7f6d42499457df5d25ccbda1b5cb9f46267ee8e0a583835cd58ec703e89",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251208\\adapter_profile_test_metrics.json": "dfbf209517ed34092a4e5566ae42a8d6a93b116ded5487f7857a27362f50087b",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251208\\adapter_profile_test_metrics.predictions.jsonl": "3e974413ddb68b0ee4c78fac561560ef89ff510cd86648697cc2de8ab9aa452b",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251208\\adapter_no_profile_test_metrics.json": "1a6c1fff03a5ad672af1fdfec4dc150a8cd2942fd3320344b7d605da167de4be",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251208\\adapter_no_profile_test_metrics.predictions.jsonl": "728b33d35cbac992cdb36d14367fb9a6a43bb16c1a3ae0708c286d92abc987f3",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251208\\training_summary.json": "5508329baf09d9df7096c74adc181baef0f26d47c2c04933257891881396641d",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251208\\full_dev.json": "ce332b418e673cfb43a1cf157db7e31447aa03aa3e4320adbea45a2d1652ba91",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251208\\bertscore.json": "feee7a0fad2497bc3b90ac8df300d065c00f01bba75a489c8308d83e9c945a81",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251208\\error_analysis.json": "6bd01c4c370a016918fbba8cfed755a7bf949f39e4d8d54d9edad693e92c8c39",
+    "experiments\\runs\\peft-v1-nf4_r16_a32_seed20251208\\copy_diagnostics.json": "9f8270f21d1cd04af49752c3f0d9c018c74ff9327099cb0e672f8dad879a586a"
+  },
+  "limitations": [
+    "Nominal per-comparison intervals, no multiplicity correction",
+    "Crossing zero does not demonstrate equivalence or noninferiority",
+    "Fixed training subset: seed variation does not include data/user sampling",
+    "500 training plus 1500 labeled development records",
+    "NF4 is a complete training/inference recipe, not a pure bit-width factor",
+    "One Qwen3-4B model on RTX5070Ti, no cloud4090 results yet"
+  ]
+}

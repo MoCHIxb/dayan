@@ -32,3 +32,15 @@ class InferenceInputsTest(unittest.TestCase):
     def test_missing_messages_is_rejected(self):
         with self.assertRaises(ValueError):
             self.load([dict(id='a')])
+
+    def test_gpu_lock_precedes_model_loading(self):
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as directory:
+            output=Path(directory)/'predictions.jsonl'
+            with patch('sys.argv',['infer','--prompt','request','--output',str(output)]), \
+                 patch('personal_llm_data.personal_runtime.gpu_guard',side_effect=RuntimeError('busy')), \
+                 patch.object(module,'execute_inference') as execute:
+                with self.assertRaisesRegex(RuntimeError,'busy'):
+                    module.main()
+                execute.assert_not_called()
+            self.assertFalse(output.exists())

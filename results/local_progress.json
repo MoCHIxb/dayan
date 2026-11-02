@@ -13,13 +13,13 @@
   "gpu_work": "complete; not restarted",
   "cloud_experiment": "not started",
   "remaining": [
-    "independent Qwen3-4B cloud example training and complete response-safety evaluation",
-    "original Linux/RTX4090 platform reproduction remains separate; do not start old queue",
+    "explicit Linux/RTX4090 128-step example run when server ready; separate output",
+    "original platform reproduction remains separate and unexecuted",
     "code license decision and formal release acceptance"
   ],
   "verified_at": "2026-11-02T17:09:27+0800",
   "framework": {
-    "stage": "developer_framework_and_guide_cpu_validation",
+    "stage": "local_gpu_example_functionality_verified",
     "goal": "consumer_gpu_developer_repository_and_method_guide",
     "first_case": "three_domain_text_response_safety_review",
     "frontend": "optional_not_required",
@@ -27,7 +27,7 @@
     "plan": "docs/32_framework_master_plan.md",
     "training_restarted": false,
     "guide": "docs/33_developer_framework_guide.md",
-    "new_gpu_end_to_end": "not_run",
+    "new_gpu_end_to_end": "passed_32_steps_full_pause_resume_and_test",
     "delivery_evidence": "results/framework_delivery.json",
     "cpu_tests": 60,
     "ai_safety_source_audit": "results/text_safety_data_verification.json",
@@ -41,6 +41,8 @@
     "current_example_guide": "docs/35_three_domain_text_safety.md",
     "current_data": "examples/text_safety_v1",
     "text_safety_delivery": "results/text_safety_delivery.json",
-    "latest_cpu_tests": 71
+    "latest_cpu_tests": 76,
+    "local_gpu_validation": "results/local_text_safety_validation.json",
+    "local_gpu_guide": "docs/36_local_framework_validation.md"
   }
 }

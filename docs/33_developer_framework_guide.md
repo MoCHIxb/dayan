@@ -167,3 +167,9 @@ user_prompts由使用者提供真实待处理任务，含id和messages且以user
 
 
 自动近重复审计新增路径：三领域数据的manifest明确manual_near_duplicate_review_declared=false，并提供自动审计收据；verify_prepared会穷举重算再接受，不将机器检查冒充人工。
+
+## 10. 后续本地实测覆盖
+
+前文“新增GPU待实测”为早期交付记录，已由[36号](36_local_framework_validation.md)覆盖：Qwen3-4B三领域150/60/120现成数据在RTX5070Ti上完成32步训练、完整暂停/恢复、完整基座与适配器test及3条独立推理，哈希和ID核验通过。76项CPU测试通过，精简CPU环境71通过/5跳过。云端128步尚未执行，不将本地功能验收当作跨任务通用性或强安全证明。
+
+train-personal/evaluate-personal/infer共享GPU锁。WDDM已确认的桌面进程可由XML和OS查询排除，未知计算进程继续拒绝；这不是安全沙箱。prepare-personal的人工近重复声明仍需真实人工审查，不能为了导入样例虚报；三领域采用明确记录并重算的自动审计路径。

@@ -56,6 +56,12 @@ def main():
     receipt = output.with_suffix(output.suffix + '.receipt.json')
     if any(p.exists() for p in (output, partial, receipt)):
         raise FileExistsError('Existing inference output: inspect it or select a new path')
+    from personal_llm_data.personal_runtime import gpu_guard
+    with gpu_guard(Path(__file__).resolve().parents[1]):
+        execute_inference(args, rows, output, partial, receipt)
+
+
+def execute_inference(args, rows, output, partial, receipt):
     # Delay GPU imports/loading until CLI and input validation complete.
     import torch
     from transformers import AutoTokenizer

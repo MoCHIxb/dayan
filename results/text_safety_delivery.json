@@ -1,5 +1,5 @@
 {
-  "status": "datasets_source_replayed_and_byte_reproduced",
+  "status": "datasets_and_local_gpu_functionality_verified",
   "unique_selected_qa": 330,
   "domains": [
     "medical",
@@ -35,17 +35,19 @@
   "new_requests_responses_or_safety_labels_generated": false,
   "automated_near_duplicate_review": true,
   "manual_review": false,
-  "gpu_training": "not_started",
+  "gpu_training": "completed_local_32_steps; cloud_128_steps_not_started",
   "training_environment_tests": {
-    "total": 71,
-    "passed": 71
+    "total": 76,
+    "passed": 76
   },
   "cpu_only_environment_tests": {
-    "total": 71,
-    "passed": 66,
+    "total": 76,
+    "passed": 71,
     "skipped": 5,
     "reason": "optional training dependencies absent"
   },
   "current_plan": "docs/35_three_domain_text_safety.md",
-  "example_config": "configs/text_safety_v1/qwen3_4b_joint.json"
+  "example_config": "configs/text_safety_v1/qwen3_4b_joint.json",
+  "local_validation": "results/local_text_safety_validation.json",
+  "local_validation_guide": "docs/36_local_framework_validation.md"
 }

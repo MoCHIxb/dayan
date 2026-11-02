@@ -2,7 +2,7 @@
   "schema_version": 1,
   "updated_at": "2026-11-02T18:50:49+08:00",
   "scope": "developer repository with commands/configuration/interfaces/guide; full MVP not required",
-  "stage": "framework_code_and_guide_delivered_cpu_verified",
+  "stage": "framework_with_local_gpu_example_verified",
   "training_environment_tests": {
     "total": 60,
     "passed": 60,
@@ -43,12 +43,26 @@
   ],
   "frozen_scientific_sources": "unchanged; existing audit and source hash tests passed",
   "old_experiments": "complete; no retraining/statistics restarted",
-  "new_personal_gpu_end_to_end": "not_run; validate later with the single real example",
-  "professional_example": "one real example later; content not yet chosen; no synthetic training data",
+  "new_personal_gpu_end_to_end": "passed_local_32_step_functional_validation",
+  "professional_example": "three-domain existing-text response-safety classification; not arbitrary personal style",
   "cloud_4090": "not_executed",
   "gui": "optional; not implemented or claimed",
   "code_license": "not_assigned_by_owner",
   "guide": "docs/33_developer_framework_guide.md",
   "master_plan": "docs/32_framework_master_plan.md",
-  "handoff": "docs/17_new_chat_handoff.md"
+  "handoff": "docs/17_new_chat_handoff.md",
+  "latest_validation": "results/local_text_safety_validation.json",
+  "latest_guide": "docs/36_local_framework_validation.md",
+  "latest_tests": {
+    "training_environment": {
+      "total": 76,
+      "passed": 76,
+      "skipped": 0
+    },
+    "cpu_environment": {
+      "total": 76,
+      "passed": 71,
+      "skipped": 5
+    }
+  }
 }

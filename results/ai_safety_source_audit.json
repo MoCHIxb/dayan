@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "status": "source_audited_modality_decision_pending",
+  "upstream": {
+    "repo_id": "leost233/MMDS",
+    "revision": "d335497ec3287607cfb5f64cf7f046298cda27b5",
+    "file": "mmds.jsonl",
+    "sha256": "6c09ce1a459b1d7c3ca7aeff9d9225361c0269851da04dad84eb8630aec5b0c7",
+    "license": "CC-BY-NC-4.0",
+    "url": "https://huggingface.co/datasets/leost233/MMDS"
+  },
+  "local_source_sha256": "6c09ce1a459b1d7c3ca7aeff9d9225361c0269851da04dad84eb8630aec5b0c7",
+  "upstream_byte_match": true,
+  "inventory": {
+    "records": 4484,
+    "split_counts": {
+      "train": 4045,
+      "val": 109,
+      "test": 330
+    },
+    "data_type_counts": {
+      "default": 2756,
+      "Augmentaion": 1728
+    },
+    "user_rating_counts": {
+      "Unsafe": 1305,
+      "Safe": 2857,
+      "null": 322
+    },
+    "assistant_rating_counts": {
+      "Unsafe": 1050,
+      "Safe": 3075,
+      "null": 359
+    },
+    "source_id_audit": {
+      "unique_ids": 4482,
+      "repeated_id_values": 2,
+      "extra_rows_with_repeated_ids": 2,
+      "record_key": "Pinned source SHA256 plus physical record ordinal; raw id is not assumed unique"
+    },
+    "user_assistant_rating_pairs": [
+      {
+        "user_rating": "Safe",
+        "assistant_rating": "Safe",
+        "records": 2578
+      },
+      {
+        "user_rating": "Safe",
+        "assistant_rating": "null",
+        "records": 279
+      },
+      {
+        "user_rating": "Unsafe",
+        "assistant_rating": "Safe",
+        "records": 249
+      },
+      {
+        "user_rating": "Unsafe",
+        "assistant_rating": "Unsafe",
+        "records": 976
+      },
+      {
+        "user_rating": "Unsafe",
+        "assistant_rating": "null",
+        "records": 80
+      },
+      {
+        "user_rating": "null",
+        "assistant_rating": "Safe",
+        "records": 248
+      },
+      {
+        "user_rating": "null",
+        "assistant_rating": "Unsafe",
+        "records": 74
+      }
+    ],
+    "image_free": {
+      "records": 347,
+      "data_type_counts": {
+        "default": 9,
+        "Augmentaion": 338
+      },
+      "split_counts": {
+        "train": 338,
+        "val": 9
+      },
+      "assistant_only_records": 322,
+      "note": "Empty image arrays do not prove textual self-sufficiency: masked/augmented records may still refer to images"
+    },
+    "records_with_images": 4137,
+    "source_attack_dimension_counts": {
+      "Deception & Misinformation": 277,
+      "Sexual Content": 241,
+      "Self-Harm & Suicide": 245,
+      "Violence & Harm": 269,
+      "Hate & Harassment": 265,
+      "Malicious Disruption": 298,
+      "Privacy Violation": 223,
+      "Illegal Activities": 290,
+      "benign_or_unspecified": 2376
+    },
+    "existing_supervised_fields": [
+      "user_rating",
+      "user_dimension",
+      "user_rationale",
+      "assistant_rating",
+      "assistant_dimension",
+      "assistant_rationale"
+    ],
+    "target_semantics": {
+      "user_rating": "Risk of user-side request/history; a candidate attack-intent target",
+      "assistant_rating": "Safety of source model replies; NOT the label of whether the user attacked",
+      "rationales": "Existing source explanations; not newly authored safe answers or independent human-verified truth"
+    }
+  },
+  "formal_v3": {
+    "trajectory_count": 4224,
+    "seed_count": 144,
+    "status": "structurally_valid_machine_constructed_unreviewed",
+    "known_mmds_source_ids": 80,
+    "decision": "Do not use constructed/unreviewed trajectories as trusted SFT answers; preserve source project unchanged"
+  },
+  "selection_status": {
+    "training_records": 0,
+    "dev_records": 0,
+    "test_records": 0,
+    "frozen": false,
+    "original_answers_generated": false,
+    "dataset_published": false,
+    "gpu_started": false,
+    "required_decision": "Text-only Qwen3 versus multimodal Qwen-VL review"
+  },
+  "publication": {
+    "owner_authorized_selected_dataset_sync": true,
+    "upstream_license": "CC-BY-NC-4.0; attribution/noncommercial/change notices required",
+    "scope": "Only an explicitly selected/attributed example subset; no model weights or private predictions",
+    "code_license": "Unassigned; dataset attribution does not license the project code"
+  }
+}

@@ -13,23 +13,32 @@
   "gpu_work": "complete; not restarted",
   "cloud_experiment": "not started",
   "remaining": [
-    "single real professional example: content and real material later",
-    "new personal wrapper GPU end-to-end verification",
-    "Linux/RTX4090 platform reproduction",
+    "text versus multimodal review decision; selected source-group dataset construction",
+    "attributed example dataset publication and independent cloud training",
+    "new example end-to-end review evaluation; no strong safety claim before results",
+    "original Linux/RTX4090 platform reproduction remains separate",
     "code license decision and formal release acceptance"
   ],
   "verified_at": "2026-11-02T17:09:27+0800",
   "framework": {
     "stage": "developer_framework_and_guide_cpu_validation",
     "goal": "consumer_gpu_developer_repository_and_method_guide",
-    "first_case": "professional_expression_and_terminology",
+    "first_case": "ai_safety_review_capability",
     "frontend": "optional_not_required",
-    "personal_material": "single_real_example_content_to_be_decided_later",
+    "personal_material": "MMDS in owner-provided source project verified; modality decision pending",
     "plan": "docs/32_framework_master_plan.md",
     "training_restarted": false,
     "guide": "docs/33_developer_framework_guide.md",
     "new_gpu_end_to_end": "not_run",
     "delivery_evidence": "results/framework_delivery.json",
-    "cpu_tests": 60
+    "cpu_tests": 60,
+    "ai_safety_source_audit": "results/ai_safety_source_audit.json",
+    "ai_safety_data_status": "not_selected_not_frozen",
+    "ai_safety_cloud_training": "not_started",
+    "source_audit_cpu_tests": {
+      "total": 63,
+      "passed": 63,
+      "note": "aggregate source audit and prior guards; no GPU training"
+    }
   }
 }

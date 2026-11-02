@@ -1,0 +1,18 @@
+{
+  "language": "zh",
+  "min_chars": 30,
+  "max_chars": 800,
+  "near_duplicate_threshold": 0.85,
+  "near_duplicate_ngram": 5,
+  "overlap_sentences": 0,
+  "remove_patterns": [
+    "^版权声明.*$",
+    "^责任编辑.*$",
+    "^本文转自.*$"
+  ],
+  "default_instruction": "请使用目标风格，在不改变核心含义的前提下改写给定内容。",
+  "default_license": "TO_BE_REVIEWED",
+  "default_consent": false,
+  "default_redistributable": false
+}
+

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "model": {
+    "repo_id": "Qwen/Qwen3-4B",
+    "revision": "1cfa9a7208912126459214e8b04321603b3df60c"
+  },
+  "bertscore_model": {
+    "repo_id": "roberta-large",
+    "revision": "722cf37b1afa9454edce342e7895e588b6ff1d59",
+    "files_sha256": {
+      "config.json": "82ba49810e6441735e696033ac2512ee09da555507b2917ac3865b202d592cc3",
+      "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+      "model.safetensors": "047c85f0b96269cd62e6f732644f067004eebd95af5b5d35965ae2528f13bf38",
+      "tokenizer.json": "847bbeab6174d66a88898f729d52fa8d355fafe1bea101cf960dd404581df70e",
+      "tokenizer_config.json": "994f46754c5bf4014f1aa92d34b1374319c3a6b3f702105cd5b742beaecd18ce",
+      "vocab.json": "9e7f63c2d15d666b52e21d250d2e513b87c9b713cfa6987a82ed89e5e6e50655"
+    }
+  },
+  "sha256": {
+    "data/processed/lamp7_bm25_k12/train_500.jsonl": "a1c604779aa7e73e15fa06c8e5dae613a63f77e09b3de56ddb8e4f6f30b7dcf0",
+    "data/processed/lamp7_bm25_k12/dev.jsonl": "f7bd6a6655bf5a1ebef5b8db8369f7fa517b59fac300db76116a57f94c5a7bd6",
+    "data/processed/lamp7_bm25_k12/test.jsonl": "857e2283a655261f99f9635178bc12acd333574820e71c468f8e34586daf6f9f",
+    "models/Qwen3-4B/.gitattributes": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930",
+    "models/Qwen3-4B/config.json": "8ba006f74fecfaaeb392872a60f4a480e7ec9860153d2e1b769ec81f9a147f8a",
+    "models/Qwen3-4B/generation_config.json": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2",
+    "models/Qwen3-4B/LICENSE": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+    "models/Qwen3-4B/merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+    "models/Qwen3-4B/model-00001-of-00003.safetensors": "328a91d3122359d5547f9d79521205bc0a46e1f79a792dfe650e99fc2d651223",
+    "models/Qwen3-4B/model-00002-of-00003.safetensors": "6cd087b316306a68c562436b5492edbcf6e16c6dba3a1308279caa5a58e21ca5",
+    "models/Qwen3-4B/model-00003-of-00003.safetensors": "e4bf436957184f4eeb86a80e9db394503f1f56446b2e6b7edeac5b81470f4ca1",
+    "models/Qwen3-4B/model.safetensors.index.json": "6dc0981b8829fead746441f68f38f24c5ca4a3a66351f652c26c6df0efc43ab2",
+    "models/Qwen3-4B/README.md": "71add1cd091c309b1cb1a6b943f2476eb2b004124b3bd1d32dcd0b24cc1abc47",
+    "models/Qwen3-4B/tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "models/Qwen3-4B/tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+    "models/Qwen3-4B/vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+    "scripts/train_qwen_lora.py": "dc5bf03e2dfb521592344fb4ba9e4aad5a093a2cb3ac106f32fa302fec992891",
+    "scripts/evaluate_generation.py": "69fc3747c4a86786ba22a1140bec9247d685608e19a33af55d9cb53c8ca4563e",
+    "scripts/evaluate_full_dev.py": "bf6215687684e2926f5a9411326d5cb8509502951af86337d65fbfa5ec593f22",
+    "scripts/bertscore_eval.py": "232a29ec48489d7b3da7a7368541a65c980d25ddc549c818f511c6f5a6a572b0",
+    "scripts/analyze_predictions.py": "2993c53a75f1f996071b6b01789b764fc20cf14ccfbcfd7cfa3f47c68fc3ff79",
+    "scripts/paired_bootstrap.py": "62120da12650a85f09c0991d79c3e4d1b45b26bf5ba176b7f0574c1db00b2ffd",
+    "scripts/paired_adapter_comparison.py": "f65233d6cd032ab9af8d91c6a0f27ea9cd143979501bdf86249528bc6c825fec",
+    "src/personal_llm_data/model_loading.py": "2ec26cb1cc304de3f6f7e314627f63e55f6c6774d7edcd4b9c2fa406602d239d",
+    "src/personal_llm_data/training_protocol.py": "c9c0dccd1d2b4eb5563c20770956b3ff241a5910c83ac04d0d4215302fa30457",
+    "src/personal_llm_data/pipeline.py": "e41764abeb0f9a8799c9d225fba40ab160fb356b4b4cae1544d9cd54591ca409",
+    "src/personal_llm_data/lamp7.py": "a0db48ea1303644f87cd31e81f3ae244cac58e38187750e6f2a8b751e974a43c"
+  },
+  "records": {
+    "train_500": 500,
+    "dev": 1500,
+    "test": 1496
+  },
+  "note": "Exact byte hashes; retain JSONL bytes and source line endings. No data or model contents distributed."
+}

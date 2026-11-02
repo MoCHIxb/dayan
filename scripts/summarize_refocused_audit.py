@@ -1,0 +1,69 @@
+"""Validate derived results against frozen metrics and write a readable audit."""
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def load(path):
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def main():
+    folder = ROOT / "experiments/refocused"
+    audit = load(folder / "data_audit.json")
+    evidence = load(folder / "style_content_evidence.json")
+    budget = load(folder / "prompt_budget_audit.json")
+    assert len(evidence["conditions"]) == 30 and not evidence["skipped_incomplete_or_different_ids"]
+    for c in evidence["conditions"]:
+        assert c["all"]["samples"] == 1496
+        assert c["reference_in_selected_history"]["samples"] == 43
+        assert c["reference_not_in_selected_history"]["samples"] == 1453
+        original = load(ROOT / c["predictions"].replace(".predictions.jsonl", ".json"))
+        for metric in ("bleu", "chrf", "rougeL_f"):
+            assert abs(c["all"][metric] - original[metric]) < 1e-8, (c["predictions"], metric)
+        items = [json.loads(line) for line in (ROOT / c["per_item"]).read_text(encoding="utf-8").splitlines()]
+        assert len(items) == len({r["id"] for r in items}) == 1496
+    lines = ["# 研究重定位首批审计结果", "", "日期：2026-10-29。已执行真实数据与既有完整预测分析；没有新增训练、删除样本、改写历史结果或启动周期任务。", "",
+        "## 数据与个性化定义", "",
+        "原始问题仅有id/input/profile，无显式用户ID；三个划分的画像条目ID均无跨划分交集。该结果支持没有观察到共享历史条目ID，不能替代真实用户身份核验。各题画像ID集合唯一，也不能据此断言每题一定属于不同用户。",
+        "", "| 划分 | 条数 | 原始目标出现在本题历史 | 清洗后目标出现在本题历史 | 清洗后目标出现在选中历史 |", "|---|---:|---:|---:|---:|"]
+    for split, s in audit["splits"].items():
+        lines.append(f"| {split} | {s['records']} | {s['raw_target_in_own_full_history']} | {s['target_in_own_full_history']} | {s['target_in_own_selected_history']} |")
+    lines += ["", "清洗后的相同文本可能来自占位符归一化，也可能来自原始重复文本；不能统一认定为人为泄漏。train与test有2种相同目标文本；500条训练子集有2条目标文本也见于test。保留官方划分与全部1496条主评价，重叠仅作敏感性分析。",
+        "", "研究对象暂明确为：有限跨样本指令数据下，共享PEFT适配器对用户历史条件改写的适配。不宣称已验证独立用户50条作品微调。", "",
+        "## 提示预算核查", "",
+        "四档小样本训练集与完整1500条dev没有触发768-token截断。test有1条触发；按实际旧训练保留尾部/旧生成保留头部规则解码后，两者仍保留该条完整Task。生成后缀是否完整与模型行为影响未在本审计证明。不能用截断解释整体50/100条回退，也不能因此宣称两种输入完全相同。", "",
+        "## 复制与参考重叠敏感性", "",
+        "30组×1496条全部分析，ID和参考答案对齐；重新计算全部BLEU/chrF/ROUGE-L，与原正式文件误差小于1e-8。分组只是新增描述性分析，没有替代完整主评价或原配对bootstrap。", "",
+        "| 有画像条件 | 整句匹配选中历史 | 全集BLEU | 参考不在历史的1453条BLEU | 参考在历史的43条BLEU |",
+        "|---|---:|---:|---:|---:|"]
+    for c in evidence["conditions"]:
+        p = Path(c["predictions"])
+        name = p.parent.name
+        if name == "qwen3-4b-lamp7-full-lora-r16" and p.name == "baseline_test_metrics.predictions.jsonl":
+            label = "基座"
+        elif p.name == "adapter_profile_test_metrics.predictions.jsonl" and name in [f"qwen3-4b-lamp7-n{n}-lora-r16-a32" for n in (50,100,200,500)]:
+            label = name.split("-lamp7-n")[1].split("-")[0] + "条"
+        elif name == "qwen3-4b-lamp7-full-lora-r16" and p.name == "adapter_profile_test_metrics.predictions.jsonl":
+            label = "全量LoRA"
+        else:
+            continue
+        lines.append(f"| {label} | {100*c['all']['exact_selected_history']:.2f}% | {c['all']['bleu']:.3f} | {c['reference_not_in_selected_history']['bleu']:.3f} | {c['reference_in_selected_history']['bleu']:.3f} |")
+    lines += ["", "整句匹配不一定错误：当目标就在历史中时可能恰好正确；其他情况下也需要内容检查，不能一律认定风格坍塌。4-gram重合、标点/大写等统计均为代理，不能证明深层风格。数字集合变化仅是风险标志，不是事实错误判定。本批分析没有新的语义模型打分、人评或显著性检验。", "",
+        "## 对后续实验的约束", "",
+        "1. 小样本研究同时考察训练程度与历史复制，不把更新不足当作既定答案。新配置只按dev选择，探索性test分析不用于调参。",
+        "2. 输入截断不构成重新生成全部旧预测的充分理由；保留旧对照，明确新协议若改变输入必须独立命名。",
+        "3. 新正式方案使用完整dev/test和全部既定评价；分组不作为删样本或缩减评价的理由。",
+        "4. 正确/无/错配画像可检验画像依赖，但错配也改变主题与相关性，不能单独用作纯风格因果证明。",
+        "5. 尚待工作：冻结小样本训练协议并实现所需配置支持、运行新训练与完整评价、补小样本PEFT与多种子、框架推理及指南交付。此报告不是整个项目完成声明。", "",
+        "## 复现", "", "```powershell", ".\\.venv\\Scripts\\python.exe scripts/audit_personalization_data.py", ".\\.venv\\Scripts\\python.exe scripts/audit_prompt_budget.py", ".\\.venv\\Scripts\\python.exe scripts/analyze_style_content_evidence.py", ".\\.venv\\Scripts\\python.exe scripts/summarize_refocused_audit.py", "```", "",
+        "机器结果：experiments/refocused/data_audit.json、prompt_budget_audit.json、style_content_evidence.json及per_item/下仅含ID和数值的逐条结果。未导出原始语料。既有17项测试通过；本汇总另核验30组完整指标与分组/逐条完整性。"]
+    path = ROOT / "docs/19_data_and_style_audit.md"
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print("Validated all 30 conditions against original metrics; wrote", path)
+    print("\n".join(line for line in lines if line.startswith("|")))
+
+
+if __name__ == "__main__":
+    main()

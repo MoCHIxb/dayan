@@ -1,0 +1,34 @@
+id,category,year,title,venue,url,priority,project_use
+P01,PEFT,2019,Parameter-Efficient Transfer Learning for NLP,ICML,https://proceedings.mlr.press/v97/houlsby19a.html,B,Adapter基线
+P02,PEFT,2021,Prefix-Tuning: Optimizing Continuous Prompts for Generation,ACL,https://aclanthology.org/2021.acl-long.353/,B,连续前缀基线
+P03,PEFT,2021,The Power of Scale for Parameter-Efficient Prompt Tuning,EMNLP,https://aclanthology.org/2021.emnlp-main.243/,B,软提示与规模关系
+P04,PEFT,2022,LoRA: Low-Rank Adaptation of Large Language Models,ICLR,https://arxiv.org/abs/2106.09685,A,算法主基线
+P05,PEFT,2022,BitFit: Simple Parameter-efficient Fine-tuning,ACL,https://aclanthology.org/2022.acl-short.1/,B,极简稀疏更新基线
+P06,PEFT,2022,P-Tuning: Prompt Tuning Can Be Comparable to Fine-tuning Across Scales and Tasks,ACL,https://aclanthology.org/2022.acl-short.8/,B,P-Tuning基线
+P07,PEFT,2022,Few-Shot Parameter-Efficient Fine-Tuning is Better and Cheaper than In-Context Learning,NeurIPS,https://papers.neurips.cc/paper_files/paper/2022/hash/0cde695b83bd186c1fd456302888454c-Abstract-Conference.html,A,IA3与few-shot对照
+P08,PEFT,2023,Adaptive Budget Allocation for Parameter-Efficient Fine-Tuning,ICLR,https://openreview.net/forum?id=lq62uWRJjiY,B,动态rank
+P09,Quantization,2023,QLoRA: Efficient Finetuning of Quantized LLMs,NeurIPS,https://arxiv.org/abs/2305.14314,A,低显存主方案
+P10,Quantization,2024,LoftQ: LoRA-Fine-Tuning-Aware Quantization for Large Language Models,AAAI,https://arxiv.org/abs/2310.08659,B,量化感知初始化
+P11,PEFT,2024,DoRA: Weight-Decomposed Low-Rank Adaptation,ICML,https://proceedings.mlr.press/v235/liu24bn.html,A,LoRA变体对照
+P12,PEFT,2024,LoRA+: Efficient Low Rank Adaptation of Large Models,ICML,https://arxiv.org/abs/2402.12354,B,差异学习率
+P13,PEFT,2024,PiSSA: Principal Singular Values and Singular Vectors Adaptation,NeurIPS,https://proceedings.neurips.cc/paper_files/paper/2024/hash/db36f4d603cc9e3a2a5e10b93e6428f2-Abstract-Conference.html,B,SVD初始化
+P14,Data,2023,Self-Instruct: Aligning Language Models with Self-Generated Instructions,ACL,https://arxiv.org/abs/2212.10560,A,指令生成与过滤
+P15,Data,2023,LIMA: Less Is More for Alignment,NeurIPS,https://arxiv.org/abs/2305.11206,A,高质量小数据依据
+P16,Data,2024,AlpaGasus: Training a Better Alpaca with Fewer Data,ICLR,https://openreview.net/forum?id=FdVXgSJhvz,A,质量打分过滤
+P17,Data,2024,What Makes Good Data for Alignment? A Comprehensive Study of Automatic Data Selection in Instruction Tuning,ICLR,https://arxiv.org/abs/2312.15685,A,质量复杂度多样性
+P18,Data,2024,LESS: Selecting Influential Data for Targeted Instruction Tuning,ICML,https://proceedings.mlr.press/v235/xia24c.html,B,目标能力数据选择
+P19,Style,2022,Deep Learning for Text Style Transfer: A Survey,Computational Linguistics,https://aclanthology.org/2022.cl-1.6/,A,风格迁移综述
+P20,Style,2022,A Recipe for Arbitrary Text Style Transfer with Large Language Models,ACL,https://aclanthology.org/2022.acl-short.94/,A,零样本提示基线
+P21,Evaluation,2023,A Call for Standardization and Validation of Text Style Transfer Evaluation,Findings ACL,https://aclanthology.org/2023.findings-acl.687/,B,TST评价规范
+P22,Personalization,2024,LaMP: When Large Language Models Meet Personalization,ACL,https://aclanthology.org/2024.acl-long.399/,A,个性化基准
+P23,Style,2024,Are Large Language Models Actually Good at Text Style Transfer?,INLG,https://aclanthology.org/2024.inlg-main.42/,A,提示与PEFT对比
+P24,Evaluation,2024,Text Style Transfer Evaluation Using Large Language Models,LREC-COLING,https://aclanthology.org/2024.lrec-main.1373/,A,风格多维评价
+P25,Personalization,2024,Personalized Soups: Personalized Large Language Model Alignment via Post-hoc Parameter Merging,NeurIPS,https://openreview.net/forum?id=EMrnoPRvxe,B,多偏好适配器合并
+P26,Personalization,2025,Personalized Generation In Large Model Era: A Survey,ACL,https://aclanthology.org/2025.acl-long.1201/,A,个性化生成综述
+P27,Evaluation,2021,MAUVE: Measuring the Gap Between Neural Text and Human Text using Divergence Frontiers,NeurIPS,https://proceedings.neurips.cc/paper_files/paper/2021/hash/260c2432a0eecc28ce03c10dadc078a4-Abstract.html,B,分布级生成评价
+P28,Evaluation,2023,Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena,arXiv,https://arxiv.org/abs/2306.05685,A,裁判偏差控制
+P29,Evaluation,2023,G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment,EMNLP,https://aclanthology.org/2023.emnlp-main.153/,B,rubric评分
+P30,Evaluation,2024,Prometheus: Inducing Fine-Grained Evaluation Capability in Language Models,ICLR,https://openreview.net/forum?id=8euJaTveKw,B,开源评价模型
+P31,Base Model,2025,Qwen3 Technical Report,arXiv,https://arxiv.org/abs/2505.09388,A,Qwen3-1.7B首轮基座
+P32,Evaluation,2020,BERTScore: Evaluating Text Generation with BERT,ICLR,https://openreview.net/forum?id=SkeHuCVFDr,B,上下文化语义相似度评价
+

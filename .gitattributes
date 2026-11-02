@@ -1,0 +1,4 @@
+# Byte-identical scientific source snapshots are required by the asset manifest.
+# Preserve existing CRLF/LF bytes on every platform; Python accepts both.
+* -text
+

@@ -1,0 +1,19 @@
+{
+  "stage": "paused_by_user",
+  "date": "2026-11-01",
+  "new_peft_trainings": 9,
+  "test_groups": 20,
+  "auxiliary_sets": 9,
+  "completed_original_bootstrap_tasks": 0,
+  "planned_original_bootstrap_tasks": 18,
+  "interrupted_first_task_last_logged_iteration": 800,
+  "intermediate_state_saved": false,
+  "monitor": "PAUSED",
+  "remaining": [
+    "finish local original bootstrap",
+    "interpret PEFT results",
+    "clean Linux/4090 reproduction",
+    "style/content evidence",
+    "license decision"
+  ]
+}

@@ -1,0 +1,19 @@
+# Additional evaluation dependencies; original torch/transformers/peft unchanged.
+lm_eval==0.4.13
+langdetect==1.0.9
+immutabledict==4.3.1
+scikit-learn==1.9.1
+sqlitedict==2.1.0
+word2number==1.1
+more-itertools==11.2.1
+pytablewriter==1.2.1
+DataProperty==1.1.1
+tabledata==1.3.5
+typepy==1.3.5
+mbstrdecoder==1.1.5
+pathvalidate==3.3.1
+tcolorpy==0.1.7
+threadpoolctl==3.7.0
+narwhals==2.28.0
+chardet==6.0.0.post1
+pytz==2026.5

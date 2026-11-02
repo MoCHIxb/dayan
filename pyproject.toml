@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "personal-llm-data"
+version = "0.1.0"
+description = "Reproducible small-data pipeline for personalized LLM adaptation"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+train = [
+  "torch>=2.7",
+  "transformers>=4.53,<5",
+  "peft>=0.15,<1",
+  "accelerate>=1.2,<2",
+  "datasets>=3,<5",
+  "rouge-score>=0.1.2",
+  "sacrebleu>=2.5",
+]
+
+[project.scripts]
+personal-data = "personal_llm_data.cli:main"
+personal-llm = "personal_llm_data.workflow:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+

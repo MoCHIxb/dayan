@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Personalized SFT annotation record",
+  "type": "object",
+  "required": ["id", "source", "text", "keep", "style_label", "topic_label", "quality"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "source": {"type": "string", "minLength": 1},
+    "source_group": {"type": "string"},
+    "text": {"type": "string", "minLength": 1},
+    "keep": {"type": "boolean"},
+    "task_type": {"type": "string"},
+    "style_label": {"type": "string"},
+    "style_traits": {"type": ["string", "array"]},
+    "topic_label": {"type": "string"},
+    "quality": {"type": "integer", "minimum": 1, "maximum": 5},
+    "instruction": {"type": "string"},
+    "input": {"type": "string"},
+    "license": {"type": "string"},
+    "consent": {"type": "boolean"},
+    "redistributable": {"type": "boolean"},
+    "pii_flags": {"type": ["string", "array"]},
+    "near_duplicate_of": {"type": "string"},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": true
+}
+

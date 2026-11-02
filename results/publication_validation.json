@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-02",
+  "tests": {
+    "passed": 38,
+    "failed": 0,
+    "command": "python -m unittest discover -s tests"
+  },
+  "public_scan": "No detected secret patterns, model/data/checkpoint/per-example assets or large binaries",
+  "original_core_source_sha256_checked": 11,
+  "private_transfer_archive_verified": true,
+  "linux_rtx4090_execution": "not yet performed",
+  "local_experiment_and_monitor": "remain paused",
+  "code_license": "not assigned by owner choice"
+}

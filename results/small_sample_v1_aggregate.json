@@ -1,0 +1,67 @@
+{
+  "protocol_id": "small_sample_v1",
+  "aggregate": {
+    "50": {
+      "bleu": {
+        "mean": 20.78581667519707,
+        "sample_sd": 0.13687445097375647
+      },
+      "chrf": {
+        "mean": 43.162851250536214,
+        "sample_sd": 0.09402680262197662
+      },
+      "rougeL_f": {
+        "mean": 0.4821720252623696,
+        "sample_sd": 0.0019051252192327027
+      }
+    },
+    "100": {
+      "bleu": {
+        "mean": 20.627746649757277,
+        "sample_sd": 0.03188566459852655
+      },
+      "chrf": {
+        "mean": 43.05899341391261,
+        "sample_sd": 0.1349260269246211
+      },
+      "rougeL_f": {
+        "mean": 0.4764099574602704,
+        "sample_sd": 0.0016373625378259657
+      }
+    },
+    "200": {
+      "bleu": {
+        "mean": 21.80177625054665,
+        "sample_sd": 0.24735901797874202
+      },
+      "chrf": {
+        "mean": 43.554208452566,
+        "sample_sd": 0.277102209634165
+      },
+      "rougeL_f": {
+        "mean": 0.4886587087282896,
+        "sample_sd": 0.0013776774049208472
+      }
+    },
+    "500": {
+      "bleu": {
+        "mean": 22.04209155904579,
+        "sample_sd": 0.699547012666815
+      },
+      "chrf": {
+        "mean": 43.29753705774087,
+        "sample_sd": 0.3476449906501447
+      },
+      "rougeL_f": {
+        "mean": 0.4909135264488942,
+        "sample_sd": 0.004772200821182707
+      }
+    }
+  },
+  "completed_trainings": 16,
+  "selected_adapters": 12,
+  "test_records": 1496,
+  "original_corpus_bootstrap_tasks": 36,
+  "bootstrap_resamples": 2000,
+  "source_sha256": "ff87fbe96b07dcb8a220ce119c34614c2c25161dd239cd36518e8d1fe667c387"
+}

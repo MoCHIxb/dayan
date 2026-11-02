@@ -1110,7 +1110,7 @@
   "status": {
     "training": "complete",
     "full_generation_and_auxiliary": "complete",
-    "peft_original_bootstrap": "0/18 completed; paused by user",
-    "note": "No PEFT inferential conclusion or final confidence intervals yet."
+    "peft_original_bootstrap": "18/18 completed and independently audited",
+    "note": "Final per-seed intervals and interpretation: results/peft_quality_cost_analysis.json; no deep-style, equivalence or no-forgetting claim."
   }
 }

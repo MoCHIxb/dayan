@@ -1,14 +1,22 @@
 {
   "date": "2026-11-02",
-  "stage": "cpu_original_bootstrap_running",
+  "stage": "local_peft_closure_complete",
   "completed_new_trainings": 9,
+  "reused_control_trainings": 3,
   "completed_test_generations": 20,
   "completed_auxiliary_sets": 9,
-  "completed_original_bootstrap_tasks": 0,
+  "completed_original_bootstrap_tasks": 18,
   "planned_original_bootstrap_tasks": 18,
   "objective_supplement_conditions": 28,
-  "monitor": "ACTIVE",
+  "independent_final_audit": "passed",
+  "monitor": "DELETED_AFTER_COMPLETION",
   "gpu_work": "complete; not restarted",
   "cloud_experiment": "not started",
-  "note": "Snapshot at local resumption; actual statistical stage is in private execution_state.json. No final confidence intervals yet."
+  "remaining": [
+    "Linux/RTX4090 end-to-end reproduction",
+    "code license decision",
+    "formal release acceptance",
+    "method-specific causal evidence if claimed"
+  ],
+  "verified_at": "2026-11-02T17:09:27+0800"
 }

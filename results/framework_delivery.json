@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-02T18:50:49+08:00",
+  "scope": "developer repository with commands/configuration/interfaces/guide; full MVP not required",
+  "stage": "framework_code_and_guide_delivered_cpu_verified",
+  "training_environment_tests": {
+    "total": 60,
+    "passed": 60,
+    "skipped": 0
+  },
+  "separate_cpu_environment_tests": {
+    "total": 60,
+    "passed": 55,
+    "skipped": 5,
+    "reason": "optional training dependencies absent"
+  },
+  "cli_checks": [
+    {
+      "command": "plan --help",
+      "exit_code": 0
+    },
+    {
+      "command": "prepare-personal --help",
+      "exit_code": 0
+    },
+    {
+      "command": "train-personal --help",
+      "exit_code": 0
+    },
+    {
+      "command": "evaluate-personal --help",
+      "exit_code": 0
+    },
+    {
+      "command": "infer --help",
+      "exit_code": 0
+    },
+    {
+      "command": "plan --spec configs/framework_task_pending.json",
+      "exit_code": 2,
+      "status": "expected_needs_input"
+    }
+  ],
+  "frozen_scientific_sources": "unchanged; existing audit and source hash tests passed",
+  "old_experiments": "complete; no retraining/statistics restarted",
+  "new_personal_gpu_end_to_end": "not_run; validate later with the single real example",
+  "professional_example": "one real example later; content not yet chosen; no synthetic training data",
+  "cloud_4090": "not_executed",
+  "gui": "optional; not implemented or claimed",
+  "code_license": "not_assigned_by_owner",
+  "guide": "docs/33_developer_framework_guide.md",
+  "master_plan": "docs/32_framework_master_plan.md",
+  "handoff": "docs/17_new_chat_handoff.md"
+}

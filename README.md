@@ -2,7 +2,13 @@
 
 Exploration of Personalized Adaptation Methods for LLMs via Low-Resource Fine-Tuning.
 
-研究目标：在消费级硬件上，用50–500条真实训练记录研究LoRA/QLoRA的个性化适配策略、质量与资源权衡，并形成可复现的本地框架和使用指南。当前任务是LaMP-7英文短文本改写，共享适配器结合用户历史；不宣称已验证每人50条作品的独立适配器、深层风格学习或无遗忘。
+最终目标：帮助个人开发者用消费级显卡和少量自己的真实数据调整大模型，交付有实证依据、可扩展、易上手的开发框架仓库与方法指南。按所有者最新范围，不要求完整MVP或商业软件；通过启动命令、配置模板和模块接口即可使用，前端为可选扩展。
+
+已有真实数据设计、小样本策略与PEFT消融为LoRA选型及候选配方提供证据。已验证的是LaMP-7英文共享适配器结合历史画像，不是任意个人任务；后续专业表达/术语案例只做一个真实示例，具体内容稍后确定。
+
+开发者从[33号启动与接口指南](docs/33_developer_framework_guide.md)开始：prepare-personal导入真实配对，train-personal默认检查且显式执行，evaluate-personal覆盖完整个人test，infer加载适配器。新增包装器只通过CPU保护测试，尚未跑过新的个人GPU端到端流程，不把它写成训练成功。
+
+总方案见[32号](docs/32_framework_master_plan.md)，接手见[当前交接](docs/17_new_chat_handoff.md)。
 
 **本仓库是研究代码公开快照；按项目所有者要求暂不指定代码许可证，正式开源发布尚未完成。** 见[许可证状态](LICENSE_STATUS.md)和[第三方资产说明](THIRD_PARTY_ASSETS.md)。
 
@@ -21,11 +27,15 @@ Exploration of Personalized Adaptation Methods for LLMs via Low-Resource Fine-Tu
 ```bash
 python -m pip install -e . --no-deps
 python -m personal_llm_data.workflow --help
+python -m personal_llm_data.workflow prepare-personal --help
+python -m personal_llm_data.workflow train-personal --help
+python -m personal_llm_data.workflow evaluate-personal --help
+python -m personal_llm_data.workflow plan --spec configs/framework_task_pending.json
 python -m personal_llm_data.workflow infer --help
 python scripts/run_cloud_comparison.py
 ```
 
-最后一条只展示计划，不训练。训练依赖和真实数据/模型须另行准备；正式入口参数见[本地指南](docs/22_local_reproduction_guide.md)。历史自动执行器依赖本机证据和Windows接口，不能直接用于干净云端。
+plan仅检查声明式任务元数据：当前真实材料未到位，模板有意返回待补输入和退出码2，不加载模型或启动训练；即使声明完整也须继续实际数据/硬件审计。最后一条只展示云端计划，不训练。训练依赖和真实数据/模型须另行准备；正式入口参数见[本地指南](docs/22_local_reproduction_guide.md)。历史自动执行器依赖本机证据和Windows接口，不能直接用于干净云端。
 
 ## RTX4090复现
 
@@ -53,7 +63,7 @@ repro/         只含校验值的复现资产清单
 
 `data/`、`models/`、`experiments/`、缓存、日志、checkpoint和逐条预测均不提交。LaMP/GYAFC等第三方资产按各自获取条件使用；GYAFC仅完成选型，未开展正式实验。不自行合成训练样本。
 
-历史文档可能反映当时计划；当前状态以本README、23/24/27号文档及results中的暂停记录为准，见[文档索引](docs/INDEX.md)。人工盲评、付费强模型打分、大规模通用矩阵及旧六次全量训练队列继续暂缓。
+历史文档可能反映当时计划；当前状态以本README、32号总方案及results/local_progress.json为准，local_pause_status.json仅为历史快照，见[文档索引](docs/INDEX.md)。人工盲评、付费强模型打分、大规模通用矩阵及旧六次全量训练队列继续暂缓。
 
 后续本地工作见[重新规划清单](docs/28_next_work_plan.md)。
 

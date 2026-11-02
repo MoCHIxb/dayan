@@ -97,7 +97,7 @@ $env:TRANSFORMERS_OFFLINE='1'
 
 首次冻结使用--freeze，仅一次；确认GPU空闲后--run执行9次串行训练和完整评价。--resume仅供故障诊断后显式恢复已完成步骤，训练中断需单独检查checkpoint，不自动覆盖或重训。新的状态为experiments/peft_v1/execution_state.json，不以v1的complete判断新阶段完成。结束核验results.json、25号可读汇总及全部逐run证据。
 
-统一入口为python -m personal_llm_data.workflow；可编辑安装python -m pip install -e .之后亦提供personal-llm命令。子命令prepare/train/evaluate/infer/audit-peft转发到已验证脚本，需要保留源码仓库，不支持脱离scripts目录的独立wheel部署。当前正在运行实验，不执行安装或升级依赖。正式发布前需确认代码授权、依赖/数据/模型第三方说明并在干净环境复现。不能把本机验证写成已开源发布。
+统一入口为python -m personal_llm_data.workflow；可编辑安装python -m pip install -e .之后亦提供personal-llm命令。子命令prepare/train/evaluate/infer/audit-peft转发到已验证脚本，需要保留源码仓库，不支持脱离scripts目录的独立wheel部署。本地研究实验已全部完成；不因本指南中的历史命令而重启。正式发布前需确认代码授权、依赖/数据/模型第三方说明并在干净环境复现。不能把本机验证写成已开源发布。
 
 
 统一入口示例（下面仅查看帮助，不加载GPU）：
@@ -109,3 +109,6 @@ $env:PYTHONPATH='src'
 ```
 
 工程交付清单和机器环境记录见26号文档；第三方资产范围见根目录THIRD_PARTY_ASSETS.md。许可证尚未确定，因此不能将本地工程交付称为正式开源发布。
+
+
+2026-11-02框架阶段更新：当前目标与前端计划见32号总方案。统一入口新增plan子命令，仅校验声明式任务元数据，不训练、不加载模型；模板configs/framework_task_pending.json反映真实个人材料尚未确定，正常返回待补输入/退出码2。按最新范围，完整前端与任务服务为可选扩展，非本轮必做；开发者命令、配置与模块接口见33号指南。旧研究冻结实现不改。

@@ -13,10 +13,23 @@
   "gpu_work": "complete; not restarted",
   "cloud_experiment": "not started",
   "remaining": [
-    "Linux/RTX4090 end-to-end reproduction",
-    "code license decision",
-    "formal release acceptance",
-    "method-specific causal evidence if claimed"
+    "single real professional example: content and real material later",
+    "new personal wrapper GPU end-to-end verification",
+    "Linux/RTX4090 platform reproduction",
+    "code license decision and formal release acceptance"
   ],
-  "verified_at": "2026-11-02T17:09:27+0800"
+  "verified_at": "2026-11-02T17:09:27+0800",
+  "framework": {
+    "stage": "developer_framework_and_guide_cpu_validation",
+    "goal": "consumer_gpu_developer_repository_and_method_guide",
+    "first_case": "professional_expression_and_terminology",
+    "frontend": "optional_not_required",
+    "personal_material": "single_real_example_content_to_be_decided_later",
+    "plan": "docs/32_framework_master_plan.md",
+    "training_restarted": false,
+    "guide": "docs/33_developer_framework_guide.md",
+    "new_gpu_end_to_end": "not_run",
+    "delivery_evidence": "results/framework_delivery.json",
+    "cpu_tests": 60
+  }
 }

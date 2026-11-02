@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "goal": "professional_expression",
+  "model": "Qwen/Qwen3-4B",
+  "language": "zh",
+  "train_records": 0,
+  "dev_records": 0,
+  "test_records": 0,
+  "real_data_authorized": false,
+  "paired_responses_available": false,
+  "source_groups_disjoint": false,
+  "gpu_memory_gib": null
+}

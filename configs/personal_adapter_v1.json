@@ -1,0 +1,18 @@
+{
+  "protocol_id": "personal_adapter_example_v1",
+  "model_name_or_path": "models/Qwen3-4B",
+  "data_dir": "experiments/personal_example/data",
+  "output_dir": "experiments/personal_example/run",
+  "seed": 20251206,
+  "max_length": 768,
+  "max_new_tokens": 256,
+  "max_steps": 128,
+  "eval_steps": 16,
+  "learning_rate": 0.0001,
+  "gradient_accumulation_steps": 16,
+  "quantization": "none",
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.05,
+  "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+}

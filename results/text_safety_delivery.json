@@ -1,0 +1,51 @@
+{
+  "status": "datasets_source_replayed_and_byte_reproduced",
+  "unique_selected_qa": 330,
+  "domains": [
+    "medical",
+    "financial",
+    "public_safety"
+  ],
+  "counts": {
+    "medical": {
+      "train": 50,
+      "dev": 20,
+      "test": 40
+    },
+    "financial": {
+      "train": 50,
+      "dev": 20,
+      "test": 40
+    },
+    "public_safety": {
+      "train": 50,
+      "dev": 20,
+      "test": 40
+    },
+    "joint": {
+      "train": 150,
+      "dev": 60,
+      "test": 120
+    }
+  },
+  "exact_reproduction_files": 17,
+  "embedded_multi_turn_cases": 0,
+  "source_text_and_label_verification": "results/text_safety_data_verification.json",
+  "previous_vlm_project_used": false,
+  "new_requests_responses_or_safety_labels_generated": false,
+  "automated_near_duplicate_review": true,
+  "manual_review": false,
+  "gpu_training": "not_started",
+  "training_environment_tests": {
+    "total": 71,
+    "passed": 71
+  },
+  "cpu_only_environment_tests": {
+    "total": 71,
+    "passed": 66,
+    "skipped": 5,
+    "reason": "optional training dependencies absent"
+  },
+  "current_plan": "docs/35_three_domain_text_safety.md",
+  "example_config": "configs/text_safety_v1/qwen3_4b_joint.json"
+}

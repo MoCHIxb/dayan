@@ -23,8 +23,8 @@ def plan_task(spec: dict) -> dict:
         raise ValueError("Task specification must contain exactly the documented fields")
     if type(spec["schema_version"]) is not int or spec["schema_version"] != 1:
         raise ValueError("Unsupported task schema_version")
-    if spec["goal"] != "professional_expression":
-        raise ValueError("Only professional_expression is planned in this first interface")
+    if spec["goal"] not in ("professional_expression", "text_safety_review"):
+        raise ValueError("Only professional_expression or text_safety_review is supported by this planning interface")
     if spec["model"] != "Qwen/Qwen3-4B":
         raise ValueError("Only Qwen/Qwen3-4B has local research evidence")
     if type(spec["language"]) is not str or spec["language"] not in {"zh", "en", "other"}:
@@ -72,7 +72,9 @@ def plan_task(spec: dict) -> dict:
             "Measure GPU availability and dry-run memory; capacity is not free memory",
             "Freeze a separate personal-case protocol before executing any training",
         ],
-        "evidence_scope": "Candidates from English LaMP-7 shared-adapter research; professional personal adaptation remains unvalidated",
+        "evidence_scope": ("Text-safety datasets are source-verified; safety-review model capability remains unvalidated until new held-out base/adapter evaluation"
+                           if spec["goal"] == "text_safety_review" else
+                           "Candidates from English LaMP-7 shared-adapter research; professional personal adaptation remains unvalidated"),
         "hardware_scope": "Windows RTX5070Ti 16GiB tested; Linux/RTX4090 not yet executed",
         "selection_rule": "Select using dev only; test is held out; no recipe is a universal winner",
         "research_protocols": "small_sample_v1 and peft_v1 remain frozen and complete",

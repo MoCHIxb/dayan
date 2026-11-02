@@ -1,0 +1,57 @@
+{
+  "status": "all_selected_source_text_and_labels_verified",
+  "unique_qa_records": 330,
+  "datasets": {
+    "medical": {
+      "counts": {
+        "train": 50,
+        "dev": 20,
+        "test": 40
+      },
+      "groups": {
+        "train": 42,
+        "dev": 20,
+        "test": 39
+      }
+    },
+    "financial": {
+      "counts": {
+        "train": 50,
+        "dev": 20,
+        "test": 40
+      },
+      "groups": {
+        "train": 43,
+        "dev": 19,
+        "test": 40
+      }
+    },
+    "public_safety": {
+      "counts": {
+        "train": 50,
+        "dev": 20,
+        "test": 40
+      },
+      "groups": {
+        "train": 31,
+        "dev": 18,
+        "test": 34
+      }
+    },
+    "joint": {
+      "counts": {
+        "train": 150,
+        "dev": 60,
+        "test": 120
+      },
+      "groups": {
+        "train": 116,
+        "dev": 57,
+        "test": 113
+      }
+    }
+  },
+  "vlm_project_used": false,
+  "gpu_started": false,
+  "manual_review": false
+}

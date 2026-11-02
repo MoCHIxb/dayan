@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "purpose": "personal_adapter_example_v1",
+  "counts": {
+    "train": 50,
+    "dev": 20,
+    "test": 40
+  },
+  "files_sha256": {
+    "train.jsonl": "e8f51ec373b10dedea429cdf0f854d69af98f22c7cd23c4f28e3dea9d4bd95e8",
+    "dev.jsonl": "e0478da17153dd953d6a2e1bad3f2d261685696f9d9bfcec597873b86e5dac6d",
+    "test.jsonl": "44f7f57ae43acb36ea06b0536329b7308c92e583fd69500c99fa2d6690cae873"
+  },
+  "real_authorization_declared": true,
+  "manual_near_duplicate_review_declared": false,
+  "automated_near_duplicate_review": {
+    "method": "source_prompt_character5_jaccard_v1",
+    "threshold": 0.9,
+    "status": "passed",
+    "comparisons": 3297
+  },
+  "independent_prompt_groups": {
+    "train": 43,
+    "dev": 19,
+    "test": 40
+  },
+  "label_counts": {
+    "train": {
+      "unsafe": 25,
+      "safe": 25
+    },
+    "dev": {
+      "unsafe": 10,
+      "safe": 10
+    },
+    "test": {
+      "safe": 20,
+      "unsafe": 20
+    }
+  },
+  "source_sha256": {
+    "beavertails/train": "12f04c9200000929ebbc616c29cb53331f6df36e7341d73e4a12cffac0eb1c08",
+    "beavertails/test": "1c726c662b85bf4761913041fe9e098f80e5206344864597dbde86bc9a1bfc96",
+    "diasafety/train": "c1faee9dc1f67b28e8cbc2d4d146be1af749a9ad8caef5d76c10203a4a0dc6ae",
+    "diasafety/val": "ec0e4e705224584627dd8a9ff9f0cbafc7b56932752c6038b1a1164f01e14609",
+    "diasafety/test": "3a816555d097effda2b3f788b0372fb64359f1d736d881440d0ae6f386d6716c"
+  },
+  "max_length": 1024,
+  "max_new_tokens": 64,
+  "source_policies": "DiaSafety Unauthorized Expertise for medical; BeaverTails harmlessness for finance/public safety",
+  "limitations": "Existing response-safety labels; not request attack labels, clinical correctness or equivalent policies across sources. No manual review claimed."
+}

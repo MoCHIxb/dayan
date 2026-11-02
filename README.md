@@ -4,7 +4,7 @@ Exploration of Personalized Adaptation Methods for LLMs via Low-Resource Fine-Tu
 
 最终目标：帮助个人开发者用消费级显卡和少量自己的真实数据调整大模型，交付有实证依据、可扩展、易上手的开发框架仓库与方法指南。按所有者最新范围，不要求完整MVP或商业软件；通过启动命令、配置模板和模块接口即可使用，前端为可选扩展。
 
-已有真实数据设计、小样本策略与PEFT消融为LoRA选型及候选配方提供证据。已验证的是LaMP-7英文共享适配器结合历史画像，不是任意个人任务；后续示例已选AI安全审查，使用指定来源中的攻击案例和既有审查标注；文本/VL模态待确定，详见[34号方案](docs/34_ai_safety_review_plan.md)。只做一个示例，不扩展成新的大网格。
+已有真实数据设计、小样本策略与PEFT消融为LoRA选型及候选配方提供证据。已验证的是LaMP-7英文共享适配器结合历史画像，不是任意个人任务；当前示例采用医学、金融、公共安全三类已有纯文本安全审查数据，沿用Qwen3-4B，取消VLM/MMDS路径。实际数据、来源与云端命令见[35号指南](docs/35_three_domain_text_safety.md)和[选定数据](examples/text_safety_v1/README.md)。每类50训练/20开发/40测试，联合150/60/120；新训练尚未启动。
 
 开发者从[33号启动与接口指南](docs/33_developer_framework_guide.md)开始：prepare-personal导入真实配对，train-personal默认检查且显式执行，evaluate-personal覆盖完整个人test，infer加载适配器。新增包装器只通过CPU保护测试，尚未跑过新的个人GPU端到端流程，不把它写成训练成功。
 

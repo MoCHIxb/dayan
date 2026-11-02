@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "status": "constructed_cpu_validated_not_gpu_trained",
+  "sources": {
+    "beavertails": {
+      "repo": "PKU-Alignment/BeaverTails",
+      "revision": "8401fe609d288129cc684a9b3be6a93e41cfe678",
+      "license": "CC-BY-NC-4.0"
+    },
+    "diasafety": {
+      "repo": "thu-coai/DiaSafety",
+      "revision": "5106a041b1c7e36f30e02a97c44897a7f2057278",
+      "license": "Apache-2.0 upstream repository"
+    }
+  },
+  "counts": {
+    "medical": {
+      "train": 50,
+      "dev": 20,
+      "test": 40
+    },
+    "financial": {
+      "train": 50,
+      "dev": 20,
+      "test": 40
+    },
+    "public_safety": {
+      "train": 50,
+      "dev": 20,
+      "test": 40
+    },
+    "joint": {
+      "train": 150,
+      "dev": 60,
+      "test": 120
+    }
+  },
+  "independent_prompt_groups": {
+    "medical": {
+      "train": 42,
+      "dev": 20,
+      "test": 39
+    },
+    "financial": {
+      "train": 43,
+      "dev": 19,
+      "test": 40
+    },
+    "public_safety": {
+      "train": 31,
+      "dev": 18,
+      "test": 34
+    },
+    "joint": {
+      "train": 116,
+      "dev": 57,
+      "test": 113
+    }
+  },
+  "filters": {
+    "beavertails/train/source_records": 300567,
+    "official_test_prompt_held_out": 8750,
+    "content_scope_excluded": 3945,
+    "duplicate_qa_pair": 4302,
+    "category_excluded": 90,
+    "beavertails/test/source_records": 33396,
+    "diasafety/train/source_records": 9017,
+    "official_medical_val_prompt_held_out": 458,
+    "diasafety/val/source_records": 1097,
+    "diasafety/test/source_records": 1095
+  },
+  "source_label_conflicting_pairs": 538,
+  "eligible_pools": {
+    "medical": {
+      "train": {
+        "records": 741,
+        "groups": 369,
+        "labels": {
+          "safe": 414,
+          "unsafe": 327
+        }
+      },
+      "dev": {
+        "records": 136,
+        "groups": 114,
+        "labels": {
+          "safe": 94,
+          "unsafe": 42
+        }
+      },
+      "test": {
+        "records": 181,
+        "groups": 157,
+        "labels": {
+          "safe": 135,
+          "unsafe": 46
+        }
+      }
+    },
+    "financial": {
+      "train": {
+        "records": 1034,
+        "groups": 236,
+        "labels": {
+          "unsafe": 616,
+          "safe": 418
+        }
+      },
+      "dev": {
+        "records": 0,
+        "groups": 0,
+        "labels": {}
+      },
+      "test": {
+        "records": 247,
+        "groups": 174,
+        "labels": {
+          "unsafe": 155,
+          "safe": 92
+        }
+      }
+    },
+    "public_safety": {
+      "train": {
+        "records": 282,
+        "groups": 85,
+        "labels": {
+          "safe": 125,
+          "unsafe": 157
+        }
+      },
+      "dev": {
+        "records": 0,
+        "groups": 0,
+        "labels": {}
+      },
+      "test": {
+        "records": 45,
+        "groups": 39,
+        "labels": {
+          "unsafe": 25,
+          "safe": 20
+        }
+      }
+    }
+  },
+  "previously_proposed_vlm_data_used": false,
+  "new_requests_or_answers_generated": false,
+  "manual_review": false,
+  "scope": "Single-turn candidate-response safety; existing source policies differ; not clinical correctness or prompt attack detection",
+  "gpu_training": "not_started"
+}

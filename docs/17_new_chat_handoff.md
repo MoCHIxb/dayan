@@ -1,55 +1,42 @@
-# 当前项目交接：低资源个人定制框架
+# 当前交接：低资源开发者框架与三领域文本安全审查
 
-更新：2026-11-02。工作区`D:\dayan`；仓库[MoCHIxb/dayan](https://github.com/MoCHIxb/dayan)。开题计划及所有者最新指示优先，历史交接只作事实背景。2026-10-28旧交接全文存于[历史档案](history/17_handoff_20261028.md)，其中暂停、待跑和文档优先级描述不代表当前授权或状态。
+2026-11-02更新。项目D:\dayan；[GitHub](https://github.com/MoCHIxb/dayan)。开题计划和所有者最新指示优先。完整MVP/商业软件不是必做项；交付可运行仓库、启动命令、配置、接口与方法指南。
 
-## 接手先读
+## 接手入口
 
-1. [32号总方案](32_framework_master_plan.md)：当前目标、证据作用、框架结构、分阶段验收。
-2. README、AGENTS.md和[文档索引](INDEX.md)。
-3. [31号最终质量/资源解释](31_peft_quality_cost_analysis.md)、23/25/30号结果：已完成研究证据及边界。
-4. [27号云端指南](27_cloud_4090_reproduction.md)：独立平台复现命令，尚未实机执行。
-5. `results/local_progress.json`：当前机器可读进度；`results/local_pause_status.json`仅为历史快照。
+1. [35号三领域数据与云端指南](35_three_domain_text_safety.md)、[公开数据卡](../examples/text_safety_v1/README.md)。
+2. [32号总方案](32_framework_master_plan.md)、[33号开发者接口](33_developer_framework_guide.md)、README和AGENTS.md。
+3. `results/text_safety_data_verification.json`、`results/text_safety_delivery.json`与`results/local_progress.json`。
+4. 既有研究解释23/25/30/31；27号仅是另行保留的平台复现，不是新示例执行队列。
 
-## 最终任务和当前授权（以本段最新范围为准）
+## 最新范围
 
-交付帮助个人开发者用消费级显卡和少量自己的真实数据调整模型的框架仓库与方法指南。所有者最新明确：不要求完整MVP或商业软件；指南写清启动命令、配置与模块接口即可，前端是可选扩展。真实专业表达/术语案例稍后确定内容，后续训练一个示例即可，不阻塞先建立框架。
+所有者明确取消使用vlm-long-context-safety-eval及其数据，不做图文或多轮攻击。34号、MMDS来源报告与旧模态问题均已取消，只保留历史记录，不能恢复。当前只使用已有论文/公开成果的纯文本数据，沿用Qwen3-4B。
 
-已有真实数据设计、小样本策略与PEFT消融是LoRA选型及候选配方的证据基础，应保留并整合进指南。不是为了做界面而抛弃研究，也不能把已有英文共享适配器结果包装为已验证任意个人定制。
+三个领域：医学（DiaSafety Unauthorized Expertise），金融与公共安全（BeaverTails主题子集）。监督为现有Safe/Unsafe/is_safe标签转换为JSON；不新写请求、候选回答或审查理由。输入是单轮请求和待审查候选回答，回答作为引用证据，绝不作为有害回答的SFT目标。标签表示回答安全性，不能当请求攻击标签。医学标签不代表诊疗事实正确。
 
-所有者已要求形成完整方案、更新交接/仓库并推送，并授权后续自主迭代、分阶段汇报。本轮交付规划、配对导入、独立个人训练/完整test包装器及开发者指南；只进行CPU保护验证，不启动GPU。可推进独立的软件开发和测试；不重启完成实验，不自行租服务器，不因材料缺失而合成样本。缺失材料与实际云端费用按总方案的前置条件处理。
+## 已构建数据
 
-## 已完成且不要重跑
+`examples/text_safety_v1/{medical,financial,public_safety}`各50训练/20开发/40测试，各集合Safe/Unsafe各半。joint为三者并集：150/60/120，共330条不同问答；不能把联合视图再算作额外330条。
 
-- small_sample_v1：16次训练，12个所选适配器完整评价，36项原始bootstrap。
-- peft_v1：9次新训练＋3次BF16复用对照；20组完整1496条test生成、9套辅助评价、18项各2000次原始corpus_score配对bootstrap。
-- 每次训练500条、128步、8次完整1500条dev、best/final checkpoint、适配器SHA及原始统计收据已审计。本地最终解释通过独立门槛`complete_original_statistics_audited`。
-- 28条件探索性客观风格/内容辅助分析完成，完整1496条和43/1453分组已核验；见29/30号及`results/style_content_supplement.json`。
-- 本地GPU/CPU收尾已完成，旧peft监控删除。最近交接前只读核对未发现本项目Python进程；GPU有少量系统占用，不宣称整机显存完全空闲。
+问题组数依次train/dev/test：医学42/20/39，金融43/19/40，公共安全31/18/34；joint为116/57/113。组间无跨集合共享，官方test问题均从train/dev排除，医学官方val问题也从train排除。选中集合间穷举原问题字符5gram Jaccard检查，阈值0.9；是自动复核，不是人工审校或语义独立性认证。
 
-公开最终证据：`results/peft_quality_cost_analysis.json`、`docs/31_peft_quality_cost_analysis.md`；本地私有原始证据：`experiments/peft_v1/results.json`与`closure_audit.json`。不重新运行finalize脚本或以旧暂停记录恢复任务。
+330条文本和标签已回放固定源文件逐条核对；独立重建17份数据/manifest/构建报告，字节完全一致。代码71项CPU测试通过；独立CPU环境66通过/5因可选训练依赖缺失跳过。没有新GPU训练或真实模型预测。
 
-## 已实现与下一步
+## 下一步云端
 
-已有研究数据/训练/评价/推理和统一入口。本轮新增plan、prepare-personal、train-personal、evaluate-personal；详见33号开发者指南。个人包装器独立版本，默认只验证，--execute才启动GPU；完整个人dev/test不受旧1500条硬编码限制。暂停请求、完整状态receipt和核验恢复在独立路径实现，需后续实际GPU验收。
+配置`configs/text_safety_v1/qwen3_4b_joint.json`，独立输出`experiments/text_safety_v1/run`。先训练一个联合150条适配器，不自动扩展三套模型或大网格。默认r8/alpha16、BF16、128步、每16步完整60条dev与保存；完整120条test，基座/适配器同预算；用`score_text_safety.py`计算各领域及总体macro-F1、不安全回答检出、安全回答误报和无效JSON。
 
-没有新增HTTP服务、完整图形MVP或通用后台队列，这些不是当前必做项。当前新增代码的CPU测试不能冒充个人GPU流程已跑通。下一步是在后续内容确定后用一个真实案例端到端验证，再按27号实际准备云端复现。
+训练入口无--execute只检查文件；显式执行时才使用GPU。服务器尚未租用/连接/执行，本轮只做本地CPU构建与公开同步。模型下载固定版本、环境准备、完整命令和暂停恢复见35/33号。不能把CPU验证当Linux4090/GPU已跑通，也不能先宣称审查能力强。
 
-个人案例随后按新协议处理：真实用户授权、源文档分组划分、去重、训练50–500条且dev/test另计预算、提示基线与LoRA同输入比较、术语/结构/内容保持评价。不能将LaMP问题ID视为个人身份；不能用旧test选新专业配方。
+## 已完成且不重跑的历史研究
 
-云端仍为12次训练/28组完整生成/12套辅助评价/21项原始统计，独立`cloud_4090_v1`目录和显式执行参数；不在本轮软件整理中启动。Linux4090与Windows5070Ti是平台复现，不是GPU单因素对照。
+small_sample_v1：16训练、12所选适配器完整评价、36项原始bootstrap。peft_v1：9新训练＋3BF16对照，20组完整1496条test、9套辅助评价、18项各2000次原始corpus_score统计及独立最终解释。28条件客观辅助证据完成；原监控删除。
 
-## 必须保留的限制
+20/24号协议及冻结科学实现不改。新示例不缩减或替换历史dev1500/test1496/原始统计；旧六次全量队列、人工盲评、付费裁判和大规模通用矩阵继续暂缓。原平台复现cloud_4090_v1仍独立且未启动。
 
-- 20/24号冻结协议、原始科学实现、真实数据和完整评价覆盖不改；bootstrap保持每项2000次原始corpus_score重采样。
-- 不启动旧六次全量队列、人工盲评、付费强模型评价、大规模通用矩阵；单GPU串行，不无限自动重试。
-- 低rank与NF4是有依据的候选，无配置在三种子均有名义BLEU优势；跨0不证明等效。NF4为整体训练配方比较。
-- 表层风格/相似度/复制检查不能证明深层风格、事实正确或无遗忘。50–500是训练预算，旧研究另用1500条有标签dev。
-- 只提交源代码、配置、文档、哈希和聚合证据；原文、权重、checkpoint、逐条预测、私有传输包和密钥不公开。
-- 所有者选择暂不指定代码许可证，不自行添加开源许可；公开研究代码不等于正式开源发布。Linux/4090、新手操作和新专业案例均待实际验收。
+## 发布与执行边界
 
-本轮开发者交付验证记录：results/framework_delivery.json。原环境60项CPU测试通过，独立CPU环境55通过/5因缺少可选训练依赖跳过；CLI帮助和待输入退出码验证通过。新增包装器GPU端到端仍待后续真实示例。
+所有者授权选定三领域数据随仓库同步，窄范围例外仅为examples/text_safety_v1已审查文件。DiaSafety行保留上游Apache-2.0条款，BeaverTails行遵循CC BY-NC 4.0，归属和改动见NOTICE。源码仍未指定许可证，不能据数据许可宣称代码已正式开源。
 
-
-## 最新AI安全示例更新
-
-所有者已指定来源项目vlm-long-context-safety-eval，并明确目标为AI安全审查能力，重点使用攻击案例。来源MMDS的4484条数据字节已与上游revision及LFS SHA核对一致；formal_v3为构造未审校轨迹，不直接当标准安全回答。当前待选择纯文本Qwen3或图文Qwen-VL路径，尚无冻结训练集或云端训练。先读34号方案和results/ai_safety_source_audit.json。所有者授权选定示例数据在来源许可与归属核对后同步仓库；旧私有数据/模型/预测仍不公开。攻击输入配已有审查评级/理由，不以危险成功回复作监督目标。该更新优先于上文“案例内容稍后定/仅专业表达”的旧描述。
+原始全量数据、原VLM数据、模型、checkpoint、逐条模型预测与密钥不提交。`scripts/audit_publication.py`核对公开范围及快照；仅--update-manifest修改清单。一次只运行一个GPU任务，失败留痕不自动重试；已完成产物不覆盖。旧2026-10-28交接存于history/17_handoff_20261028.md，只作事实背景。

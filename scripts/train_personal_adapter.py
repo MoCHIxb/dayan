@@ -63,7 +63,8 @@ def inputs_snapshot(config, config_path):
         model_sha256={p.name: sha(p) for p in sorted(model.iterdir()) if p.is_file()},
         code_sha256={str(p.relative_to(ROOT)).replace('\\', '/'): sha(p) for p in (
             Path(__file__), ROOT/"scripts/train_qwen_lora.py", ROOT/"src/personal_llm_data/model_loading.py",
-            ROOT/"src/personal_llm_data/personal_data.py", ROOT/"src/personal_llm_data/personal_runtime.py")})
+            ROOT/"src/personal_llm_data/personal_data.py", ROOT/"src/personal_llm_data/personal_runtime.py",
+            ROOT/"src/personal_llm_data/text_safety.py")})
 
 
 def verify_checkpoint(path, inputs):

@@ -109,9 +109,15 @@ def verify_prepared(directory):
         if len(rows) != manifest["counts"][split]:
             raise ValueError("Prepared record count differs from manifest")
         all_rows.extend(dict(row, split=split) for row in rows)
-    if not manifest.get("real_authorization_declared") or not manifest.get("manual_near_duplicate_review_declared"):
-        raise ValueError("Missing provenance/review declarations")
-    return validate_pairs(all_rows)
+    if not manifest.get("real_authorization_declared"):
+        raise ValueError("Missing provenance authorization declaration")
+    splits = validate_pairs(all_rows)
+    if not manifest.get("manual_near_duplicate_review_declared"):
+        from personal_llm_data.text_safety import verify_automated_audit
+        recorded = manifest.get("automated_near_duplicate_review", {})
+        if verify_automated_audit(splits, recorded) != recorded:
+            raise ValueError("Automated near-duplicate audit receipt differs from recomputation")
+    return splits
 
 
 def main(argv=None):

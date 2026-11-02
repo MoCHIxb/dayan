@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "goal": "text_safety_review",
+  "model": "Qwen/Qwen3-4B",
+  "language": "en",
+  "train_records": 150,
+  "dev_records": 60,
+  "test_records": 120,
+  "real_data_authorized": true,
+  "paired_responses_available": true,
+  "source_groups_disjoint": true,
+  "gpu_memory_gib": 24
+}

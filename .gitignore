@@ -31,3 +31,17 @@ checkpoints/
 *.partial
 private_transfer_manifest.json
 
+
+# Owner-authorized, attributed public text-safety subset only.
+!examples/text_safety_v1/medical/train.jsonl
+!examples/text_safety_v1/medical/dev.jsonl
+!examples/text_safety_v1/medical/test.jsonl
+!examples/text_safety_v1/financial/train.jsonl
+!examples/text_safety_v1/financial/dev.jsonl
+!examples/text_safety_v1/financial/test.jsonl
+!examples/text_safety_v1/public_safety/train.jsonl
+!examples/text_safety_v1/public_safety/dev.jsonl
+!examples/text_safety_v1/public_safety/test.jsonl
+!examples/text_safety_v1/joint/train.jsonl
+!examples/text_safety_v1/joint/dev.jsonl
+!examples/text_safety_v1/joint/test.jsonl

@@ -1,0 +1,298 @@
+{
+  "status": "complete_classification_run_audited",
+  "config": "configs/sms_spam_v1/qwen3_4b.json",
+  "counts": {
+    "train": 500,
+    "dev": 200,
+    "test": 1000
+  },
+  "inputs": {
+    "config_sha256": "be70aee21b66b1f7d91eb3ce58184b66aa83fcae5208fb1fdf7ead9ec258e4d3",
+    "data_sha256": {
+      "manifest.json": "62b111d7e276ef82c5a2656ce6302355a44e7d10790dcc6eeae319dfda0082c6",
+      "train.jsonl": "1f851b4e84aa5f56643d59df783e7855304b19127f29b131252947f601324ea6",
+      "dev.jsonl": "3b4f6ae50f2fef91bd289d9c15bc4617deb8c589066b3b07041f28b8428f2a97",
+      "test.jsonl": "52a069685517cff224e53fedf7ca12aead113dea686eb7aa1b4d5c81efe5623b"
+    },
+    "model_sha256": {
+      ".gitattributes": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930",
+      "config.json": "8ba006f74fecfaaeb392872a60f4a480e7ec9860153d2e1b769ec81f9a147f8a",
+      "generation_config.json": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2",
+      "LICENSE": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+      "model-00001-of-00003.safetensors": "328a91d3122359d5547f9d79521205bc0a46e1f79a792dfe650e99fc2d651223",
+      "model-00002-of-00003.safetensors": "6cd087b316306a68c562436b5492edbcf6e16c6dba3a1308279caa5a58e21ca5",
+      "model-00003-of-00003.safetensors": "e4bf436957184f4eeb86a80e9db394503f1f56446b2e6b7edeac5b81470f4ca1",
+      "model.safetensors.index.json": "6dc0981b8829fead746441f68f38f24c5ca4a3a66351f652c26c6df0efc43ab2",
+      "README.md": "71add1cd091c309b1cb1a6b943f2476eb2b004124b3bd1d32dcd0b24cc1abc47",
+      "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    "code_sha256": {
+      "scripts/train_personal_adapter.py": "f6eaac7d4f159d63fd33e175732172733fe6ef28abfc819269bd3a74e89923b2",
+      "scripts/train_qwen_lora.py": "dc5bf03e2dfb521592344fb4ba9e4aad5a093a2cb3ac106f32fa302fec992891",
+      "src/personal_llm_data/model_loading.py": "2ec26cb1cc304de3f6f7e314627f63e55f6c6774d7edcd4b9c2fa406602d239d",
+      "src/personal_llm_data/personal_data.py": "cf1fa19fccfc90ae7f7d28f5a02d5dd3272f765b17d4be4c261695a3bd0cfe4c",
+      "src/personal_llm_data/personal_runtime.py": "3a9eae59a3d1002c7eac93ed419af0ae799d0a522e67d5b61e20fa7aaa2e3f59",
+      "src/personal_llm_data/text_safety.py": "57bcb0abcfe857e3acaf4c1f3bdaf08536c56226449b35d15c4e70582bf06bb8"
+    }
+  },
+  "evaluations": [
+    {
+      "step": 16,
+      "loss": 0.01055269967764616
+    },
+    {
+      "step": 32,
+      "loss": 0.006557477172464132
+    },
+    {
+      "step": 48,
+      "loss": 0.007831331342458725
+    },
+    {
+      "step": 64,
+      "loss": 0.010585772804915905
+    },
+    {
+      "step": 80,
+      "loss": 0.010278720408678055
+    },
+    {
+      "step": 96,
+      "loss": 0.01316919643431902
+    },
+    {
+      "step": 112,
+      "loss": 0.011500622145831585
+    },
+    {
+      "step": 128,
+      "loss": 0.011192929930984974
+    }
+  ],
+  "best_step": 32,
+  "best_dev_loss": 0.006557477172464132,
+  "adapter_sha256": "23fdc4ee0de7379c7509d33fbefb80a111f210662209aab4855c60dbc653995f",
+  "checkpoint_evidence": {
+    "best": {
+      "step": 32,
+      "files_sha256": {
+        "adapter_config.json": "09ea1d413385bbdf9f4aa782b1f194108dbf9355a2fd598a3e94b459b38b0693",
+        "adapter_model.safetensors": "23fdc4ee0de7379c7509d33fbefb80a111f210662209aab4855c60dbc653995f",
+        "optimizer.pt": "0b7752496532f9d5b355489c920118525f0e0c26c33d90d1fc8250de91c1bbd6",
+        "rng_state.pth": "9380367684ffc1c3ae91e762ba42adc6cfe9e18fe9718ba2ccc3da5d89d4ac24",
+        "scheduler.pt": "b1aa52d79fa8ad9c52dededb822025723137101ffaf23450636c06eb79c256d8",
+        "trainer_state.json": "68632c4085a96b7eebf735343d89c14d14c6dc0f8685f833475aa542374aba1b"
+      }
+    },
+    "final": {
+      "step": 128,
+      "files_sha256": {
+        "adapter_config.json": "09ea1d413385bbdf9f4aa782b1f194108dbf9355a2fd598a3e94b459b38b0693",
+        "adapter_model.safetensors": "285a001d81545792afb4a1479eb84d797b1ef2e0c249d3e85c6961e8fa3ab202",
+        "optimizer.pt": "87c3a75b4b79ba508f5f44ab7823216eede4c2d3dc28ee591de3f78dc5e63ca5",
+        "rng_state.pth": "e9aa8fbce24cd0e696bd5c75c617bd63bef5bdb365ae2b8f1b47e6ee33285f4d",
+        "scheduler.pt": "e12186b615d753d6fa18d2a33a1bc3b059d19e120570455a98ee0b7e1d3ffec9",
+        "trainer_state.json": "566063e64da2cf00efaa4c861c6936da0c091343d3aaa02353f3ec066939aa2f"
+      }
+    }
+  },
+  "quality": {
+    "base": {
+      "samples": 1000,
+      "labels": [
+        "ham",
+        "spam"
+      ],
+      "accuracy": 0.878,
+      "macro_f1": 0.7985522179070565,
+      "per_class": {
+        "ham": {
+          "support": 866,
+          "precision": 0.9881889763779528,
+          "recall": 0.8695150115473441,
+          "f1": 0.9250614250614251
+        },
+        "spam": {
+          "support": 134,
+          "precision": 0.5252100840336135,
+          "recall": 0.9328358208955224,
+          "f1": 0.6720430107526881
+        }
+      },
+      "invalid_outputs": 0,
+      "invalid_rate": 0.0,
+      "confusion": {
+        "ham": {
+          "ham": 753,
+          "spam": 113,
+          "invalid": 0
+        },
+        "spam": {
+          "ham": 9,
+          "spam": 125,
+          "invalid": 0
+        }
+      }
+    },
+    "adapter": {
+      "samples": 1000,
+      "labels": [
+        "ham",
+        "spam"
+      ],
+      "accuracy": 0.98,
+      "macro_f1": 0.9566390023501661,
+      "per_class": {
+        "ham": {
+          "support": 866,
+          "precision": 0.9873271889400922,
+          "recall": 0.9896073903002309,
+          "f1": 0.9884659746251442
+        },
+        "spam": {
+          "support": 134,
+          "precision": 0.9318181818181818,
+          "recall": 0.917910447761194,
+          "f1": 0.924812030075188
+        }
+      },
+      "invalid_outputs": 0,
+      "invalid_rate": 0.0,
+      "confusion": {
+        "ham": {
+          "ham": 857,
+          "spam": 9,
+          "invalid": 0
+        },
+        "spam": {
+          "ham": 11,
+          "spam": 123,
+          "invalid": 0
+        }
+      }
+    }
+  },
+  "constant_first_label_baseline": {
+    "samples": 1000,
+    "labels": [
+      "ham",
+      "spam"
+    ],
+    "accuracy": 0.866,
+    "macro_f1": 0.4640943193997856,
+    "per_class": {
+      "ham": {
+        "support": 866,
+        "precision": 0.866,
+        "recall": 1.0,
+        "f1": 0.9281886387995713
+      },
+      "spam": {
+        "support": 134,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "invalid_outputs": 0,
+    "invalid_rate": 0.0,
+    "confusion": {
+      "ham": {
+        "ham": 866,
+        "spam": 0,
+        "invalid": 0
+      },
+      "spam": {
+        "ham": 134,
+        "spam": 0,
+        "invalid": 0
+      }
+    }
+  },
+  "resources": {
+    "device": "NVIDIA GeForce RTX 5070 Ti",
+    "trainable_parameters": 16515072,
+    "total_parameters": 4038983168,
+    "peak_allocated_bytes": 8772863488,
+    "peak_reserved_bytes": 10850664448,
+    "elapsed_seconds_this_session": 1094.6149578094482,
+    "python": "3.12.14",
+    "torch": "2.11.0+cu128"
+  },
+  "data_manifest": {
+    "schema_version": 1,
+    "purpose": "personal_adapter_example_v1",
+    "source_url": "https://archive.ics.uci.edu/static/public/228/sms+spam+collection.zip",
+    "source_sha256": "7d039a24a6083ed9ef0f806ebad56bbb976e3aeb8de05669173bfdc4996c239d",
+    "counts": {
+      "test": 1000,
+      "dev": 200,
+      "train": 500
+    },
+    "files_sha256": {
+      "train.jsonl": "1f851b4e84aa5f56643d59df783e7855304b19127f29b131252947f601324ea6",
+      "dev.jsonl": "3b4f6ae50f2fef91bd289d9c15bc4617deb8c589066b3b07041f28b8428f2a97",
+      "test.jsonl": "52a069685517cff224e53fedf7ca12aead113dea686eb7aa1b4d5c81efe5623b"
+    },
+    "real_authorization_declared": true,
+    "manual_near_duplicate_review_declared": false,
+    "automated_near_duplicate_review": {
+      "method": "source_prompt_character5_jaccard_v1",
+      "threshold": 0.9,
+      "status": "passed",
+      "comparisons": 800000
+    },
+    "label_counts": {
+      "test": {
+        "ham": 866,
+        "spam": 134
+      },
+      "dev": {
+        "ham": 173,
+        "spam": 27
+      },
+      "train": {
+        "ham": 433,
+        "spam": 67
+      }
+    },
+    "raw_label_counts": {
+      "ham": 4827,
+      "spam": 747
+    },
+    "excluded_rows": {
+      "duplicate_template_rows": 439
+    },
+    "eligible_template_groups": 5135,
+    "cross_split_rejections": {
+      "test": 0,
+      "dev": 1,
+      "train": 3
+    },
+    "split_seed": 20261103,
+    "split_policy": "One original record per normalized number/URL/email template; test then dev then train; cross-split original-text char5 Jaccard <0.9",
+    "max_length": 512,
+    "max_new_tokens": 16,
+    "tokenizer_config_sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+    "license": "CC BY 4.0 per UCI dataset card; original source readme retained privately",
+    "limitations": "Historical English corpus with no official train/test split; deterministic local holdout, approximate original class ratio. No author/sender identities or temporal generalization claim. Raw texts remain private."
+  },
+  "evidence_sha256": {
+    "experiments/sms_spam_v1/run/training_summary.json": "3c1c80a3312ab085504d3a796c6ddf6ede8af71b12fffcf5a6e66b137118a286",
+    "experiments/sms_spam_v1/run/run_inputs.json": "0fe9d6eff6fee03fc68e33b713ccee46da9bf558c11c97db8459e1f2c55f2fac",
+    "experiments/sms_spam_v1/run/progress.jsonl": "985e781e0efdf96c253a114f6d166c676b6ed042d8ae282d0b11e3e08f359cdd",
+    "experiments/sms_spam_v1/base_scores.json": "37c751e19fe01a000d31067af62b4f84fe53ae666abbece5e44a50eaff866a37",
+    "experiments/sms_spam_v1/run/evaluation/base_metrics.json": "41761142453225d7258954eaf3f9f896246eb5e89f537c0205a8feb3721a5db0",
+    "experiments/sms_spam_v1/run/evaluation/base_metrics.receipt.json": "50f7e954c11625912e1872b070e2aaad5fb06665f337c800b01a5e0bd67f3866",
+    "experiments/sms_spam_v1/run/evaluation/base_metrics.predictions.jsonl": "09a9eee5f872db7875c6a682415c30f79492096c50fdb46ddb98550289a907c6",
+    "experiments/sms_spam_v1/adapter_scores.json": "b7487042dc29fd6bcf6a902ef1e649280591e8022bed78033bf75b6ac948de3e",
+    "experiments/sms_spam_v1/run/evaluation/adapter_metrics.json": "eb46cbc9a819cbec33c51e2d069ed74991fb99abb8851e17eba76a4856a2a37a",
+    "experiments/sms_spam_v1/run/evaluation/adapter_metrics.receipt.json": "2e2566f629523060612b1e784f7190620334387b90e7f1cc44c9c06155e00cea",
+    "experiments/sms_spam_v1/run/evaluation/adapter_metrics.predictions.jsonl": "b13d44b8fbece86b3c64d91e9358f8c6797fd83f2073fb6155f5b802dbd96419"
+  },
+  "audit_code_sha256": "7c87708259b2c3c98b516f0624a42371e8f47492af3ab1adc555dc1da7b24977",
+  "limitations": "One fixed run; metrics are held-out task agreement, not statistical significance, arbitrary-task generality or domain correctness. CUDA allocator/session resources are not whole-machine cost."
+}

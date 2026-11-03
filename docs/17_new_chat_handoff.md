@@ -48,3 +48,9 @@ small_sample_v1：16训练、12所选适配器完整评价、36项原始bootstra
 修复WDDM桌面进程误拦；未知/Python/模型服务仍拒绝，跨进程锁保留，infer入口也受锁保护。不要修改本轮捕获的训练输入源码后尝试沿用旧收据；代码/数据/模型哈希已记录。GPU原始证据位于experiments/text_safety_v1/local_verify，checkpoint-9暂停副本在pause_evidence。日志、逐条预测、权重不发布。
 
 未来云端使用原128步配置与独立run，不把本地32步和云128步成绩解释为硬件对比；Linux/4090尚未执行。新环境复现和许可证决定仍待完成。
+
+## 2026-11-03第二领域迭代：已完成，不重跑
+
+所有者授权新增通信领域SMS分类，37号固定500train/200dev/1000test，Qwen3-4B单次128步。实际训练、8次完整dev、基座/适配器各1000test及独立CPU审计完成，见38号与results/sms_spam_results.json。新增score-classification与scripts/audit_classification_run.py，不改旧科学实现。首次GPU预检拒绝两个桌面进程，所有者明确授权核实并修正、重试一次；私有路径+SHA注册表保留远控，原失败/原manifest/operational_revision均保留。当前全部GPU阶段结束，不重启该任务。
+
+结果macro-F1 0.7986→0.9566，spam召回0.9328→0.9179，ham误报0.1305→0.0104；门槛全部达到，完整取舍与局限见38号。短信原文、日志、预测和模型私有，仅公开代码、配置、聚合与哈希。旧3181101本地验收的源码哈希按原提交核验，不改旧收据。

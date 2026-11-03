@@ -1,0 +1,258 @@
+{
+  "status": "complete_second_domain_framework_validation",
+  "date": "2026-11-03",
+  "task": "Historical English SMS ham/spam classification",
+  "protocol": "docs/37_sms_spam_protocol.md",
+  "run_audit": "results/sms_spam_run_audit.json",
+  "source_verified_records": 1700,
+  "byte_reproduced_files": 4,
+  "counts": {
+    "train": 500,
+    "dev": 200,
+    "test": 1000
+  },
+  "source_and_data": {
+    "schema_version": 1,
+    "purpose": "personal_adapter_example_v1",
+    "source_url": "https://archive.ics.uci.edu/static/public/228/sms+spam+collection.zip",
+    "source_sha256": "7d039a24a6083ed9ef0f806ebad56bbb976e3aeb8de05669173bfdc4996c239d",
+    "counts": {
+      "test": 1000,
+      "dev": 200,
+      "train": 500
+    },
+    "files_sha256": {
+      "train.jsonl": "1f851b4e84aa5f56643d59df783e7855304b19127f29b131252947f601324ea6",
+      "dev.jsonl": "3b4f6ae50f2fef91bd289d9c15bc4617deb8c589066b3b07041f28b8428f2a97",
+      "test.jsonl": "52a069685517cff224e53fedf7ca12aead113dea686eb7aa1b4d5c81efe5623b"
+    },
+    "real_authorization_declared": true,
+    "manual_near_duplicate_review_declared": false,
+    "automated_near_duplicate_review": {
+      "method": "source_prompt_character5_jaccard_v1",
+      "threshold": 0.9,
+      "status": "passed",
+      "comparisons": 800000
+    },
+    "label_counts": {
+      "test": {
+        "ham": 866,
+        "spam": 134
+      },
+      "dev": {
+        "ham": 173,
+        "spam": 27
+      },
+      "train": {
+        "ham": 433,
+        "spam": 67
+      }
+    },
+    "raw_label_counts": {
+      "ham": 4827,
+      "spam": 747
+    },
+    "excluded_rows": {
+      "duplicate_template_rows": 439
+    },
+    "eligible_template_groups": 5135,
+    "cross_split_rejections": {
+      "test": 0,
+      "dev": 1,
+      "train": 3
+    },
+    "split_seed": 20261103,
+    "split_policy": "One original record per normalized number/URL/email template; test then dev then train; cross-split original-text char5 Jaccard <0.9",
+    "max_length": 512,
+    "max_new_tokens": 16,
+    "tokenizer_config_sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+    "license": "CC BY 4.0 per UCI dataset card; original source readme retained privately",
+    "limitations": "Historical English corpus with no official train/test split; deterministic local holdout, approximate original class ratio. No author/sender identities or temporal generalization claim. Raw texts remain private."
+  },
+  "quality": {
+    "base": {
+      "samples": 1000,
+      "labels": [
+        "ham",
+        "spam"
+      ],
+      "accuracy": 0.878,
+      "macro_f1": 0.7985522179070565,
+      "per_class": {
+        "ham": {
+          "support": 866,
+          "precision": 0.9881889763779528,
+          "recall": 0.8695150115473441,
+          "f1": 0.9250614250614251
+        },
+        "spam": {
+          "support": 134,
+          "precision": 0.5252100840336135,
+          "recall": 0.9328358208955224,
+          "f1": 0.6720430107526881
+        }
+      },
+      "invalid_outputs": 0,
+      "invalid_rate": 0.0,
+      "confusion": {
+        "ham": {
+          "ham": 753,
+          "spam": 113,
+          "invalid": 0
+        },
+        "spam": {
+          "ham": 9,
+          "spam": 125,
+          "invalid": 0
+        }
+      }
+    },
+    "adapter": {
+      "samples": 1000,
+      "labels": [
+        "ham",
+        "spam"
+      ],
+      "accuracy": 0.98,
+      "macro_f1": 0.9566390023501661,
+      "per_class": {
+        "ham": {
+          "support": 866,
+          "precision": 0.9873271889400922,
+          "recall": 0.9896073903002309,
+          "f1": 0.9884659746251442
+        },
+        "spam": {
+          "support": 134,
+          "precision": 0.9318181818181818,
+          "recall": 0.917910447761194,
+          "f1": 0.924812030075188
+        }
+      },
+      "invalid_outputs": 0,
+      "invalid_rate": 0.0,
+      "confusion": {
+        "ham": {
+          "ham": 857,
+          "spam": 9,
+          "invalid": 0
+        },
+        "spam": {
+          "ham": 11,
+          "spam": 123,
+          "invalid": 0
+        }
+      }
+    }
+  },
+  "ham_false_alarm_rate": {
+    "base": 0.13048498845265588,
+    "adapter": 0.010392609699769052
+  },
+  "constant_ham_baseline": {
+    "samples": 1000,
+    "labels": [
+      "ham",
+      "spam"
+    ],
+    "accuracy": 0.866,
+    "macro_f1": 0.4640943193997856,
+    "per_class": {
+      "ham": {
+        "support": 866,
+        "precision": 0.866,
+        "recall": 1.0,
+        "f1": 0.9281886387995713
+      },
+      "spam": {
+        "support": 134,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "invalid_outputs": 0,
+    "invalid_rate": 0.0,
+    "confusion": {
+      "ham": {
+        "ham": 866,
+        "spam": 0,
+        "invalid": 0
+      },
+      "spam": {
+        "ham": 134,
+        "spam": 0,
+        "invalid": 0
+      }
+    }
+  },
+  "paired_correctness": {
+    "both_correct": 874,
+    "adapter_only_correct": 106,
+    "base_only_correct": 4,
+    "both_wrong": 16
+  },
+  "descriptive_acceptance_gates": {
+    "macro_f1_at_least_0_90": true,
+    "spam_recall_at_least_0_90": true,
+    "ham_false_alarm_at_most_0_05": true,
+    "zero_invalid_outputs": true
+  },
+  "all_acceptance_gates_passed": true,
+  "macro_f1_change": 0.15808678444310953,
+  "accuracy_change": 0.10199999999999998,
+  "training": {
+    "optimizer_steps": 128,
+    "full_dev_records": 200,
+    "scheduled_evaluations": 8,
+    "best_step": 32,
+    "best_dev_loss": 0.006557477172464132,
+    "adapter_sha256": "23fdc4ee0de7379c7509d33fbefb80a111f210662209aab4855c60dbc653995f",
+    "resources": {
+      "device": "NVIDIA GeForce RTX 5070 Ti",
+      "trainable_parameters": 16515072,
+      "total_parameters": 4038983168,
+      "peak_allocated_bytes": 8772863488,
+      "peak_reserved_bytes": 10850664448,
+      "elapsed_seconds_this_session": 1094.6149578094482,
+      "python": "3.12.14",
+      "torch": "2.11.0+cu128"
+    }
+  },
+  "tests": {
+    "training_environment": {
+      "total": 83,
+      "passed": 83
+    },
+    "cpu_environment": {
+      "total": 83,
+      "passed": 78,
+      "skipped": 5
+    }
+  },
+  "operational_recovery": {
+    "initial_failure": "GPU preflight only; no model load or run directory",
+    "owner_authorized_single_retry": true,
+    "verified_desktop_registry": "Exact local path plus SHA256; optional EdgeGameAssist/GameViewerServer names only; WDDM G/C+G; no Python/model service/C-only exemption",
+    "original_manifest_sha256": "2e2ac1deb686d5067a4ae1ecdf0c3e821a55e99949e195d8e1bcd761e9952725",
+    "operational_revision_sha256": "c9fe2404dfa2190e5a293fee649944b44508adb899661ad5517d5af9a6568115",
+    "post_run_gpu_inventory": "NVIDIA GeForce RTX 5070 Ti, 16303 MiB, 1103 MiB, 14893 MiB, 1 %"
+  },
+  "evidence_sha256": {
+    "results/sms_spam_run_audit.json": "8e9dc9aa7715d1f0fa19b9af59d93c4daa9cde0ba77948dbd19920473e940637",
+    "experiments/sms_spam_v1/commands.json": "b4a16596916824938a67daf6595e1133b6781c4217d7eadcdade3f3dac028ebf",
+    "experiments/sms_spam_v1/preflight_failure_01.json": "d5961c48bdb0d6cd0956b428eeedfdd4cb4456e1a78b4234ddc87eb3c7576cef",
+    "experiments/sms_spam_v1/operational_revision.json": "c9fe2404dfa2190e5a293fee649944b44508adb899661ad5517d5af9a6568115"
+  },
+  "remaining": [
+    "Linux/RTX4090 unexecuted",
+    "Code license not assigned",
+    "No arbitrary-task or per-user adaptation/generalization proof"
+  ],
+  "limitations": [
+    "One seed; historical English corpus; no official split; fixed local holdout and no test-driven search.",
+    "Acceptance thresholds are descriptive task targets, not statistical significance or noninferiority tests.",
+    "This is task/domain adaptation, not personalization of a specific sender. Template grouping is not sender or temporal independence. Public-corpus overlap with model pretraining has not been ruled out.",
+    "Existing source texts/labels retained privately. Public evidence contains aggregate scores and hashes only."
+  ]
+}

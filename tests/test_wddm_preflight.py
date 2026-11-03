@@ -26,3 +26,18 @@ class WddmPreflightTests(unittest.TestCase):
     def test_vendor_utility_requires_protected_vendor_path(self):
         self.assertIn(10,wddm_desktop_exclusions({10},xml(name='GCC.exe'),lambda pid:r'C:\Program Files\GIGABYTE\Control Center\GCC.exe'))
         self.assertEqual(wddm_desktop_exclusions({10},xml(name='GCC.exe'),lambda pid:r'C:\work\GCC.exe'),{})
+
+    def test_local_desktop_registry_requires_exact_path_and_current_hash(self):
+        from unittest.mock import patch
+        name=r'C:\Program Files\Example\GameViewerServer.exe'
+        trusted={name.casefold():'a'*64}
+        with patch('personal_llm_data.personal_runtime.desktop_file_digest',return_value='a'*64):
+            self.assertIn(10,wddm_desktop_exclusions({10},xml(name='GameViewerServer.exe'),lambda pid:name,trusted))
+            self.assertEqual(wddm_desktop_exclusions({10},xml(name='GameViewerServer.exe'),lambda pid:r'C:\Other\GameViewerServer.exe',trusted),{})
+            self.assertEqual(wddm_desktop_exclusions({10},xml(kind='C',name='GameViewerServer.exe'),lambda pid:name,trusted),{})
+        with patch('personal_llm_data.personal_runtime.desktop_file_digest',return_value='b'*64):
+            self.assertEqual(wddm_desktop_exclusions({10},xml(name='GameViewerServer.exe'),lambda pid:name,trusted),{})
+
+    def test_local_desktop_registry_cannot_allow_python(self):
+        name=r'C:\python.exe'
+        self.assertEqual(wddm_desktop_exclusions({10},xml(name='python.exe'),lambda pid:name,{name.casefold():'a'*64}),{})

@@ -11,3 +11,5 @@
 | 适配器、checkpoint、逐条预测 | experiments/runs及其他实验目录 | 只作为本地证据；正式发布前单独检查，不自动纳入代码发布包 |
 
 最新公开范围新增所有者明确授权的examples/text_safety_v1选定数据：DiaSafety医学行按上游Apache-2.0条款，BeaverTails金融/公共安全行按CC BY-NC 4.0保留来源及改动说明，见该目录NOTICE。其他全量原始数据、模型、缓存和逐条模型预测不公开。该数据例外不为仓库代码新增许可证。没有执行权重合并或模型发布。第三方资产不因代码公开而自动获准重新分发。
+
+SMS Spam Collection（UCI DOI 10.24432/C5CC84）：2026-11-03新增本地任务，UCI数据卡标示CC BY 4.0；原始文件、readme、源行号/标签及哈希私有保留于data/raw/sms_spam_v1与data/processed/sms_spam_v1。只公开重建代码、配置及聚合证据，不将短信原文或逐条预测纳入text_safety选定数据的公开例外。来源见37/38号。

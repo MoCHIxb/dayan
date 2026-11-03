@@ -12,6 +12,7 @@ COMMANDS = {
     'train': 'train_qwen_lora.py',
     'evaluate': 'evaluate_generation.py',
     'infer': 'infer_qwen.py',
+    'score-classification': 'score_classification.py',
     'audit-peft': 'run_peft_sequence.py',
 }
 
@@ -19,7 +20,7 @@ COMMANDS = {
 def main(argv=None):
     args = list(sys.argv[1:] if argv is None else argv)
     if not args or args[0] in ('-h','--help'):
-        print('personal-llm <plan|prepare-personal|train-personal|evaluate-personal|prepare|train|evaluate|infer|audit-peft> [arguments]\n'
+        print('personal-llm <plan|prepare-personal|train-personal|evaluate-personal|score-classification|prepare|train|evaluate|infer|audit-peft> [arguments]\n'
               'Use <command> --help for its options. Requires the source checkout;\n'
               'audit-peft is read-only unless explicitly passed --freeze/--run/--resume.')
         return 0

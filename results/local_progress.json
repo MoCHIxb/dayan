@@ -19,7 +19,7 @@
   ],
   "verified_at": "2026-11-02T17:09:27+0800",
   "framework": {
-    "stage": "local_gpu_example_functionality_verified",
+    "stage": "local_gpu_two_task_examples_verified",
     "goal": "consumer_gpu_developer_repository_and_method_guide",
     "first_case": "three_domain_text_response_safety_review",
     "frontend": "optional_not_required",
@@ -41,8 +41,18 @@
     "current_example_guide": "docs/35_three_domain_text_safety.md",
     "current_data": "examples/text_safety_v1",
     "text_safety_delivery": "results/text_safety_delivery.json",
-    "latest_cpu_tests": 76,
+    "latest_cpu_tests": 83,
     "local_gpu_validation": "results/local_text_safety_validation.json",
-    "local_gpu_guide": "docs/36_local_framework_validation.md"
+    "local_gpu_guide": "docs/36_local_framework_validation.md",
+    "latest_iteration": "results/sms_spam_results.json"
+  },
+  "last_iteration_updated": "2026-11-03",
+  "second_domain_iteration": {
+    "date": "2026-11-03",
+    "status": "complete_second_domain_framework_validation",
+    "report": "results/sms_spam_results.json",
+    "guide": "docs/38_sms_spam_results.md",
+    "gpu_work": "complete_do_not_rerun",
+    "tests": 83
   }
 }

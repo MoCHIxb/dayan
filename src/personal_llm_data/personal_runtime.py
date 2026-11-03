@@ -20,7 +20,15 @@ WDDM_DESKTOP_NAMES = frozenset(name.casefold() for name in (
     'codex-computer-use-swift.exe', 'webwallpaper64.exe', 'AMDRSSrcExt.exe', 'RadeonSoftware.exe'))
 
 
-def wddm_desktop_exclusions(pids, inventory_xml, lookup=None):
+OPTIONAL_WDDM_DESKTOP_NAMES = frozenset(('edgegameassist.exe', 'gameviewerserver.exe'))
+
+
+def desktop_file_digest(path):
+    from personal_llm_data.personal_data import sha
+    return sha(Path(path))
+
+
+def wddm_desktop_exclusions(pids, inventory_xml, lookup=None, trusted_executables=None):
     """Return verified desktop/stale PID exceptions, never infer from C+G alone.
 
     lookup(pid) returns a live OS process name, None only if absent, and raises
@@ -64,7 +72,16 @@ def wddm_desktop_exclusions(pids, inventory_xml, lookup=None):
         vendor_path = bool(re.fullmatch(
             r'[a-z]:\\program files\\(?:gigabyte\\control center\\gcc\.exe|windowsapps\\65d483df-b37e-4fcf-94de-8b795233db63_[^\\]+__1mmjbktjj1mkp\\gbt_dl_lib\.exe)',
             ntpath.normpath(name).casefold()))
-        if row is None or row.findtext('type') not in ('G', 'C+G') or (actual not in WDDM_DESKTOP_NAMES and not vendor_path):
+        # Additional verified desktop software requires an owner-authorized local
+        # exact path AND current file SHA. Never applies to Python/model services.
+        registered = (trusted_executables or {}).get(ntpath.normpath(name).casefold())
+        trusted_file = False
+        if actual in OPTIONAL_WDDM_DESKTOP_NAMES and isinstance(registered, str) and re.fullmatch(r'[0-9a-f]{64}', registered):
+            try:
+                trusted_file = desktop_file_digest(name) == registered
+            except OSError:
+                pass
+        if row is None or row.findtext('type') not in ('G', 'C+G') or (actual not in WDDM_DESKTOP_NAMES and not vendor_path and not trusted_file):
             continue
         recorded = ntpath.basename(row.findtext('process_name') or '').casefold()
         if recorded and recorded != actual:
@@ -100,7 +117,16 @@ def gpu_guard(root):
             other_pids = {int(line) for line in lines if int(line) != os.getpid()}
             if other_pids and os.name == 'nt':
                 inventory_xml = subprocess.check_output(['nvidia-smi', '-q', '-x'], text=True, timeout=15)
-                exceptions = wddm_desktop_exclusions(other_pids, inventory_xml)
+                registry = Path(root)/'experiments/personal_adapter_v1/trusted_wddm_desktop.json'
+                trusted = {}
+                if registry.exists():
+                    settings = json.loads(registry.read_text(encoding='utf-8'))
+                    if settings.get('schema_version') != 1 or settings.get('owner_authorized') is not True:
+                        raise RuntimeError('Invalid owner-authorized desktop registry')
+                    trusted = settings.get('executables_sha256')
+                    if not isinstance(trusted, dict) or any(not isinstance(k, str) or not isinstance(v, str) for k, v in trusted.items()):
+                        raise RuntimeError('Invalid desktop registry paths/digests')
+                exceptions = wddm_desktop_exclusions(other_pids, inventory_xml, trusted_executables=trusted)
                 other_pids -= set(exceptions)
                 if exceptions:
                     print('WDDM preflight: verified desktop/stale entries excluded: ' +

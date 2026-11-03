@@ -2,7 +2,7 @@
   "schema_version": 1,
   "updated_at": "2026-11-02T18:50:49+08:00",
   "scope": "developer repository with commands/configuration/interfaces/guide; full MVP not required",
-  "stage": "framework_with_local_gpu_example_verified",
+  "stage": "framework_two_task_local_gpu_verified",
   "training_environment_tests": {
     "total": 60,
     "passed": 60,
@@ -55,14 +55,22 @@
   "latest_guide": "docs/36_local_framework_validation.md",
   "latest_tests": {
     "training_environment": {
-      "total": 76,
-      "passed": 76,
-      "skipped": 0
+      "total": 83,
+      "passed": 83
     },
     "cpu_environment": {
-      "total": 76,
-      "passed": 71,
+      "total": 83,
+      "passed": 78,
       "skipped": 5
     }
+  },
+  "last_iteration_updated": "2026-11-03",
+  "second_domain_iteration": {
+    "date": "2026-11-03",
+    "status": "complete_second_domain_framework_validation",
+    "report": "results/sms_spam_results.json",
+    "guide": "docs/38_sms_spam_results.md",
+    "gpu_work": "complete_do_not_rerun",
+    "tests": 83
   }
 }

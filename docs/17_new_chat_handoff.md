@@ -54,3 +54,9 @@ small_sample_v1：16训练、12所选适配器完整评价、36项原始bootstra
 所有者授权新增通信领域SMS分类，37号固定500train/200dev/1000test，Qwen3-4B单次128步。实际训练、8次完整dev、基座/适配器各1000test及独立CPU审计完成，见38号与results/sms_spam_results.json。新增score-classification与scripts/audit_classification_run.py，不改旧科学实现。首次GPU预检拒绝两个桌面进程，所有者明确授权核实并修正、重试一次；私有路径+SHA注册表保留远控，原失败/原manifest/operational_revision均保留。当前全部GPU阶段结束，不重启该任务。
 
 结果macro-F1 0.7986→0.9566，spam召回0.9328→0.9179，ham误报0.1305→0.0104；门槛全部达到，完整取舍与局限见38号。短信原文、日志、预测和模型私有，仅公开代码、配置、聚合与哈希。旧3181101本地验收的源码哈希按原提交核验，不改旧收据。
+
+## 2026-11-03清理与云端准备
+
+当前云端主入口39号、configs/cloud_sms_spam_v1/qwen3_4b.json；首轮只复现SMS500/200/1000、128步，不启动旧LaMP12训练矩阵。prepare_cloud_sms负责固定资产并在匹配冻结SHA的前提下处理manifest换行差异；check_cloud_sms_assets默认只CPU，--check-gpu才核验真实Linux4090。尚未租机、连接或执行云端训练。
+
+所有者明确确认约6.3GiB具体清理范围后完成整理。停用Qwen3-1.7B/MiniLM权重按固定上游版本与SHA可重取，元数据已归档；旧检索数据和大日志无损归档后删除原件，重复重建副本/旧CPU环境/缓存清理。正式SMS、LaMP BM25、4B、所有checkpoint/适配器/原始统计/预测/收据保留；权限保护的pip缓存不强制改ACL。恢复与独立保全核验见40号及results/workspace_cleanup_20261103.json。原始reproduction_check/data_rebuilt已删除，对应哈希/再生证据在维护manifest，不能把重复副本缺失误判为原始数据丢失。

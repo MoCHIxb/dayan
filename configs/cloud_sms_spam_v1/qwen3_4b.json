@@ -1,0 +1,26 @@
+{
+  "protocol_id": "personal_adapter_example_v1",
+  "model_name_or_path": "models/Qwen3-4B",
+  "data_dir": "data/processed/sms_spam_v1",
+  "output_dir": "experiments/cloud_sms_spam_v1/run",
+  "seed": 20261103,
+  "max_length": 512,
+  "max_new_tokens": 16,
+  "max_steps": 128,
+  "eval_steps": 16,
+  "learning_rate": 0.0001,
+  "gradient_accumulation_steps": 16,
+  "quantization": "none",
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.05,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ]
+}

@@ -41,7 +41,7 @@
     "current_example_guide": "docs/35_three_domain_text_safety.md",
     "current_data": "examples/text_safety_v1",
     "text_safety_delivery": "results/text_safety_delivery.json",
-    "latest_cpu_tests": 83,
+    "latest_cpu_tests": 87,
     "local_gpu_validation": "results/local_text_safety_validation.json",
     "local_gpu_guide": "docs/36_local_framework_validation.md",
     "latest_iteration": "results/sms_spam_results.json"
@@ -54,5 +54,18 @@
     "guide": "docs/38_sms_spam_results.md",
     "gpu_work": "complete_do_not_rerun",
     "tests": 83
+  },
+  "cloud_preparation": {
+    "status": "cpu_assets_verified_linux4090_training_unexecuted",
+    "guide": "docs/39_cloud_4090_sms_guide.md",
+    "config": "configs/cloud_sms_spam_v1/qwen3_4b.json",
+    "output": "experiments/cloud_sms_spam_v1/run",
+    "scope": "one SMS 128-step platform reproduction; no old LaMP matrix",
+    "local_tests": 87
+  },
+  "workspace_maintenance": {
+    "status": "cleanup_completed_and_preserved_assets_verified",
+    "report": "results/workspace_cleanup_20261103.json",
+    "guide": "docs/40_workspace_maintenance.md"
   }
 }

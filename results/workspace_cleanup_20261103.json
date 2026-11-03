@@ -1,0 +1,259 @@
+{
+  "status": "cleanup_completed_and_preserved_assets_verified",
+  "date": "2026-11-03",
+  "owner_confirmed_specific_cleanup": true,
+  "removed_targets": 2498,
+  "logical_removed_bytes": 6801125351,
+  "archive_bytes": 35912377,
+  "logical_net_bytes": 6765212974,
+  "current_free_bytes": 26989965312,
+  "permission_protected_skips": [
+    {
+      "path": ".cache/pip",
+      "reason": "Windows permission denied on pip wheel; not retried; ACL unchanged"
+    }
+  ],
+  "retained": [
+    "Qwen3-4B full assets",
+    "active Windows training environment",
+    "NLTK evaluation resources",
+    "canonical LaMP BM25 data and raw source",
+    "canonical SMS data and raw source",
+    "published text-safety subsets and raw source",
+    "all adapter/checkpoint/optimizer/RNG states",
+    "original 2000-resample statistics, predictions, receipts and summaries; large closed logs archived losslessly"
+  ],
+  "verification": {
+    "frozen_asset_hashes": 164,
+    "small_sample_trainings": 16,
+    "peft_trainings": 12,
+    "original_result_receipts": 87,
+    "original_bootstrap_metadata_checked": 21,
+    "sms_and_safety_final_best_pause_checkpoints": true,
+    "example_prediction_and_receipt_hashes": true,
+    "lossless_archives": 10,
+    "manifest_transport_real_fixture": true,
+    "metadata_restore_real_fixture": true,
+    "main_environment_tests": {
+      "total": 87,
+      "passed": 87
+    },
+    "fresh_minimal_cpu_tests": {
+      "total": 87,
+      "passed": 82,
+      "skipped": 5
+    },
+    "all_formal_result_receipts": 159,
+    "all_original_paired_bootstrap_outputs": 54,
+    "bootstrap_recomputed": false
+  },
+  "archives": [
+    {
+      "path": "data/processed/lamp7",
+      "kind": "archived_retired_dataset",
+      "bytes": 37461775,
+      "archive": "experiments/maintenance_20261103/archives/lamp7.zip",
+      "archive_bytes": 7370906,
+      "archive_sha256": "f9e3854fd0073cc329ad7da193dc3047c19d72417580f02a0e09194850aa4c1c",
+      "members_sha256": {
+        "dataset_report.json": "e8f834e3739b1f7ea2a2b6df5380fb9f407e3f4d5d126a42e021b74eccc70e7e",
+        "dev.jsonl": "bdbb01c21616c910d25656c965457d851a01b28e76531d19b1edbe5b9cc5f7e1",
+        "test.jsonl": "9421061b1c42d19bfeed5254d5a1a2f2cc507bf6a7ef4816e2259786840c2848",
+        "train.jsonl": "f37bbc696ce763f5c758463dcfca098e672d35e42079e647801c7db5d9a14995",
+        "train_100.jsonl": "3cdf924d29e01b257ee72842135ee2c072cf01e0e42b366d93de79191c98ed09",
+        "train_200.jsonl": "ab86e074a8787098cb2f796eb7a4d294dbc0222b07f3f362ffcea3efcddcf8bb",
+        "train_50.jsonl": "e96dda0ab1382fe2a1a4b6ccc9296a30d600473a6a12e08e81918706347661ac",
+        "train_500.jsonl": "917c62ecf04e8125ac484dd235a1e7d87a312ff28b511738d50553a096e3c425"
+      }
+    },
+    {
+      "path": "data/processed/lamp7_retrieval_confirmation",
+      "kind": "archived_retired_dataset",
+      "bytes": 64855018,
+      "archive": "experiments/maintenance_20261103/archives/lamp7_retrieval_confirmation.zip",
+      "archive_bytes": 13724383,
+      "archive_sha256": "fe2875e2a22059e49350783a66677505a122a1eb245445493f2e368b405d6acd",
+      "members_sha256": {
+        "bm25_k12/dev.jsonl": "c170888276291089fec91520be7939b03fc313504f3685c94788175402466e3c",
+        "bm25_k12/test.jsonl": "807d5df60eda6df89357493ec0adc0c8ed7a71eea033ac47e8d87daee9af367b",
+        "bm25_k20/dev.jsonl": "31b0dc3d2f72b1f4a6f35c6b8b70bad8c7ce23561116e5a511b6aec0726f816d",
+        "bm25_k20/test.jsonl": "ea5dfea9d33432f6c526cc61a47fc2543400034a1cdcbbd9b5a143d2d6814e96",
+        "bm25_k4/dev.jsonl": "23efbd3a3e1cdd77615cd23b9cf6ddff9e6c19be75d69a7b38503107e961d2a5",
+        "bm25_k4/test.jsonl": "eacad206a637eac895f1110cf6c30d4f6a89ef7c4f7a91c770bd6cde4055313c",
+        "bm25_k8/dev.jsonl": "3771ff42939c48f17a12a83bb6761cef7afb7499be7e8e289bedadf1fb96f646",
+        "bm25_k8/test.jsonl": "2a98c12c367f8f8e72967029ae89f067592f8b3ae356aa444e1c715d97560042",
+        "dense_k12/dev.jsonl": "32a95c6c8c0df97dc0f8e8841cba35fdde66ece31db641fa3c7dae58f190a18f",
+        "dense_k12/test.jsonl": "1fee3b09147dd7623dd4d319e55d44ebfdaa8f7989602662da29875426844214",
+        "hybrid_rrf_k12/dev.jsonl": "cef782d3d7355db629d1b58330d809d374f892b55615fa0820c1b3910ed1dbe1",
+        "hybrid_rrf_k12/test.jsonl": "3156894c75e4175c7b43a005d68a6b4408402789b9473796773f8674648df7ef",
+        "manifest.json": "f7436f5d8b4461238c9ed3af0387fdbde0794cbc94cf39b033807fcfd56e5049",
+        "original_order_k12/dev.jsonl": "9c31b7942b5fa711f60985da10f7aadab028e4310dc960033cc18bc21e06c8d9",
+        "original_order_k12/test.jsonl": "98a6c0a1c5e44a97bb21f6765017f74ffd5b5a5755d95f32e2d5814b463114d6"
+      }
+    },
+    {
+      "path": "experiments/runs/qwen3-4b-lamp7-full-lora-r16-a32-int8/adapter_no_profile.eval.log",
+      "kind": "archived_closed_log",
+      "bytes": 252350664,
+      "sha256": "2f19375dc6e80ba7ba65cf27bf6cb83640878a33b8ec0c52d391e0856bd40364",
+      "archive": "experiments/maintenance_20261103/archives/logs/experiments/runs/qwen3-4b-lamp7-full-lora-r16-a32-int8/adapter_no_profile.eval.log.gz",
+      "archive_sha256": "5959e725d2fdd629811b4a9f60badbff275b45e180fc8520194edaee5b06f3b4",
+      "archive_bytes": 858145
+    },
+    {
+      "path": "experiments/runs/qwen3-4b-lamp7-full-lora-r16-a32-int8/adapter_profile.eval.log",
+      "kind": "archived_closed_log",
+      "bytes": 266069058,
+      "sha256": "10378ef620840e217c6e25d0b3fbc8f9426d3662dee0f51748912f0a1325d584",
+      "archive": "experiments/maintenance_20261103/archives/logs/experiments/runs/qwen3-4b-lamp7-full-lora-r16-a32-int8/adapter_profile.eval.log.gz",
+      "archive_sha256": "dd57d2e7a01a7a286d3bfda29b72e7cebb8d055a691d3a42a79c03220506fc3c",
+      "archive_bytes": 904692
+    },
+    {
+      "path": "experiments/runs/qwen3-4b-lamp7-full-lora-r16-a32-int8/base_no_profile.eval.log",
+      "kind": "archived_closed_log",
+      "bytes": 261452813,
+      "sha256": "f7ddf035175c1b20804fdd35b0ce49880284c2da7c1b13ff92a266a77291c5a7",
+      "archive": "experiments/maintenance_20261103/archives/logs/experiments/runs/qwen3-4b-lamp7-full-lora-r16-a32-int8/base_no_profile.eval.log.gz",
+      "archive_sha256": "e1ff197f409e2cf7a0e4e5710e85bcedc653ab6e8dbeb7f0b3b75f28903f8623",
+      "archive_bytes": 888974
+    },
+    {
+      "path": "experiments/runs/qwen3-4b-lamp7-full-lora-r16-a32-int8/base_profile.eval.log",
+      "kind": "archived_closed_log",
+      "bytes": 222495597,
+      "sha256": "930a2e8887865928ac6afbe58664dce1688bb5b7b21eed444af9de64736cce77",
+      "archive": "experiments/maintenance_20261103/archives/logs/experiments/runs/qwen3-4b-lamp7-full-lora-r16-a32-int8/base_profile.eval.log.gz",
+      "archive_sha256": "da034a3b927d87a95321084eaa75f0e9c20212f2c64dfe0efce1bdd4668bb471",
+      "archive_bytes": 756139
+    },
+    {
+      "path": "experiments/runs/qwen3-4b-lamp7-full-lora-r16-a32-int8/base_profile.eval.resume-1793165861387727000.log",
+      "kind": "archived_closed_log",
+      "bytes": 262579775,
+      "sha256": "7cc3cd00962f9d1f9bafda136048b740a16518cea212023353ca131d0224145c",
+      "archive": "experiments/maintenance_20261103/archives/logs/experiments/runs/qwen3-4b-lamp7-full-lora-r16-a32-int8/base_profile.eval.resume-1793165861387727000.log.gz",
+      "archive_sha256": "94a5a4c391039dfc32bab1ecd6e4ae96fa85a07f77b2aab0e756d4b014314512",
+      "archive_bytes": 892819
+    },
+    {
+      "path": "experiments/runs/qwen3-4b-lamp7-full-lora-r16-a32-int8/train.stderr.log",
+      "kind": "archived_closed_log",
+      "bytes": 918864847,
+      "sha256": "9fd5bcab878639323a8b3ba9649d466c8c21c34428fa6349e593afcf5dd80e64",
+      "archive": "experiments/maintenance_20261103/archives/logs/experiments/runs/qwen3-4b-lamp7-full-lora-r16-a32-int8/train.stderr.log.gz",
+      "archive_sha256": "a8234f0a3b10a5a20bd7bf0948909b9bf51247a2644415d173a13e52fb0b6f3a",
+      "archive_bytes": 6251118
+    },
+    {
+      "path": "models/Qwen3-1.7B",
+      "kind": "retired_model_directory",
+      "bytes": 4079451424,
+      "weights": [
+        {
+          "path": "models/Qwen3-1.7B/model-00001-of-00002.safetensors",
+          "kind": "retired_model_weight",
+          "bytes": 3441185608,
+          "sha256": "169ad53ec313c3a34b06c0809216e4fc072cce444a5d4ff2b59690d064130ed5",
+          "repo_id": "Qwen/Qwen3-1.7B",
+          "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+          "filename": "model-00001-of-00002.safetensors",
+          "recovery": "Re-download only this file at the pinned HF revision; verify SHA256. No model is downloaded by cleanup."
+        },
+        {
+          "path": "models/Qwen3-1.7B/model-00002-of-00002.safetensors",
+          "kind": "retired_model_weight",
+          "bytes": 622329984,
+          "sha256": "912becff8d60672aa8628ef08c05898d9adf17c2ad4ae3caf99b065622fdeff9",
+          "repo_id": "Qwen/Qwen3-1.7B",
+          "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+          "filename": "model-00002-of-00002.safetensors",
+          "recovery": "Re-download only this file at the pinned HF revision; verify SHA256. No model is downloaded by cleanup."
+        }
+      ],
+      "archive": "experiments/maintenance_20261103/archives/retired_Qwen3-1.7B_metadata.zip",
+      "archive_bytes": 3954449,
+      "archive_sha256": "fad02db0524deeddd52cc466564929b2e3be5d16eaa3ff7019ad330c3847f641",
+      "members_sha256": {
+        ".cache/huggingface/.gitignore": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1",
+        ".cache/huggingface/download/.gitattributes.metadata": "dc49385606658bcb2de5f93efc573c9dadfcf058a404aaea5d5f7123968781cb",
+        ".cache/huggingface/download/config.json.metadata": "2b0db4beb97974f9b9d9b49f963d1916c2e6898772e2688bdb8c51ebfc6c82da",
+        ".cache/huggingface/download/generation_config.json.metadata": "6de4a50d0e3e438ba269566e3c837b7f46e9e57e93952cc482777ca7812f4949",
+        ".cache/huggingface/download/LICENSE.metadata": "450caaee234a2399a908bc38252a5c6a2eec4f55c13915e74fa04a7df7277ba8",
+        ".cache/huggingface/download/merges.txt.metadata": "7ca6246dee1fdccac4df582632be34e609f60762c40a7970704150df6e5ab942",
+        ".cache/huggingface/download/model-00001-of-00002.safetensors.metadata": "86a6eef6c7b9a7e9b17d2664a3f04d9cb02720dbeeba9a9161eb409b97bdfdfc",
+        ".cache/huggingface/download/model-00002-of-00002.safetensors.metadata": "f7e893488f74eb7d4ead2cd37f45bb7cf7364fc2b01eb1ea7df7edc5e76fa4b6",
+        ".cache/huggingface/download/model.safetensors.index.json.metadata": "b1fdf2528153cea2b613c79f71a9f60ea8b0083ed88f5d835329092e7ff9ec6f",
+        ".cache/huggingface/download/README.md.metadata": "396a28f81f2244a1bedea35ebf2617e06796d7a2d3605a9139288fa4a2a8c852",
+        ".cache/huggingface/download/tokenizer.json.metadata": "1fdc2e2e31a2ac1c5d4a8df830877e0087f75b11628c5d29691365f7d9cc9747",
+        ".cache/huggingface/download/tokenizer_config.json.metadata": "3007598dcb314749292e5a669e7c4465ba187c396ea021663437ce0f813b1946",
+        ".cache/huggingface/download/vocab.json.metadata": "8c8638f0f0be24647aca2f027ba1338bb989ed6081551cceaa01ba2f074cfcdf",
+        ".gitattributes": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930",
+        "config.json": "1ddb5b89ebc90dcb417a45c213d818577e65976454d29385c8f6140771d95197",
+        "generation_config.json": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2",
+        "LICENSE": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+        "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+        "model.safetensors.index.json": "0d660e94b165eb912669a5249dff44b83188c4777a07ddb9611fb78d91b0578d",
+        "README.md": "257e52c419dac2258852643f18af6c974f21f8c6c1b6f371b6cca6201cf29091",
+        "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+        "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+        "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+      },
+      "recovery": "Restore metadata ZIP, re-download only pinned upstream weight filenames, verify per-file SHA256; never starts training"
+    },
+    {
+      "path": "models/all-MiniLM-L6-v2",
+      "kind": "retired_model_directory",
+      "bytes": 91608340,
+      "weights": [
+        {
+          "path": "models/all-MiniLM-L6-v2/model.safetensors",
+          "kind": "retired_model_weight",
+          "bytes": 90868376,
+          "sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+          "repo_id": "sentence-transformers/all-MiniLM-L6-v2",
+          "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+          "filename": "model.safetensors",
+          "recovery": "Re-download only this file at the pinned HF revision; verify SHA256. No model is downloaded by cleanup."
+        }
+      ],
+      "archive": "experiments/maintenance_20261103/archives/retired_all-MiniLM-L6-v2_metadata.zip",
+      "archive_bytes": 310752,
+      "archive_sha256": "b4a88b05ea069020b8a3ecc6a50703d8099abb82b8e6fef6f648b74122fba0bc",
+      "members_sha256": {
+        ".cache/huggingface/.gitignore": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1",
+        ".cache/huggingface/download/1_Pooling/config.json.metadata": "19c61aa2d1c0c4a2bcc54603a765483a61c4155ea87eb5077a3374a78019987c",
+        ".cache/huggingface/download/config.json.metadata": "14c2baa7a53518b29515be4c94e599198991464e2280776c561cbc753f1bad9a",
+        ".cache/huggingface/download/config_sentence_transformers.json.metadata": "fdd2578ef7e227c267f7c46a17b075a933500c30070ccaf6d9726f6e270ff8d4",
+        ".cache/huggingface/download/data_config.json.metadata": "adc8ab89818ee1a447a5a1423a3ed2da32a89344528f46d98322ad73ba853484",
+        ".cache/huggingface/download/model.safetensors.metadata": "2e106b9b0e0d12b0f7193b1b69707c31004a83f49e29b1d7243f9c561761aa59",
+        ".cache/huggingface/download/modules.json.metadata": "4bf02724e4fc4e8d9cef261d7f31731761b9f7e587401a20e7e9a6ced3be3901",
+        ".cache/huggingface/download/sentence_bert_config.json.metadata": "b43ee63bb2db6a6013d887d790ed036a3b1c7e3bab1663e3179bf874d832977c",
+        ".cache/huggingface/download/special_tokens_map.json.metadata": "fff485afeec2facb931bee2e2ab706318fe044d20994929e3cdcbfa21447df37",
+        ".cache/huggingface/download/tokenizer.json.metadata": "e8e18ebf90f7e567406090e5495046d94d45267d4ebd507912e713243b96b19e",
+        ".cache/huggingface/download/tokenizer_config.json.metadata": "7876cc8153a336b0b726a1a8867f8ee9bcc70765a435f0b6bb15ee6030a7abf1",
+        ".cache/huggingface/download/vocab.txt.metadata": "e8bcb637b0a4c5c591b72a4558e23ae5fa8fb6016f354320e2334c389b9ed467",
+        "1_Pooling/config.json": "4be450dde3b0273bb9787637cfbd28fe04a7ba6ab9d36ac48e92b11e350ffc23",
+        "config.json": "953f9c0d463486b10a6871cc2fd59f223b2c70184f49815e7efbcab5d8908b41",
+        "config_sentence_transformers.json": "061ca9d39661d6c6d6de5ba27f79a1cd5770ea247f8d46412a68a498dc5ac9f3",
+        "data_config.json": "32edcb108fc2516b920734a862ae0692bcae1c5d45d5f8d972cb0d53434a4c54",
+        "modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+        "sentence_bert_config.json": "fc1993fde0a95c24ec6c022539d41cf6e2f7c9721e5415d6fb6897472a9cd4b7",
+        "special_tokens_map.json": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3",
+        "tokenizer.json": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+        "tokenizer_config.json": "acb92769e8195aabd29b7b2137a9e6d6e25c476a4f15aa4355c233426c61576b",
+        "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+      },
+      "recovery": "Restore metadata ZIP, re-download only pinned upstream weight filenames, verify per-file SHA256; never starts training"
+    }
+  ],
+  "private_manifest": "experiments/maintenance_20261103/cleanup_manifest.json",
+  "restore_tool": "scripts/restore_workspace_archive.py",
+  "cloud_status": "CPU assets/preparation checked only; Linux/RTX4090 and cloud training unexecuted",
+  "private_evidence_sha256": {
+    "cleanup_manifest.json": "e5534536bac30c13ebc4877b94e65f361e36c2c410fdc1ad8f38d8accc976b32",
+    "deletion_receipt.json": "582ab2efedc1a066209738a246932407e3785d289612957f32757ebe41e660d4",
+    "inventory_before.json": "80350f0b7f1657f8a8e76437eced43fd8f0a6a7f118cd03f5562a26e1b69dbfa",
+    "cloud_assets_cpu_check.json": "e752be99858c9e35aea8dda0ef8524a425c6ec2a3ff26a49a336f9f64670c894"
+  }
+}

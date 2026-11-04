@@ -20,10 +20,13 @@ COMMANDS = {
 def main(argv=None):
     args = list(sys.argv[1:] if argv is None else argv)
     if not args or args[0] in ('-h','--help'):
-        print('personal-llm <plan|prepare-personal|train-personal|evaluate-personal|score-classification|prepare|train|evaluate|infer|audit-peft> [arguments]\n'
+        print('personal-llm <doctor|plan|prepare-personal|train-personal|evaluate-personal|score-classification|prepare|train|evaluate|infer|audit-peft> [arguments]\n'
               'Use <command> --help for its options. Requires the source checkout;\n'
               'audit-peft is read-only unless explicitly passed --freeze/--run/--resume.')
         return 0
+    if args[0] == 'doctor':
+        from personal_llm_data.doctor import main as doctor_main
+        return doctor_main(args[1:])
     if args[0] == 'prepare-personal':
         from personal_llm_data.personal_data import main as prepare_main
         return prepare_main(args[1:])

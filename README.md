@@ -8,7 +8,7 @@ Exploration of Personalized Adaptation Methods for LLMs via Low-Resource Fine-Tu
 
 开发者从[33号启动与接口指南](docs/33_developer_framework_guide.md)开始：prepare-personal导入真实配对，train-personal默认检查且显式执行，evaluate-personal覆盖完整个人test，infer加载适配器。新增包装器已在本地完成真实训练、暂停恢复、完整120条基座/适配器测试和独立推理；总体macro-F1为0.677 → 0.816，安全回答误报率3.3% → 13.3%，不能只报告改善。
 
-总方案见[32号](docs/32_framework_master_plan.md)，接手见[当前交接](docs/17_new_chat_handoff.md)。
+总方案见[32号](docs/32_framework_master_plan.md)，接手见[当前交接](docs/17_new_chat_handoff.md)。2026-11-04新增[CPU诊断与框架迭代](docs/41_framework_iteration.md)、[论文初稿](docs/42_paper_draft.md)及[证据映射](docs/43_paper_evidence_map.md)；当前云端主入口为[39号单轮SMS](docs/39_cloud_4090_sms_guide.md)，尚未执行。
 
 **本仓库是研究代码公开快照；按项目所有者要求暂不指定代码许可证，正式开源发布尚未完成。** 见[许可证状态](LICENSE_STATUS.md)和[第三方资产说明](THIRD_PARTY_ASSETS.md)。
 
@@ -32,14 +32,15 @@ python -m personal_llm_data.workflow train-personal --help
 python -m personal_llm_data.workflow evaluate-personal --help
 python -m personal_llm_data.workflow plan --spec configs/framework_task_pending.json
 python -m personal_llm_data.workflow infer --help
-python scripts/run_cloud_comparison.py
+python -m personal_llm_data.workflow doctor
+python scripts/prepare_cloud_sms.py
 ```
 
-plan仅检查声明式任务元数据：当前真实材料未到位，模板有意返回待补输入和退出码2，不加载模型或启动训练；即使声明完整也须继续实际数据/硬件审计。最后一条只展示云端计划，不训练。训练依赖和真实数据/模型须另行准备；正式入口参数见[本地指南](docs/22_local_reproduction_guide.md)。历史自动执行器依赖本机证据和Windows接口，不能直接用于干净云端。
+plan仅检查声明式任务元数据：当前真实材料未到位，模板有意返回待补输入和退出码2，不加载模型或启动训练；即使声明完整也须继续实际数据/硬件审计。最后一条只展示当前单轮SMS资产准备计划，不训练。doctor只做CPU诊断，不认证GPU或训练就绪。训练依赖和真实数据/模型须另行准备；正式入口参数见[本地指南](docs/22_local_reproduction_guide.md)。历史自动执行器依赖本机证据和Windows接口，不能直接用于干净云端。
 
-## RTX4090复现
+## 历史LaMP平台复现（独立保留，当前不执行）
 
-按[云端完整指南](docs/27_cloud_4090_reproduction.md)执行。第一轮固定500条、四种PEFT配置各三个种子，共12次训练；完整dev1500/test1496，固定128步和开发集选择，不在4090上追加调参。
+当前云端入口是[39号单轮SMS指南](docs/39_cloud_4090_sms_guide.md)，仅一次500/200/1000、128步复现。下列[27号LaMP矩阵](docs/27_cloud_4090_reproduction.md)属于独立保留的未执行方案，需另行决定；不是本轮启动队列。其设计为四种PEFT配置各三个种子、完整dev1500/test1496。
 
 - `configs/cloud_4090_v1/`：独立云端配置，不覆盖本地输出。
 - `repro/local_assets.json`：数据、模型、核心代码与BERTScore模型哈希；没有原文或权重。
@@ -69,7 +70,7 @@ repro/         只含校验值的复现资产清单
 
 ## 第二领域验证（2026-11-03）
 
-新增通信文本SMS ham/spam分类：原UCI语料及既有标签，私有500/200/1000划分，单次128步真实训练和两组完整1000test均完成。macro-F1 0.7986→0.9566，spam召回0.9328→0.9179，ham误报0.1305→0.0104，不得仅报告accuracy。新增通用score-classification与只读CPU审计，协议见[37号](docs/37_sms_spam_protocol.md)，完整结果和是否值得微调见[38号](docs/38_sms_spam_results.md)。83项测试通过，原始短信/模型/预测不公开。新领域任务验证不代表任意个人、任务或语言都有效。
+新增通信文本SMS ham/spam分类：原UCI语料及既有标签，私有500/200/1000划分，单次128步真实训练和两组完整1000test均完成。macro-F1 0.7986→0.9566，spam召回0.9328→0.9179，ham误报0.1305→0.0104，不得仅报告accuracy。新增通用score-classification与只读CPU审计，协议见[37号](docs/37_sms_spam_protocol.md)，完整结果和是否值得微调见[38号](docs/38_sms_spam_results.md)。本轮历史验收83项测试通过，原始短信/模型/预测不公开。新领域任务验证不代表任意个人、任务或语言都有效。
 
 ## 当前云端入口与工作区整理
 

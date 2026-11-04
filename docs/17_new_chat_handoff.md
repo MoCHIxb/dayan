@@ -1,6 +1,6 @@
 # 当前交接：低资源开发者框架与三领域文本安全审查
 
-2026-11-02更新。项目D:\dayan；[GitHub](https://github.com/MoCHIxb/dayan)。开题计划和所有者最新指示优先。完整MVP/商业软件不是必做项；交付可运行仓库、启动命令、配置、接口与方法指南。
+2026-11-04更新。项目D:\dayan；[GitHub](https://github.com/MoCHIxb/dayan)。开题计划和所有者最新指示优先。完整MVP/商业软件不是必做项；交付可运行仓库、启动命令、配置、接口与方法指南。
 
 ## 接手入口
 
@@ -60,3 +60,7 @@ small_sample_v1：16训练、12所选适配器完整评价、36项原始bootstra
 当前云端主入口39号、configs/cloud_sms_spam_v1/qwen3_4b.json；首轮只复现SMS500/200/1000、128步，不启动旧LaMP12训练矩阵。prepare_cloud_sms负责固定资产并在匹配冻结SHA的前提下处理manifest换行差异；check_cloud_sms_assets默认只CPU，--check-gpu才核验真实Linux4090。尚未租机、连接或执行云端训练。
 
 所有者明确确认约6.3GiB具体清理范围后完成整理。停用Qwen3-1.7B/MiniLM权重按固定上游版本与SHA可重取，元数据已归档；旧检索数据和大日志无损归档后删除原件，重复重建副本/旧CPU环境/缓存清理。正式SMS、LaMP BM25、4B、所有checkpoint/适配器/原始统计/预测/收据保留；权限保护的pip缓存不强制改ACL。恢复与独立保全核验见40号及results/workspace_cleanup_20261103.json。原始reproduction_check/data_rebuilt已删除，对应哈希/再生证据在维护manifest，不能把重复副本缺失误判为原始数据丢失。
+
+## 2026-11-04框架与论文迭代
+
+所有者要求继续完善框架与撰写论文。新增CPU只读doctor统一入口、41号操作与后续计划、42号论文v0.1及43号主张证据映射。论文定位为既有LoRA上的实证/工程研究，不称新算法；云端结果不填猜测数值。README/33/32统一39号单轮SMS为当前入口，旧27号LaMP矩阵不是队列。测试与检查见results/framework_iteration_20261104.json。没有启动GPU、改冻结协议或原运行核心源码；真实个人/用户研究、云端实测及代码许可证仍待完成。

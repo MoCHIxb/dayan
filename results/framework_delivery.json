@@ -55,16 +55,20 @@
   "latest_guide": "docs/36_local_framework_validation.md",
   "latest_tests": {
     "training_environment": {
-      "total": 87,
-      "passed": 87
+      "total": 91,
+      "passed": 91,
+      "skipped": 0,
+      "date": "2026-11-04"
     },
     "cpu_environment": {
       "total": 87,
       "passed": 82,
-      "skipped": 5
+      "skipped": 5,
+      "date": "2026-11-03",
+      "note": "historical separate environment validation; not rerun in this iteration"
     }
   },
-  "last_iteration_updated": "2026-11-03",
+  "last_iteration_updated": "2026-11-04",
   "second_domain_iteration": {
     "date": "2026-11-03",
     "status": "complete_second_domain_framework_validation",
@@ -85,5 +89,13 @@
     "status": "cleanup_completed_and_preserved_assets_verified",
     "report": "results/workspace_cleanup_20261103.json",
     "guide": "docs/40_workspace_maintenance.md"
+  },
+  "paper_and_framework_iteration": {
+    "status": "completed_cpu_framework_iteration_and_paper_draft",
+    "evidence": "results/framework_iteration_20261104.json",
+    "guide": "docs/41_framework_iteration.md",
+    "paper_draft": "docs/42_paper_draft.md",
+    "tables": "docs/44_paper_tables.md",
+    "cpu_tests_passed": 91
   }
 }

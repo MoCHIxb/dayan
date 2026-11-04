@@ -6,12 +6,12 @@
 
 - 既有研究管线已在Windows/RTX5070Ti、Qwen3-4B验证，完整研究证据见23/25/30/31号文档。
 - 通用真实配对导入、独立配置、显式训练/完整test、暂停恢复和推理已经过本地GPU示例验收：三领域32步、SMS128步。新增通用字符串标签评分和只读CPU审计。真实个体风格泛化与新平台仍未完成验证。
-- Linux/RTX4090仍待27号方案实机验收；不将其视为已支持且验证的商业安装包。
+- Linux/RTX4090仍待39号单轮SMS方案实机验收；不将其视为已支持且验证的商业安装包。
 - 新个人示例单独放在`experiments/personal_example/`；不触碰small_sample_v1、peft_v1或cloud_4090_v1。默认配置是起点，不是专业任务最优方案。
 
 ## 2. 安装与启动入口
 
-先准备Python环境和本地Qwen3-4B。完整版本记录/本机依赖见22号及锁文件，Linux环境按27号指南处理CUDA/PyTorch。不要为了试新入口升级现有完成实验环境。
+先准备Python环境和本地Qwen3-4B。完整版本记录/本机依赖见22号及锁文件，当前Linux环境按39号单轮SMS指南处理CUDA/PyTorch。不要为了试新入口升级现有完成实验环境。
 
 新机器先确认Python 3.12。首次创建独立环境可按以下Windows命令；已有项目环境跳过创建与安装，不覆盖原环境：
 
@@ -29,7 +29,7 @@ python -m pip check
 python -c "from huggingface_hub import snapshot_download; snapshot_download('Qwen/Qwen3-4B', revision='1cfa9a7208912126459214e8b04321603b3df60c', local_dir='models/Qwen3-4B')"
 ```
 
-个人示例不要求额外下载BERTScore模型。Linux首次环境和严格平台复现仍按27号指南核验；上面命令不代表新平台已经通过验收。
+个人示例不要求额外下载BERTScore模型。Linux首次环境和当前单轮平台复现按39号指南核验；上面命令不代表新平台已经通过验收。
 
 以下所有命令在仓库根目录执行。激活已配置的环境后：
 
@@ -49,6 +49,10 @@ python -m personal_llm_data.workflow --help
 ```
 
 可编辑安装`python -m pip install -e . --no-deps`后可用`personal-llm`代替`python -m personal_llm_data.workflow`。保留源码及scripts目录；不是独立wheel部署。只有数据/CPU规划命令不需要torch等训练依赖，NF4还要求当前环境存在兼容bitsandbytes。
+
+### CPU只读诊断
+
+先运行 `python -m personal_llm_data.workflow doctor`。可加 `--config configs/cloud_sms_spam_v1/qwen3_4b.json` 检查prepared数据、模型文件存在性与输出冲突；完整说明见[41号](41_framework_iteration.md)。不导入Torch或查询GPU。退出0仅表示所列CPU检查通过；依赖版本仅供查看，模型SHA、全部配置与实际GPU能力仍需正式预检。对已完成本地配置报告输出存在是预期保护，不能据此删除结果或重跑。
 
 ## 3. 准备真实数据
 

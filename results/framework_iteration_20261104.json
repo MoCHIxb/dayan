@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-04",
+  "status": "completed_cpu_framework_iteration_and_paper_draft",
+  "tests": {
+    "command": "PYTHONPATH=src .venv/Scripts/python.exe -m unittest discover -s tests -q",
+    "total": 91,
+    "passed": 91,
+    "skipped": 0
+  },
+  "diagnostics": {
+    "default": "cpu_checks_passed",
+    "cloud_sms_config": "cpu_checks_passed",
+    "gpu_checked": false,
+    "training_readiness_certified": false
+  },
+  "frozen_sms_assets": "strict_environment_and_all_model_data_core_source_sha_verified",
+  "paper": {
+    "draft": "docs/42_paper_draft.md",
+    "evidence_map": "docs/43_paper_evidence_map.md",
+    "tables": "docs/44_paper_tables.md",
+    "tables_exactly_reproduced": true,
+    "small_sample_public_private_aggregate_equal": true,
+    "all_lamp_bleu_mean_sd_rows_matched": true,
+    "primary_reference_links_verified": 7,
+    "status": "v0.1_not_submission_ready"
+  },
+  "gpu_training_started": false,
+  "statistics_recomputed": false,
+  "old_receipts_modified": false,
+  "cloud_training": "not_executed",
+  "remaining": [
+    "one authorized Linux/RTX4090 SMS platform reproduction when server ready",
+    "author/supervisor review and institution thesis formatting",
+    "real individual-user validation and developer usability evidence remain unverified",
+    "owner code-license decision and formal release acceptance"
+  ]
+}

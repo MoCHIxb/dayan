@@ -21,3 +21,7 @@
 当前机器进度见`results/local_progress.json`；`results/local_pause_status.json`保留为历史暂停快照。本地已完成监控已删除，不自动重建。
 
 公开仓库仅包含所有者授权的examples/text_safety_v1选定数据；不含全量原始语料、旧LaMP数据、权重、checkpoint和逐条模型预测。文档内`experiments/`路径指向本地私有证据，干净克隆中不存在属于预期。代码尚未指定许可证，不把公开研究快照称为正式开源发布。
+
+- [41：框架迭代与CPU诊断](41_framework_iteration.md)、[42：论文初稿](42_paper_draft.md)、[43：论文证据映射](43_paper_evidence_map.md)：2026-11-04新增，云端仍未执行，非正式定稿。
+
+- [44：可重现论文主表](44_paper_tables.md)：export_paper_tables从四份公开聚合JSON提取，附SHA，不重算统计。

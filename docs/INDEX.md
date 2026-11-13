@@ -1,8 +1,10 @@
 # 文档索引与优先级
 
+当前最高优先级：[45：IntentTune领域方案](45_intenttune_plan.md)、[46：BANKING77固定协议](46_banking77_protocol.md)、[47：AutoDL RTX3090全部步骤](47_autodl3090_intenttune.md)、[48：数据卡](48_banking77_data_card.md)。旧安全扩充暂停，39号不再是当前主入口。
+
 开题计划与所有者最新指示优先；历史记录不是自动重启任务的授权。
 
-- [39：当前4090单轮SMS指南](39_cloud_4090_sms_guide.md)、[40：清理与恢复记录](40_workspace_maintenance.md)：云端尚未执行；原始证据保留和归档位置。
+- [39：历史4090单轮SMS指南](39_cloud_4090_sms_guide.md)、[40：清理与恢复记录](40_workspace_maintenance.md)：云端尚未执行；原始证据保留和归档位置。
 - [37：SMS新领域协议](37_sms_spam_protocol.md)、[38：完整结果](38_sms_spam_results.md)：私有500/200/1000真实数据、128步、严格分类评分与实际效果边界。
 - [36：本地框架功能验证](36_local_framework_validation.md)：32步真实训练、暂停恢复、完整test与资源/误报取舍；云端仍未执行。
 - [35：三类纯文本审查数据](35_three_domain_text_safety.md)：当前医学/金融/公共安全来源、实际数据规模、标签边界和独立云端命令。

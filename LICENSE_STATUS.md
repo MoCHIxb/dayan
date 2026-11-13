@@ -2,7 +2,7 @@
 
 The project owner has chosen to publish the research code before selecting an
 open-source license. No MIT, Apache-2.0 or other code license is granted by this
-snapshot. A formal open-source release remains pending a license decision.
+snapshot. The current owner requirement is formal GitHub repository maintenance, not an immediate open-source release. A license decision is not a blocker for the present research work; no code license has been granted.
 
 Third-party models, datasets and dependencies retain their respective terms.
 No model weights, full raw corpus, checkpoints or per-example model predictions are distributed.

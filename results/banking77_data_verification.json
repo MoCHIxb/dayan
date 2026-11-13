@@ -1,0 +1,25 @@
+{
+  "status": "all_selected_source_text_labels_and_nested_views_verified",
+  "unique_records": 1000,
+  "counts": {
+    "50": {
+      "train": 50,
+      "dev": 100,
+      "test": 400
+    },
+    "200": {
+      "train": 200,
+      "dev": 100,
+      "test": 400
+    },
+    "500": {
+      "train": 500,
+      "dev": 100,
+      "test": 400
+    }
+  },
+  "test_records_per_intent": 40,
+  "source_replay": true,
+  "fewshot_train_only": true,
+  "gpu_started": false
+}

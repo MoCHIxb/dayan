@@ -41,12 +41,12 @@
     "current_example_guide": "docs/35_three_domain_text_safety.md",
     "current_data": "examples/text_safety_v1",
     "text_safety_delivery": "results/text_safety_delivery.json",
-    "latest_cpu_tests": 91,
+    "latest_cpu_tests": 101,
     "local_gpu_validation": "results/local_text_safety_validation.json",
     "local_gpu_guide": "docs/36_local_framework_validation.md",
     "latest_iteration": "results/sms_spam_results.json"
   },
-  "last_iteration_updated": "2026-11-04",
+  "last_iteration_updated": "2026-11-13",
   "second_domain_iteration": {
     "date": "2026-11-03",
     "status": "complete_second_domain_framework_validation",
@@ -75,5 +75,25 @@
     "paper_draft": "docs/42_paper_draft.md",
     "tables": "docs/44_paper_tables.md",
     "cpu_tests_passed": 91
+  },
+  "current_scope": {
+    "framework": "IntentTune",
+    "domain": "customer_service_intent_recognition",
+    "dataset": "BANKING77 card10",
+    "master_plan": "docs/45_intenttune_plan.md",
+    "protocol": "docs/46_banking77_protocol.md",
+    "cloud_guide": "docs/47_autodl3090_intenttune.md",
+    "hardware": "AutoDL Linux RTX3090",
+    "model_experiments": "not_started",
+    "data_status": "source_verified_and_14_files_byte_reproduced",
+    "safety_expansion": "paused",
+    "formal_open_source_release": "not_required_now",
+    "code_license": "unassigned_not_blocking",
+    "preparation": "results/banking77_preparation.json",
+    "tests": {
+      "total": 101,
+      "passed": 101,
+      "date": "2026-11-13"
+    }
   }
 }

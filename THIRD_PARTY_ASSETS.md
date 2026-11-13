@@ -13,3 +13,7 @@
 最新公开范围新增所有者明确授权的examples/text_safety_v1选定数据：DiaSafety医学行按上游Apache-2.0条款，BeaverTails金融/公共安全行按CC BY-NC 4.0保留来源及改动说明，见该目录NOTICE。其他全量原始数据、模型、缓存和逐条模型预测不公开。该数据例外不为仓库代码新增许可证。没有执行权重合并或模型发布。第三方资产不因代码公开而自动获准重新分发。
 
 SMS Spam Collection（UCI DOI 10.24432/C5CC84）：2026-11-03新增本地任务，UCI数据卡标示CC BY 4.0；原始文件、readme、源行号/标签及哈希私有保留于data/raw/sms_spam_v1与data/processed/sms_spam_v1。只公开重建代码、配置及聚合证据，不将短信原文或逐条预测纳入text_safety选定数据的公开例外。来源见37/38号。
+
+## BANKING77 (current IntentTune task)
+
+Casanueva et al. (2020), Efficient Intent Detection with Dual Sentence Encoders. Source: https://github.com/PolyAI-LDN/task-specific-datasets, pinned 57ec275d8078af65b7731c2a98be812d844a6d6b. Upstream LICENSE is CC BY 4.0. This project selects ten card-service categories, preserves original texts/category labels, formats label JSON, and adds project-authored catalog instructions; raw and processed banking texts are not redistributed here. Source/selection details and hashes: docs/46_banking77_protocol.md, docs/48_banking77_data_card.md and repro/banking77_assets.json. No new dataset-publication exception or project-code license is implied.

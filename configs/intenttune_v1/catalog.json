@@ -1,0 +1,41 @@
+{
+  "name": "IntentTune",
+  "task": "banking77_card10_v1",
+  "labels": [
+    "activate_my_card",
+    "card_arrival",
+    "card_delivery_estimate",
+    "card_not_working",
+    "card_payment_not_recognised",
+    "lost_or_stolen_card",
+    "pin_blocked",
+    "change_pin",
+    "pending_card_payment",
+    "declined_card_payment"
+  ],
+  "definitions": {
+    "activate_my_card": "Activate a newly received card.",
+    "card_arrival": "A card already ordered has not arrived or its delivery needs tracking.",
+    "card_delivery_estimate": "Ask how long card delivery normally takes or for an estimated delivery time.",
+    "card_not_working": "General card malfunction without a more specific supported payment status.",
+    "card_payment_not_recognised": "A card payment is not recognized by the customer.",
+    "lost_or_stolen_card": "A physical card is lost or stolen.",
+    "pin_blocked": "The card PIN is blocked, including after too many incorrect attempts.",
+    "change_pin": "Change the card PIN.",
+    "pending_card_payment": "A card payment remains pending.",
+    "declined_card_payment": "A card payment was declined."
+  },
+  "training_sizes": [
+    50,
+    200,
+    500
+  ],
+  "dev_records": 100,
+  "test_records": 400,
+  "seed": 20261113,
+  "max_length": 1536,
+  "max_new_tokens": 64,
+  "source_revision": "57ec275d8078af65b7731c2a98be812d844a6d6b",
+  "out_of_scope": "not_trained_or_validated",
+  "synthesis": false
+}

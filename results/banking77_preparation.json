@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-13",
+  "status": "data_and_cloud_pipeline_prepared_no_model_experiments",
+  "framework": "IntentTune",
+  "task": "banking77_card10_v1",
+  "unique_source_records": 1000,
+  "counts": {
+    "50": {
+      "train": 50,
+      "dev": 100,
+      "test": 400
+    },
+    "200": {
+      "train": 200,
+      "dev": 100,
+      "test": 400
+    },
+    "500": {
+      "train": 500,
+      "dev": 100,
+      "test": 400
+    }
+  },
+  "source_revision": "57ec275d8078af65b7731c2a98be812d844a6d6b",
+  "labels": [
+    "activate_my_card",
+    "card_arrival",
+    "card_delivery_estimate",
+    "card_not_working",
+    "card_payment_not_recognised",
+    "lost_or_stolen_card",
+    "pin_blocked",
+    "change_pin",
+    "pending_card_payment",
+    "declined_card_payment"
+  ],
+  "exclusions": {
+    "duplicate_training_prompts": 3,
+    "near_official_selected_test": 1,
+    "official_test_exact_prompt_overlap": 2,
+    "near_development": 0
+  },
+  "source_text_and_labels_replayed": true,
+  "byte_reproduced_files": 14,
+  "data_sha256": {
+    "construction_report.json": "8b70d86c0bc8773284fa954dd74fa7856d5b4daad176e6270f59b0b2877b4dbe",
+    "fewshot_test.jsonl": "68596c99447e7e53a4260241f1fcdb1ff8c146ff906d405e0a6477ff2fcd4c2b",
+    "n200/dev.jsonl": "eea4de20557b9e62e7d13ed3e45f3594bf9007cf7f438503405a379c3caf573b",
+    "n200/manifest.json": "59d39f40c9e49c840e37bd0528d2125f5884de908789c5c91a76f24a87a2d206",
+    "n200/test.jsonl": "b2b6361eaab74db9e761b0aa53ddf7e62682f207ebcec1add4fa1260f74bd47e",
+    "n200/train.jsonl": "68aeb5b625374494f4e1ac21b1027495dfe64063fdf388b1b79b8e1216151dfa",
+    "n50/dev.jsonl": "eea4de20557b9e62e7d13ed3e45f3594bf9007cf7f438503405a379c3caf573b",
+    "n50/manifest.json": "371a05ef404093def0a69a3750996b5698aaa12634bea5326fc7f746ce966196",
+    "n50/test.jsonl": "b2b6361eaab74db9e761b0aa53ddf7e62682f207ebcec1add4fa1260f74bd47e",
+    "n50/train.jsonl": "5780b657aebc15630ec41ef9bb36428f3a423ba4389cac7c0101fbbfcc022c02",
+    "n500/dev.jsonl": "eea4de20557b9e62e7d13ed3e45f3594bf9007cf7f438503405a379c3caf573b",
+    "n500/manifest.json": "16cad231d760d2f33ea58450cfa1450f4dda1f096bca7a2ec69aa0e5a87701bd",
+    "n500/test.jsonl": "b2b6361eaab74db9e761b0aa53ddf7e62682f207ebcec1add4fa1260f74bd47e",
+    "n500/train.jsonl": "9b76994413ecbb1bd661538bfd2b8055017d7f255ba39e6156ee05eccf5baf2b"
+  },
+  "all_records_fit_token_budget": true,
+  "cloud_stages": 22,
+  "planned_trainings": 3,
+  "model_baselines_executed": false,
+  "training_started": false,
+  "gpu_checked": false,
+  "cloud_linux3090_validation": "not_executed",
+  "dataset_publication": "Private raw/processed text; only code/configuration/aggregate hashes public",
+  "code_license": "unassigned_not_a_current_delivery_blocker",
+  "validation": {
+    "cpu_tests": 101,
+    "passed": 101,
+    "skipped": 0,
+    "bash_syntax": "passed_git_bash_n",
+    "default_plan_stages": 22,
+    "default_plan_executable": false,
+    "experiment_namespace_created": false,
+    "strict_asset_check": "passed_cpu_only",
+    "source_replay": "passed_1000_records",
+    "independent_byte_reproduction": "passed_14_files",
+    "linux_rtx3090_execution": "not_executed"
+  }
+}

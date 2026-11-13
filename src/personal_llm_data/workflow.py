@@ -6,6 +6,9 @@ import subprocess
 import sys
 
 COMMANDS = {
+    'prepare-banking77': 'build_banking77.py',
+    'score-intents': 'score_intents.py',
+    'run-intents': 'run_intenttune_3090.py',
     'prepare': 'prepare_lamp7.py',
     'train-personal': 'train_personal_adapter.py',
     'evaluate-personal': 'evaluate_personal_adapter.py',
@@ -20,7 +23,7 @@ COMMANDS = {
 def main(argv=None):
     args = list(sys.argv[1:] if argv is None else argv)
     if not args or args[0] in ('-h','--help'):
-        print('personal-llm <doctor|plan|prepare-personal|train-personal|evaluate-personal|score-classification|prepare|train|evaluate|infer|audit-peft> [arguments]\n'
+        print('personal-llm <prepare-banking77|score-intents|run-intents|doctor|plan|prepare-personal|train-personal|evaluate-personal|score-classification|prepare|train|evaluate|infer|audit-peft> [arguments]\n'
               'Use <command> --help for its options. Requires the source checkout;\n'
               'audit-peft is read-only unless explicitly passed --freeze/--run/--resume.')
         return 0

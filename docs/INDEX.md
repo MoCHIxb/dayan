@@ -27,3 +27,5 @@
 - [41：框架迭代与CPU诊断](41_framework_iteration.md)、[42：论文初稿](42_paper_draft.md)、[43：论文证据映射](43_paper_evidence_map.md)：2026-11-04新增，云端仍未执行，非正式定稿。
 
 - [44：可重现论文主表](44_paper_tables.md)：export_paper_tables从四份公开聚合JSON提取，附SHA，不重算统计。
+
+- [50：现有跨任务证据对齐与多领域验证草案](50_multi_domain_validation_plan.md)：统一展示既有结果，提出同任务多领域对照；新来源/子集/运行协议尚未冻结，未启动训练。

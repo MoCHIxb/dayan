@@ -90,3 +90,5 @@ repro/         只含校验值的复现资产清单
 已被当前RTX3090/BANKING任务替代的历史准备见[39号单轮SMS指南](docs/39_cloud_4090_sms_guide.md)：复现本地500/200/1000、128步实例，独立cloud_sms_spam_v1输出。新增固定资产准备、严格CPU/真实Linux4090预检与可核验的manifest换行兼容；当前仅本地CPU验证，服务器未连接、云端未训练。旧27号LaMP十二次矩阵不是当前启动入口。
 
 清理范围、保留证据和恢复方法见[40号维护记录](docs/40_workspace_maintenance.md)。仅活动4B基座与正式数据保留在工作区常用路径；停用模型元数据、旧数据及大日志私有归档，关键checkpoint/原始统计保留。
+
+下载故障恢复：HF原站不可达或镜像大文件断连时，见[47号第5节](docs/47_autodl3090_intenttune.md)。可显式指定 `prepare --model-source modelscope`，仅接受原固定SHA一致的文件；已完成文件复用，失败保留partial且不自动重试。

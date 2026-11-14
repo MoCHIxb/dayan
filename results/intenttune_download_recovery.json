@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-14",
+  "status": "explicit_download_recovery_prepared_cloud_unverified",
+  "reported_cloud_failure": "HF original unreachable; mirror streamed two large shards partially then disconnected before data preparation/training",
+  "remedy": "Explicit ModelScope weight candidate download; skip existing exact-SHA files; own partial Range resume; no auto retry",
+  "official_modelscope_metadata": {
+    "three_weight_sha256_match_frozen_reference": true,
+    "range_probe_status": 206,
+    "probe_bytes": 1024
+  },
+  "local_validation": {
+    "cpu_tests": 108,
+    "passed": 108,
+    "existing_model_files_verified_without_network": 13,
+    "gpu_started": false
+  },
+  "scientific_model_data_config_changes": false,
+  "old_core_source_changes": false,
+  "cloud_training_started": false,
+  "cloud_recovery_confirmed": false
+}

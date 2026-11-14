@@ -46,7 +46,7 @@
     "local_gpu_guide": "docs/36_local_framework_validation.md",
     "latest_iteration": "results/sms_spam_results.json"
   },
-  "last_iteration_updated": "2026-11-13",
+  "last_iteration_updated": "2026-11-14",
   "second_domain_iteration": {
     "date": "2026-11-03",
     "status": "complete_second_domain_framework_validation",
@@ -94,6 +94,11 @@
       "total": 101,
       "passed": 101,
       "date": "2026-11-13"
+    },
+    "download_recovery": {
+      "report": "results/intenttune_download_recovery.json",
+      "cloud_status": "partial_model_download_failed_no_training",
+      "tests_passed": 108
     }
   }
 }

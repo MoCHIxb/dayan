@@ -101,7 +101,7 @@ def inputs():
     files+=[ROOT/'src/personal_llm_data'/name for name in ('banking77.py','classification.py','personal_data.py',
             'personal_runtime.py','text_safety.py','model_loading.py','workflow.py','training_protocol.py')]
     files+=[ROOT/'scripts'/name for name in ('build_banking77.py','verify_banking77.py','intent_baselines.py',
-            'score_intents.py','run_intenttune_3090.py','train_personal_adapter.py','train_qwen_lora.py',
+            'score_intents.py','run_intenttune_3090.py','prepare_model_assets.py','train_personal_adapter.py','train_qwen_lora.py',
             'evaluate_personal_adapter.py','evaluate_generation.py','audit_classification_run.py')]
     return {p.relative_to(ROOT).as_posix():sha(p) for p in sorted(files)}
 
@@ -240,6 +240,7 @@ def main(argv=None):
     group.add_argument('--report',action='store_true')
     group.add_argument('--gpu-check',action='store_true',help=argparse.SUPPRESS)
     group.add_argument('--pause',action='store_true')
+    p.add_argument('--model-source',choices=('huggingface','modelscope'),default='huggingface',help='Explicit download source for --prepare; frozen SHA stays unchanged')
     p.add_argument('--resume',action='store_true')
     p.add_argument('--acknowledge-failure',choices=[stage['name'] for stage in stages()])
     p.add_argument('--checkpoint',type=Path)
@@ -247,8 +248,8 @@ def main(argv=None):
     if (args.resume or args.acknowledge_failure or args.checkpoint) and not args.execute:p.error('Resume options require --execute')
     if (args.acknowledge_failure or args.checkpoint) and not args.resume:p.error('Recovery/checkpoint options require explicit --resume')
     if args.prepare:
-        # Reuse only its pinned 13-file model download, never its SMS data builder.
-        subprocess.run([sys.executable,'scripts/prepare_cloud_sms.py','--download-model'],cwd=ROOT,check=True)
+        # Complete exact-SHA assets are reused without a Hub request. Source is opt-in.
+        subprocess.run([sys.executable,'scripts/prepare_model_assets.py','--source',args.model_source,'--download'],cwd=ROOT,check=True)
         fetch(ROOT/'data/raw/banking77_v1')
         if not DATA.exists():build(ROOT/'data/raw/banking77_v1',DATA,ROOT/'models/Qwen3-4B')
         print(json.dumps(assets()))

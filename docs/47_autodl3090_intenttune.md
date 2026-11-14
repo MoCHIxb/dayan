@@ -41,7 +41,7 @@ bash scripts/cloud/run_banking77_3090.sh check
 bash scripts/cloud/run_banking77_3090.sh run
 ```
 
-prepare只复用旧prepare_cloud_sms的“固定模型下载”分支，不构建SMS。BANKING数据来自作者固定revision，所有JSONL及manifest用UTF-8/LF，云端应字节一致，不需要修改冻结SMS换行规则。已有数据会核验，不覆盖。首次运行先冻结新manifest，核对真实Linux/RTX3090、BF16和其他GPU进程；检查CUDA在短生命周期子进程完成，避免协调进程的CUDA上下文拦截后续训练。
+prepare使用独立prepare_model_assets核验并补齐固定13份模型文件；默认Hugging Face源，可显式选择ModelScope权重候选源，接受条件始终为原SHA256。不构建SMS。BANKING数据来自作者固定revision，所有JSONL及manifest用UTF-8/LF，云端应字节一致，不需要修改冻结SMS换行规则。已有数据会核验，不覆盖。首次运行先冻结新manifest，核对真实Linux/RTX3090、BF16和其他GPU进程；检查CUDA在短生命周期子进程完成，避免协调进程的CUDA上下文拦截后续训练。
 
 run的有限队列：一次固定10示例基座完整400test；然后按500/200/50各执行轻量对照、128步训练、零示例基座400test、适配器400test、两次严格评分和运行审计，共22阶段。所有GPU生成/训练串行。固定100dev与400test、提示目录、学习率和预算不按测试成绩改变。
 
@@ -80,3 +80,37 @@ bash scripts/cloud/run_banking77_3090.sh report
 主要私有输出：manifest.json、execution_state.json、attempts、receipts、fewshot、n50/n200/n500各自run、评分、run_audit.json和最终results.json。report要求22项收据、冻结代码/配置输入和全部输出SHA吻合，不仅凭进程结束宣布完成。最终含轻量模型、零示例、10示例、LoRA及每类混淆/资源；效果差或未达门槛也照实报告。
 
 保留所有原始文本、预测、权重和失败证据在服务器/私有备份。后续只将审查后的代码、配置和聚合结论同步GitHub，不将run目录提交。当前没有任何本轮模型结果；运行脚本和CPU测试通过不能替代3090实测。
+
+## 5. 下载中断或镜像速度过慢（2026-11-14）
+
+用户报告：原站不可达，HF镜像可下载配置/tokenizer和第三个分片，但两个约4GB分片在约8%处断连。这是模型准备失败，尚无本轮训练结果；缺少construction_report是准备中断的连带现象，不据此删数据或改配置。
+
+Qwen官方也提供ModelScope下载方式：[官方文档](https://qwen.readthedocs.io/en/latest/inference/transformers.html)。恢复工具不安装ModelScope SDK、不升级依赖；仅从官方ModelScope候选URL取得缺失safetensors，其余缺失元数据仍从固定HF revision取得。ModelScope分支名不等于HF提交，只有与冻结完整SHA完全一致才接受，不能用“同名模型”替代校验。
+
+只在下载准备失败、训练尚未启动时更新仓库。用户自行在云端命令行运行，无需本地SSH：
+
+```bash
+cd /root/autodl-tmp/dayan
+git -c http.version=HTTP/1.1 pull --ff-only origin main
+source .venv/bin/activate
+# 可先测1MiB，只是连通性/速度测试，不代替完整SHA核验：
+curl --noproxy '*' -L --fail --range 0-1048575 --connect-timeout 10 --max-time 30 -o /dev/null -w 'HTTP %{http_code}, speed %{speed_download} bytes/s\n' https://modelscope.cn/models/Qwen/Qwen3-4B/resolve/master/model-00001-of-00003.safetensors
+```
+
+若测试可用，显式选择该来源。下面的代理设置仅作用于括号内进程；元数据HF镜像保留，以备确实缺少某个小文件：
+
+```bash
+(
+  unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY all_proxy ALL_PROXY
+  export HF_ENDPOINT=https://hf-mirror.com
+  export HF_HUB_DISABLE_IMPLICIT_TOKEN=1
+  bash scripts/cloud/run_banking77_3090.sh prepare --model-source modelscope &&
+  bash scripts/cloud/run_banking77_3090.sh check
+)
+```
+
+新工具会对已完成的每个文件核对原SHA并跳过；不会重新请求Hub，也不覆盖不匹配的现有成品。新来源自己的partial保存在models/Qwen3-4B/.cache/intenttune_download，每次显式调用可按Range续传；服务器不支持正确续传则停止并保留原partial。旧HF .incomplete不删除、不自动拼接为其他来源的partial。出错不自动重试，不关闭TLS证书校验；最终SHA/长度不符不提升为正式权重。
+
+模型齐全后若BANKING的GitHub原档下载再失败，保留新的错误，单独处理数据网络问题，不启动run。训练开始后不得pull或运行模型恢复工具；现有run和旧六个科学核心实现不修改。本地只有小字节网络探测、临时小文件测试和已有完整模型的只读SHA验证，不能称云端下载已恢复。
+
+本地另已核对ModelScope官方文件API声明：三个权重分片的SHA均与冻结清单一致；最终仍对实际完整下载字节校验。108项CPU测试和已有13文件只读校验通过，不代表云端下载已完成。机器记录见results/intenttune_download_recovery.json。

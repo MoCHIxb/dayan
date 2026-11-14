@@ -1,6 +1,6 @@
 # 文档索引与优先级
 
-当前最高优先级：[45：IntentTune领域方案](45_intenttune_plan.md)、[46：BANKING77固定协议](46_banking77_protocol.md)、[47：AutoDL RTX3090全部步骤](47_autodl3090_intenttune.md)、[48：数据卡](48_banking77_data_card.md)。旧安全扩充暂停，39号不再是当前主入口。
+当前最高优先级：[45：IntentTune领域方案](45_intenttune_plan.md)、[46：BANKING77固定协议](46_banking77_protocol.md)、[47：AutoDL RTX3090全部步骤](47_autodl3090_intenttune.md)、[48：数据卡](48_banking77_data_card.md)。[49：首轮RTX3090结果与审计边界](49_banking77_results.md)已完成聚合导入复算。旧安全扩充暂停，39号不再是当前主入口。
 
 开题计划与所有者最新指示优先；历史记录不是自动重启任务的授权。
 

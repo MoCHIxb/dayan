@@ -106,21 +106,30 @@
     "protocol": "docs/46_banking77_protocol.md",
     "cloud_guide": "docs/47_autodl3090_intenttune.md",
     "hardware": "AutoDL Linux RTX3090",
-    "model_experiments": "not_started",
+    "model_experiments": "cloud_reported_complete_aggregate_independently_verified",
     "data_status": "source_verified_and_14_files_byte_reproduced",
     "safety_expansion": "paused",
     "formal_open_source_release": "not_required_now",
     "code_license": "unassigned_not_blocking",
     "preparation": "results/banking77_preparation.json",
     "tests": {
-      "total": 101,
-      "passed": 101,
-      "date": "2026-11-13"
+      "total": 113,
+      "passed": 113,
+      "date": "2026-11-14"
     },
     "download_recovery": {
       "report": "results/intenttune_download_recovery.json",
       "cloud_status": "partial_model_download_failed_no_training",
-      "tests_passed": 108
-    }
+      "tests_passed": 108,
+      "note": "historical failed-download snapshot; later recovered and completed cloud run"
+    },
+    "result": "results/banking77_card10_results.json",
+    "analysis": "docs/49_banking77_results.md",
+    "raw_import": "experiments/intenttune_banking77_v1/imported_cloud/results.json",
+    "verification_scope": "aggregate metrics and local frozen assets; cloud original files not imported",
+    "next_work": [
+      "preserve private cloud predictions/checkpoints/stage receipts",
+      "author review of paper; independent protocol before model extension"
+    ]
   }
 }

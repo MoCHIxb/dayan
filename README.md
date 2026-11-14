@@ -7,7 +7,7 @@
 ## 当前任务与运行入口
 
 - BANKING77银行卡客服10意图，原文/原标签；不是全77类benchmark。三档嵌套训练50/200/500，每类5/20/50条，共享100dev和400官方test，共1000条不同源记录。
-- 本轮数据源回放和14份构建文件字节重建已通过；截至本次交付，没有运行BANKING模型基线、训练或推理。
+- 本轮数据源回放和14份构建文件字节重建已通过。RTX3090云端22阶段已报告完成；导入聚合结果的10组混淆矩阵在本地独立复算通过，云端逐条产物尚未导入。
 - 后续全部新增实验在所有者准备的AutoDL RTX3090上执行。有限22阶段覆盖固定示例提示、轻量对照、三次128步LoRA、完整基座/适配器评价及审计；默认只展示计划，不运行GPU。
 - [45：领域方案](docs/45_intenttune_plan.md)、[46：固定协议](docs/46_banking77_protocol.md)、[47：RTX3090完整运行指南](docs/47_autodl3090_intenttune.md)、[48：数据卡](docs/48_banking77_data_card.md)。[当前交接](docs/17_new_chat_handoff.md)、[论文工作稿](docs/42_paper_draft.md)。
 
@@ -23,7 +23,7 @@ bash scripts/cloud/run_banking77_3090.sh run
 bash scripts/cloud/run_banking77_3090.sh report
 ```
 
-新环境的bootstrap、失败处理及完整暂停/恢复命令见47号。当前是CPU准备完成，不能宣称Linux/3090训练已成功或客服效果已提高。原始BANKING数据、模型、checkpoint和逐条预测不进Git；固定来源和构建代码可供云端重建。代码许可暂未指定，见[许可状态](LICENSE_STATUS.md)；各数据上游条款独立保留。
+新环境的bootstrap、失败处理及完整暂停/恢复命令见47号。首轮结果见[49号分析](docs/49_banking77_results.md)及[公开聚合](results/banking77_card10_results.json)：500条LoRA macro-F1为0.9401，高于零示例0.8360、10示例0.8916和同档轻量0.8947。50条优于200条，不能宣称单调收益或普适最优。云端原始预测/checkpoint/阶段收据仍需私有保全，本地未重新逐文件读取。原始BANKING数据、模型、checkpoint和逐条预测不进Git；固定来源和构建代码可供云端重建。代码许可暂未指定，见[许可状态](LICENSE_STATUS.md)；各数据上游条款独立保留。
 
 ## 已完成的历史研究证据（不重跑）
 
@@ -53,7 +53,7 @@ plan仅检查声明式任务元数据：当前真实材料未到位，模板有�
 
 ## 历史LaMP平台复现（独立保留，当前不执行）
 
-当前云端入口是[39号单轮SMS指南](docs/39_cloud_4090_sms_guide.md)，仅一次500/200/1000、128步复现。下列[27号LaMP矩阵](docs/27_cloud_4090_reproduction.md)属于独立保留的未执行方案，需另行决定；不是本轮启动队列。其设计为四种PEFT配置各三个种子、完整dev1500/test1496。
+当前云端入口是[47号RTX3090/BANKING指南](docs/47_autodl3090_intenttune.md)；历史[39号单轮SMS指南](docs/39_cloud_4090_sms_guide.md)，仅一次500/200/1000、128步复现。下列[27号LaMP矩阵](docs/27_cloud_4090_reproduction.md)属于独立保留的未执行方案，需另行决定；不是本轮启动队列。其设计为四种PEFT配置各三个种子、完整dev1500/test1496。
 
 - `configs/cloud_4090_v1/`：独立云端配置，不覆盖本地输出。
 - `repro/local_assets.json`：数据、模型、核心代码与BERTScore模型哈希；没有原文或权重。

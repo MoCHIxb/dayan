@@ -1,0 +1,3062 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-14",
+  "status": "cloud_summary_imported_aggregate_metrics_and_local_assets_verified",
+  "framework": "IntentTune",
+  "task": "BANKING77 card10 closed-set",
+  "seed": 20261113,
+  "training_sizes": [
+    50,
+    200,
+    500
+  ],
+  "dev": 100,
+  "test": 400,
+  "cloud_reported_status": "complete_banking77_card10_pipeline_audited",
+  "imported_summary_sha256": "3a9b0a6d5d3a880548401b822afebc70e025629248a011e719a7fbda29d3f80f",
+  "fewshot": {
+    "samples": 400,
+    "labels": [
+      "activate_my_card",
+      "card_arrival",
+      "card_delivery_estimate",
+      "card_not_working",
+      "card_payment_not_recognised",
+      "lost_or_stolen_card",
+      "pin_blocked",
+      "change_pin",
+      "pending_card_payment",
+      "declined_card_payment"
+    ],
+    "accuracy": 0.8925,
+    "macro_f1": 0.8915777969144155,
+    "per_class": {
+      "activate_my_card": {
+        "support": 40,
+        "precision": 1.0,
+        "recall": 0.9,
+        "f1": 0.9473684210526315
+      },
+      "card_arrival": {
+        "support": 40,
+        "precision": 0.8888888888888888,
+        "recall": 0.6,
+        "f1": 0.7164179104477612
+      },
+      "card_delivery_estimate": {
+        "support": 40,
+        "precision": 0.6909090909090909,
+        "recall": 0.95,
+        "f1": 0.8
+      },
+      "card_not_working": {
+        "support": 40,
+        "precision": 0.8444444444444444,
+        "recall": 0.95,
+        "f1": 0.8941176470588236
+      },
+      "card_payment_not_recognised": {
+        "support": 40,
+        "precision": 1.0,
+        "recall": 0.9,
+        "f1": 0.9473684210526315
+      },
+      "lost_or_stolen_card": {
+        "support": 40,
+        "precision": 0.8478260869565217,
+        "recall": 0.975,
+        "f1": 0.9069767441860465
+      },
+      "pin_blocked": {
+        "support": 40,
+        "precision": 0.9696969696969697,
+        "recall": 0.8,
+        "f1": 0.8767123287671232
+      },
+      "change_pin": {
+        "support": 40,
+        "precision": 0.8888888888888888,
+        "recall": 1.0,
+        "f1": 0.9411764705882353
+      },
+      "pending_card_payment": {
+        "support": 40,
+        "precision": 1.0,
+        "recall": 0.9,
+        "f1": 0.9473684210526315
+      },
+      "declined_card_payment": {
+        "support": 40,
+        "precision": 0.926829268292683,
+        "recall": 0.95,
+        "f1": 0.9382716049382716
+      }
+    },
+    "invalid_outputs": 0,
+    "invalid_rate": 0.0,
+    "confusion": {
+      "activate_my_card": {
+        "activate_my_card": 36,
+        "card_arrival": 1,
+        "card_delivery_estimate": 0,
+        "card_not_working": 2,
+        "card_payment_not_recognised": 0,
+        "lost_or_stolen_card": 1,
+        "pin_blocked": 0,
+        "change_pin": 0,
+        "pending_card_payment": 0,
+        "declined_card_payment": 0,
+        "invalid": 0
+      },
+      "card_arrival": {
+        "activate_my_card": 0,
+        "card_arrival": 24,
+        "card_delivery_estimate": 15,
+        "card_not_working": 0,
+        "card_payment_not_recognised": 0,
+        "lost_or_stolen_card": 1,
+        "pin_blocked": 0,
+        "change_pin": 0,
+        "pending_card_payment": 0,
+        "declined_card_payment": 0,
+        "invalid": 0
+      },
+      "card_delivery_estimate": {
+        "activate_my_card": 0,
+        "card_arrival": 2,
+        "card_delivery_estimate": 38,
+        "card_not_working": 0,
+        "card_payment_not_recognised": 0,
+        "lost_or_stolen_card": 0,
+        "pin_blocked": 0,
+        "change_pin": 0,
+        "pending_card_payment": 0,
+        "declined_card_payment": 0,
+        "invalid": 0
+      },
+      "card_not_working": {
+        "activate_my_card": 0,
+        "card_arrival": 0,
+        "card_delivery_estimate": 0,
+        "card_not_working": 38,
+        "card_payment_not_recognised": 0,
+        "lost_or_stolen_card": 0,
+        "pin_blocked": 1,
+        "change_pin": 0,
+        "pending_card_payment": 0,
+        "declined_card_payment": 1,
+        "invalid": 0
+      },
+      "card_payment_not_recognised": {
+        "activate_my_card": 0,
+        "card_arrival": 0,
+        "card_delivery_estimate": 0,
+        "card_not_working": 0,
+        "card_payment_not_recognised": 36,
+        "lost_or_stolen_card": 4,
+        "pin_blocked": 0,
+        "change_pin": 0,
+        "pending_card_payment": 0,
+        "declined_card_payment": 0,
+        "invalid": 0
+      },
+      "lost_or_stolen_card": {
+        "activate_my_card": 0,
+        "card_arrival": 0,
+        "card_delivery_estimate": 0,
+        "card_not_working": 1,
+        "card_payment_not_recognised": 0,
+        "lost_or_stolen_card": 39,
+        "pin_blocked": 0,
+        "change_pin": 0,
+        "pending_card_payment": 0,
+        "declined_card_payment": 0,
+        "invalid": 0
+      },
+      "pin_blocked": {
+        "activate_my_card": 0,
+        "card_arrival": 0,
+        "card_delivery_estimate": 0,
+        "card_not_working": 2,
+        "card_payment_not_recognised": 0,
+        "lost_or_stolen_card": 1,
+        "pin_blocked": 32,
+        "change_pin": 5,
+        "pending_card_payment": 0,
+        "declined_card_payment": 0,
+        "invalid": 0
+      },
+      "change_pin": {
+        "activate_my_card": 0,
+        "card_arrival": 0,
+        "card_delivery_estimate": 0,
+        "card_not_working": 0,
+        "card_payment_not_recognised": 0,
+        "lost_or_stolen_card": 0,
+        "pin_blocked": 0,
+        "change_pin": 40,
+        "pending_card_payment": 0,
+        "declined_card_payment": 0,
+        "invalid": 0
+      },
+      "pending_card_payment": {
+        "activate_my_card": 0,
+        "card_arrival": 0,
+        "card_delivery_estimate": 2,
+        "card_not_working": 0,
+        "card_payment_not_recognised": 0,
+        "lost_or_stolen_card": 0,
+        "pin_blocked": 0,
+        "change_pin": 0,
+        "pending_card_payment": 36,
+        "declined_card_payment": 2,
+        "invalid": 0
+      },
+      "declined_card_payment": {
+        "activate_my_card": 0,
+        "card_arrival": 0,
+        "card_delivery_estimate": 0,
+        "card_not_working": 2,
+        "card_payment_not_recognised": 0,
+        "lost_or_stolen_card": 0,
+        "pin_blocked": 0,
+        "change_pin": 0,
+        "pending_card_payment": 0,
+        "declined_card_payment": 38,
+        "invalid": 0
+      }
+    },
+    "minimum_class_recall": 0.6,
+    "top_confusions": [
+      {
+        "reference": "card_arrival",
+        "predicted": "card_delivery_estimate",
+        "count": 15
+      },
+      {
+        "reference": "pin_blocked",
+        "predicted": "change_pin",
+        "count": 5
+      },
+      {
+        "reference": "card_payment_not_recognised",
+        "predicted": "lost_or_stolen_card",
+        "count": 4
+      },
+      {
+        "reference": "activate_my_card",
+        "predicted": "card_not_working",
+        "count": 2
+      },
+      {
+        "reference": "card_delivery_estimate",
+        "predicted": "card_arrival",
+        "count": 2
+      },
+      {
+        "reference": "declined_card_payment",
+        "predicted": "card_not_working",
+        "count": 2
+      },
+      {
+        "reference": "pending_card_payment",
+        "predicted": "card_delivery_estimate",
+        "count": 2
+      },
+      {
+        "reference": "pending_card_payment",
+        "predicted": "declined_card_payment",
+        "count": 2
+      },
+      {
+        "reference": "pin_blocked",
+        "predicted": "card_not_working",
+        "count": 2
+      },
+      {
+        "reference": "activate_my_card",
+        "predicted": "card_arrival",
+        "count": 1
+      }
+    ],
+    "acceptance_gates": {
+      "macro_f1_at_least_085": true,
+      "minimum_class_recall_at_least_060": true,
+      "zero_invalid": true
+    },
+    "all_absolute_gates_passed": true,
+    "correct_records": 357
+  },
+  "runs": {
+    "50": {
+      "counts": {
+        "train": 50,
+        "dev": 100,
+        "test": 400
+      },
+      "quality": {
+        "base": {
+          "samples": 400,
+          "labels": [
+            "activate_my_card",
+            "card_arrival",
+            "card_delivery_estimate",
+            "card_not_working",
+            "card_payment_not_recognised",
+            "lost_or_stolen_card",
+            "pin_blocked",
+            "change_pin",
+            "pending_card_payment",
+            "declined_card_payment"
+          ],
+          "accuracy": 0.8375,
+          "macro_f1": 0.8359988866278816,
+          "per_class": {
+            "activate_my_card": {
+              "support": 40,
+              "precision": 1.0,
+              "recall": 0.925,
+              "f1": 0.961038961038961
+            },
+            "card_arrival": {
+              "support": 40,
+              "precision": 0.8571428571428571,
+              "recall": 0.75,
+              "f1": 0.8
+            },
+            "card_delivery_estimate": {
+              "support": 40,
+              "precision": 0.7608695652173914,
+              "recall": 0.875,
+              "f1": 0.813953488372093
+            },
+            "card_not_working": {
+              "support": 40,
+              "precision": 0.6129032258064516,
+              "recall": 0.95,
+              "f1": 0.7450980392156863
+            },
+            "card_payment_not_recognised": {
+              "support": 40,
+              "precision": 0.6666666666666666,
+              "recall": 0.55,
+              "f1": 0.6027397260273972
+            },
+            "lost_or_stolen_card": {
+              "support": 40,
+              "precision": 0.9069767441860465,
+              "recall": 0.975,
+              "f1": 0.9397590361445783
+            },
+            "pin_blocked": {
+              "support": 40,
+              "precision": 0.9705882352941176,
+              "recall": 0.825,
+              "f1": 0.8918918918918919
+            },
+            "change_pin": {
+              "support": 40,
+              "precision": 0.9090909090909091,
+              "recall": 1.0,
+              "f1": 0.9523809523809523
+            },
+            "pending_card_payment": {
+              "support": 40,
+              "precision": 0.9487179487179487,
+              "recall": 0.925,
+              "f1": 0.9367088607594937
+            },
+            "declined_card_payment": {
+              "support": 40,
+              "precision": 0.8888888888888888,
+              "recall": 0.6,
+              "f1": 0.7164179104477612
+            }
+          },
+          "invalid_outputs": 0,
+          "invalid_rate": 0.0,
+          "confusion": {
+            "activate_my_card": {
+              "activate_my_card": 37,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 2,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 1,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "card_arrival": {
+              "activate_my_card": 0,
+              "card_arrival": 30,
+              "card_delivery_estimate": 9,
+              "card_not_working": 1,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "card_delivery_estimate": {
+              "activate_my_card": 0,
+              "card_arrival": 5,
+              "card_delivery_estimate": 35,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "card_not_working": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 38,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 1,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 1,
+              "invalid": 0
+            },
+            "card_payment_not_recognised": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 14,
+              "card_payment_not_recognised": 22,
+              "lost_or_stolen_card": 3,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 1,
+              "invalid": 0
+            },
+            "lost_or_stolen_card": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 1,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 39,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "pin_blocked": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 3,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 33,
+              "change_pin": 4,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "change_pin": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 40,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "pending_card_payment": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 2,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 37,
+              "declined_card_payment": 1,
+              "invalid": 0
+            },
+            "declined_card_payment": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 3,
+              "card_payment_not_recognised": 11,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 2,
+              "declined_card_payment": 24,
+              "invalid": 0
+            }
+          },
+          "minimum_class_recall": 0.55,
+          "top_confusions": [
+            {
+              "reference": "card_payment_not_recognised",
+              "predicted": "card_not_working",
+              "count": 14
+            },
+            {
+              "reference": "declined_card_payment",
+              "predicted": "card_payment_not_recognised",
+              "count": 11
+            },
+            {
+              "reference": "card_arrival",
+              "predicted": "card_delivery_estimate",
+              "count": 9
+            },
+            {
+              "reference": "card_delivery_estimate",
+              "predicted": "card_arrival",
+              "count": 5
+            },
+            {
+              "reference": "pin_blocked",
+              "predicted": "change_pin",
+              "count": 4
+            },
+            {
+              "reference": "card_payment_not_recognised",
+              "predicted": "lost_or_stolen_card",
+              "count": 3
+            },
+            {
+              "reference": "declined_card_payment",
+              "predicted": "card_not_working",
+              "count": 3
+            },
+            {
+              "reference": "pin_blocked",
+              "predicted": "card_not_working",
+              "count": 3
+            },
+            {
+              "reference": "activate_my_card",
+              "predicted": "card_not_working",
+              "count": 2
+            },
+            {
+              "reference": "declined_card_payment",
+              "predicted": "pending_card_payment",
+              "count": 2
+            }
+          ],
+          "acceptance_gates": {
+            "macro_f1_at_least_085": false,
+            "minimum_class_recall_at_least_060": false,
+            "zero_invalid": true
+          },
+          "all_absolute_gates_passed": false,
+          "correct_records": 335
+        },
+        "adapter": {
+          "samples": 400,
+          "labels": [
+            "activate_my_card",
+            "card_arrival",
+            "card_delivery_estimate",
+            "card_not_working",
+            "card_payment_not_recognised",
+            "lost_or_stolen_card",
+            "pin_blocked",
+            "change_pin",
+            "pending_card_payment",
+            "declined_card_payment"
+          ],
+          "accuracy": 0.9075,
+          "macro_f1": 0.9083340124509064,
+          "per_class": {
+            "activate_my_card": {
+              "support": 40,
+              "precision": 1.0,
+              "recall": 0.925,
+              "f1": 0.961038961038961
+            },
+            "card_arrival": {
+              "support": 40,
+              "precision": 0.9444444444444444,
+              "recall": 0.85,
+              "f1": 0.8947368421052632
+            },
+            "card_delivery_estimate": {
+              "support": 40,
+              "precision": 0.8837209302325582,
+              "recall": 0.95,
+              "f1": 0.9156626506024096
+            },
+            "card_not_working": {
+              "support": 40,
+              "precision": 0.75,
+              "recall": 0.825,
+              "f1": 0.7857142857142857
+            },
+            "card_payment_not_recognised": {
+              "support": 40,
+              "precision": 0.96875,
+              "recall": 0.775,
+              "f1": 0.8611111111111112
+            },
+            "lost_or_stolen_card": {
+              "support": 40,
+              "precision": 0.8863636363636364,
+              "recall": 0.975,
+              "f1": 0.9285714285714286
+            },
+            "pin_blocked": {
+              "support": 40,
+              "precision": 0.9487179487179487,
+              "recall": 0.925,
+              "f1": 0.9367088607594937
+            },
+            "change_pin": {
+              "support": 40,
+              "precision": 1.0,
+              "recall": 0.975,
+              "f1": 0.9873417721518988
+            },
+            "pending_card_payment": {
+              "support": 40,
+              "precision": 1.0,
+              "recall": 0.875,
+              "f1": 0.9333333333333333
+            },
+            "declined_card_payment": {
+              "support": 40,
+              "precision": 0.7843137254901961,
+              "recall": 1.0,
+              "f1": 0.8791208791208791
+            }
+          },
+          "invalid_outputs": 0,
+          "invalid_rate": 0.0,
+          "confusion": {
+            "activate_my_card": {
+              "activate_my_card": 37,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 2,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 1,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "card_arrival": {
+              "activate_my_card": 0,
+              "card_arrival": 34,
+              "card_delivery_estimate": 5,
+              "card_not_working": 1,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "card_delivery_estimate": {
+              "activate_my_card": 0,
+              "card_arrival": 2,
+              "card_delivery_estimate": 38,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "card_not_working": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 33,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 1,
+              "pin_blocked": 1,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 5,
+              "invalid": 0
+            },
+            "card_payment_not_recognised": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 4,
+              "card_payment_not_recognised": 31,
+              "lost_or_stolen_card": 3,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 2,
+              "invalid": 0
+            },
+            "lost_or_stolen_card": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 1,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 39,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "pin_blocked": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 3,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 37,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "change_pin": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 1,
+              "change_pin": 39,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "pending_card_payment": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 1,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 35,
+              "declined_card_payment": 4,
+              "invalid": 0
+            },
+            "declined_card_payment": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 40,
+              "invalid": 0
+            }
+          },
+          "minimum_class_recall": 0.775,
+          "top_confusions": [
+            {
+              "reference": "card_arrival",
+              "predicted": "card_delivery_estimate",
+              "count": 5
+            },
+            {
+              "reference": "card_not_working",
+              "predicted": "declined_card_payment",
+              "count": 5
+            },
+            {
+              "reference": "card_payment_not_recognised",
+              "predicted": "card_not_working",
+              "count": 4
+            },
+            {
+              "reference": "pending_card_payment",
+              "predicted": "declined_card_payment",
+              "count": 4
+            },
+            {
+              "reference": "card_payment_not_recognised",
+              "predicted": "lost_or_stolen_card",
+              "count": 3
+            },
+            {
+              "reference": "pin_blocked",
+              "predicted": "card_not_working",
+              "count": 3
+            },
+            {
+              "reference": "activate_my_card",
+              "predicted": "card_not_working",
+              "count": 2
+            },
+            {
+              "reference": "card_delivery_estimate",
+              "predicted": "card_arrival",
+              "count": 2
+            },
+            {
+              "reference": "card_payment_not_recognised",
+              "predicted": "declined_card_payment",
+              "count": 2
+            },
+            {
+              "reference": "activate_my_card",
+              "predicted": "lost_or_stolen_card",
+              "count": 1
+            }
+          ],
+          "acceptance_gates": {
+            "macro_f1_at_least_085": true,
+            "minimum_class_recall_at_least_060": true,
+            "zero_invalid": true
+          },
+          "all_absolute_gates_passed": true,
+          "correct_records": 363
+        }
+      },
+      "centroid": {
+        "samples": 400,
+        "labels": [
+          "activate_my_card",
+          "card_arrival",
+          "card_delivery_estimate",
+          "card_not_working",
+          "card_payment_not_recognised",
+          "lost_or_stolen_card",
+          "pin_blocked",
+          "change_pin",
+          "pending_card_payment",
+          "declined_card_payment"
+        ],
+        "accuracy": 0.7175,
+        "macro_f1": 0.7080022722516447,
+        "per_class": {
+          "activate_my_card": {
+            "support": 40,
+            "precision": 0.7954545454545454,
+            "recall": 0.875,
+            "f1": 0.8333333333333334
+          },
+          "card_arrival": {
+            "support": 40,
+            "precision": 0.5333333333333333,
+            "recall": 0.6,
+            "f1": 0.5647058823529412
+          },
+          "card_delivery_estimate": {
+            "support": 40,
+            "precision": 0.6923076923076923,
+            "recall": 0.45,
+            "f1": 0.5454545454545454
+          },
+          "card_not_working": {
+            "support": 40,
+            "precision": 0.5,
+            "recall": 0.3,
+            "f1": 0.375
+          },
+          "card_payment_not_recognised": {
+            "support": 40,
+            "precision": 0.7878787878787878,
+            "recall": 0.65,
+            "f1": 0.7123287671232876
+          },
+          "lost_or_stolen_card": {
+            "support": 40,
+            "precision": 0.7804878048780488,
+            "recall": 0.8,
+            "f1": 0.7901234567901234
+          },
+          "pin_blocked": {
+            "support": 40,
+            "precision": 0.9117647058823529,
+            "recall": 0.775,
+            "f1": 0.8378378378378378
+          },
+          "change_pin": {
+            "support": 40,
+            "precision": 0.8974358974358975,
+            "recall": 0.875,
+            "f1": 0.8860759493670886
+          },
+          "pending_card_payment": {
+            "support": 40,
+            "precision": 0.75,
+            "recall": 0.9,
+            "f1": 0.8181818181818182
+          },
+          "declined_card_payment": {
+            "support": 40,
+            "precision": 0.5757575757575758,
+            "recall": 0.95,
+            "f1": 0.7169811320754716
+          }
+        },
+        "invalid_outputs": 0,
+        "invalid_rate": 0.0,
+        "confusion": {
+          "activate_my_card": {
+            "activate_my_card": 35,
+            "card_arrival": 2,
+            "card_delivery_estimate": 0,
+            "card_not_working": 2,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 0,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 0,
+            "declined_card_payment": 1,
+            "invalid": 0
+          },
+          "card_arrival": {
+            "activate_my_card": 1,
+            "card_arrival": 24,
+            "card_delivery_estimate": 5,
+            "card_not_working": 2,
+            "card_payment_not_recognised": 1,
+            "lost_or_stolen_card": 1,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 4,
+            "declined_card_payment": 2,
+            "invalid": 0
+          },
+          "card_delivery_estimate": {
+            "activate_my_card": 1,
+            "card_arrival": 14,
+            "card_delivery_estimate": 18,
+            "card_not_working": 0,
+            "card_payment_not_recognised": 2,
+            "lost_or_stolen_card": 2,
+            "pin_blocked": 0,
+            "change_pin": 1,
+            "pending_card_payment": 2,
+            "declined_card_payment": 0,
+            "invalid": 0
+          },
+          "card_not_working": {
+            "activate_my_card": 1,
+            "card_arrival": 3,
+            "card_delivery_estimate": 0,
+            "card_not_working": 12,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 3,
+            "pin_blocked": 1,
+            "change_pin": 0,
+            "pending_card_payment": 0,
+            "declined_card_payment": 20,
+            "invalid": 0
+          },
+          "card_payment_not_recognised": {
+            "activate_my_card": 0,
+            "card_arrival": 1,
+            "card_delivery_estimate": 1,
+            "card_not_working": 0,
+            "card_payment_not_recognised": 26,
+            "lost_or_stolen_card": 3,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 5,
+            "declined_card_payment": 4,
+            "invalid": 0
+          },
+          "lost_or_stolen_card": {
+            "activate_my_card": 2,
+            "card_arrival": 0,
+            "card_delivery_estimate": 0,
+            "card_not_working": 5,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 32,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 1,
+            "declined_card_payment": 0,
+            "invalid": 0
+          },
+          "pin_blocked": {
+            "activate_my_card": 1,
+            "card_arrival": 0,
+            "card_delivery_estimate": 1,
+            "card_not_working": 3,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 0,
+            "pin_blocked": 31,
+            "change_pin": 3,
+            "pending_card_payment": 0,
+            "declined_card_payment": 1,
+            "invalid": 0
+          },
+          "change_pin": {
+            "activate_my_card": 2,
+            "card_arrival": 0,
+            "card_delivery_estimate": 1,
+            "card_not_working": 0,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 0,
+            "pin_blocked": 2,
+            "change_pin": 35,
+            "pending_card_payment": 0,
+            "declined_card_payment": 0,
+            "invalid": 0
+          },
+          "pending_card_payment": {
+            "activate_my_card": 1,
+            "card_arrival": 0,
+            "card_delivery_estimate": 0,
+            "card_not_working": 0,
+            "card_payment_not_recognised": 3,
+            "lost_or_stolen_card": 0,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 36,
+            "declined_card_payment": 0,
+            "invalid": 0
+          },
+          "declined_card_payment": {
+            "activate_my_card": 0,
+            "card_arrival": 1,
+            "card_delivery_estimate": 0,
+            "card_not_working": 0,
+            "card_payment_not_recognised": 1,
+            "lost_or_stolen_card": 0,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 0,
+            "declined_card_payment": 38,
+            "invalid": 0
+          }
+        },
+        "minimum_class_recall": 0.3,
+        "top_confusions": [
+          {
+            "reference": "card_not_working",
+            "predicted": "declined_card_payment",
+            "count": 20
+          },
+          {
+            "reference": "card_delivery_estimate",
+            "predicted": "card_arrival",
+            "count": 14
+          },
+          {
+            "reference": "card_arrival",
+            "predicted": "card_delivery_estimate",
+            "count": 5
+          },
+          {
+            "reference": "card_payment_not_recognised",
+            "predicted": "pending_card_payment",
+            "count": 5
+          },
+          {
+            "reference": "lost_or_stolen_card",
+            "predicted": "card_not_working",
+            "count": 5
+          },
+          {
+            "reference": "card_arrival",
+            "predicted": "pending_card_payment",
+            "count": 4
+          },
+          {
+            "reference": "card_payment_not_recognised",
+            "predicted": "declined_card_payment",
+            "count": 4
+          },
+          {
+            "reference": "card_not_working",
+            "predicted": "card_arrival",
+            "count": 3
+          },
+          {
+            "reference": "card_not_working",
+            "predicted": "lost_or_stolen_card",
+            "count": 3
+          },
+          {
+            "reference": "card_payment_not_recognised",
+            "predicted": "lost_or_stolen_card",
+            "count": 3
+          }
+        ],
+        "acceptance_gates": {
+          "macro_f1_at_least_085": false,
+          "minimum_class_recall_at_least_060": false,
+          "zero_invalid": true
+        },
+        "all_absolute_gates_passed": false,
+        "correct_records": 287
+      },
+      "best_step": 32,
+      "best_dev_loss": 0.10350706428289413,
+      "evaluations": [
+        {
+          "step": 16,
+          "loss": 0.13332904875278473
+        },
+        {
+          "step": 32,
+          "loss": 0.10350706428289413
+        },
+        {
+          "step": 48,
+          "loss": 0.12381365150213242
+        },
+        {
+          "step": 64,
+          "loss": 0.13103991746902466
+        },
+        {
+          "step": 80,
+          "loss": 0.1346868872642517
+        },
+        {
+          "step": 96,
+          "loss": 0.13252957165241241
+        },
+        {
+          "step": 112,
+          "loss": 0.13256508111953735
+        },
+        {
+          "step": 128,
+          "loss": 0.13373251259326935
+        }
+      ],
+      "resources": {
+        "device": "NVIDIA GeForce RTX 3090",
+        "trainable_parameters": 16515072,
+        "total_parameters": 4038983168,
+        "python": "3.12.3",
+        "torch": "2.11.0+cu128",
+        "allocated_gib": 8.27925157546997,
+        "reserved_gib": 10.228515625,
+        "session_minutes": 13.044446543852489
+      },
+      "adapter_sha256": "f6b25f12f5b8c3a9de0540a84060703aa26a8a3dcb9fc25c27f83866fd5481e2",
+      "checkpoint_evidence": {
+        "best": {
+          "step": 32,
+          "files_sha256": {
+            "adapter_config.json": "6f1c15126dfd67eb32c3fa35d5ba5160bf6a18da266e75ac17ffb01058d30db7",
+            "adapter_model.safetensors": "f6b25f12f5b8c3a9de0540a84060703aa26a8a3dcb9fc25c27f83866fd5481e2",
+            "optimizer.pt": "fa0858fb3c5d46a19c93d015d83b75e6436ccce01fb1f428596215fc043422b1",
+            "rng_state.pth": "85df7403f14bd69f7bbb4113080c5b9d69ba941be9c76072faa14ee6f83fc152",
+            "scheduler.pt": "3f8ea3bb48a46a6a02b5e17ff80c2f8507b0cf87876f7f913a548bb7c94ea4bc",
+            "trainer_state.json": "39c0706d4d86a42121921084125a9bb0796c6760a8a911103a9e50ec770940bf"
+          }
+        },
+        "final": {
+          "step": 128,
+          "files_sha256": {
+            "adapter_config.json": "6f1c15126dfd67eb32c3fa35d5ba5160bf6a18da266e75ac17ffb01058d30db7",
+            "adapter_model.safetensors": "2515df2af9c95451beecfaccd8b9d24a9daa1bdb0377d693ae1bdf1eb7d0cba8",
+            "optimizer.pt": "b47fc994426bc1b460e9c5c673f9bf4c57b063fd770359d042da2baa3a008d91",
+            "rng_state.pth": "05c5d041a20e11e6214899b1b11b9760c0e8b50005d9865eed0e2c70a8ad885c",
+            "scheduler.pt": "de90c63ee77d93f59fb4ac9d8c3568e471d993ccf17f2631afe5cd16a32be326",
+            "trainer_state.json": "334b9da28a18ec18fef76e7a9164777db7a08bc564599f3de02da72db6cd2c1b"
+          }
+        }
+      },
+      "recorded_cloud_evidence_sha256": {
+        "experiments/intenttune_banking77_v1/n50/run/training_summary.json": "bd0713dd13fb9e5f9b5d02d81c973f99d433ab6f728c7b9b57f4ef2cae2a0f94",
+        "experiments/intenttune_banking77_v1/n50/run/run_inputs.json": "da8bb9489095b147ae5f761abd2bd8d591859998d0c890f6076236637e51a3fe",
+        "experiments/intenttune_banking77_v1/n50/run/progress.jsonl": "25a2835e787db2efd33c7b7c77b47defe3667ebddda0c4aca57ce9b7a83b1e54",
+        "experiments/intenttune_banking77_v1/n50/base_scores.json": "1d508e1775ef927d77ee31aa66dc940fdfaa37c481479c6258950bd77eaf9448",
+        "experiments/intenttune_banking77_v1/n50/run/evaluation/base_metrics.json": "7a6723be23b6723ab84bbf7f0e2794cc3629812a525921f27fba37234bbd7182",
+        "experiments/intenttune_banking77_v1/n50/run/evaluation/base_metrics.receipt.json": "d55667c144c5d06cac7842e881c829a0527cd433308aaca8db1222afc0223088",
+        "experiments/intenttune_banking77_v1/n50/run/evaluation/base_metrics.predictions.jsonl": "cd8234c8dd09127dbbb8ef22ccd5b427b76174e5acae6a537b8212b4897ed657",
+        "experiments/intenttune_banking77_v1/n50/adapter_scores.json": "11fa2be1494d941a9553e34038ea13a651addb022ba61c6433a724b9ac82c3fb",
+        "experiments/intenttune_banking77_v1/n50/run/evaluation/adapter_metrics.json": "28b28d028bb51ee6bcf5f61928fad00469eec4d666f0460e337db4ff141d4b73",
+        "experiments/intenttune_banking77_v1/n50/run/evaluation/adapter_metrics.receipt.json": "998eac4dbaae8ab6f296ff7302da256e01aadc0765f8d9da56e20aa237a668b8",
+        "experiments/intenttune_banking77_v1/n50/run/evaluation/adapter_metrics.predictions.jsonl": "2d811cdee8e01ec885b60a5c5a6e4db3244c5980d03c26093df1997f9b87e1b4"
+      },
+      "macro_f1_differences": {
+        "vs_base": 0.07233512582302482,
+        "vs_fewshot": 0.01675621553649087,
+        "vs_centroid": 0.2003317401992617
+      }
+    },
+    "200": {
+      "counts": {
+        "train": 200,
+        "dev": 100,
+        "test": 400
+      },
+      "quality": {
+        "base": {
+          "samples": 400,
+          "labels": [
+            "activate_my_card",
+            "card_arrival",
+            "card_delivery_estimate",
+            "card_not_working",
+            "card_payment_not_recognised",
+            "lost_or_stolen_card",
+            "pin_blocked",
+            "change_pin",
+            "pending_card_payment",
+            "declined_card_payment"
+          ],
+          "accuracy": 0.8375,
+          "macro_f1": 0.8359988866278816,
+          "per_class": {
+            "activate_my_card": {
+              "support": 40,
+              "precision": 1.0,
+              "recall": 0.925,
+              "f1": 0.961038961038961
+            },
+            "card_arrival": {
+              "support": 40,
+              "precision": 0.8571428571428571,
+              "recall": 0.75,
+              "f1": 0.8
+            },
+            "card_delivery_estimate": {
+              "support": 40,
+              "precision": 0.7608695652173914,
+              "recall": 0.875,
+              "f1": 0.813953488372093
+            },
+            "card_not_working": {
+              "support": 40,
+              "precision": 0.6129032258064516,
+              "recall": 0.95,
+              "f1": 0.7450980392156863
+            },
+            "card_payment_not_recognised": {
+              "support": 40,
+              "precision": 0.6666666666666666,
+              "recall": 0.55,
+              "f1": 0.6027397260273972
+            },
+            "lost_or_stolen_card": {
+              "support": 40,
+              "precision": 0.9069767441860465,
+              "recall": 0.975,
+              "f1": 0.9397590361445783
+            },
+            "pin_blocked": {
+              "support": 40,
+              "precision": 0.9705882352941176,
+              "recall": 0.825,
+              "f1": 0.8918918918918919
+            },
+            "change_pin": {
+              "support": 40,
+              "precision": 0.9090909090909091,
+              "recall": 1.0,
+              "f1": 0.9523809523809523
+            },
+            "pending_card_payment": {
+              "support": 40,
+              "precision": 0.9487179487179487,
+              "recall": 0.925,
+              "f1": 0.9367088607594937
+            },
+            "declined_card_payment": {
+              "support": 40,
+              "precision": 0.8888888888888888,
+              "recall": 0.6,
+              "f1": 0.7164179104477612
+            }
+          },
+          "invalid_outputs": 0,
+          "invalid_rate": 0.0,
+          "confusion": {
+            "activate_my_card": {
+              "activate_my_card": 37,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 2,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 1,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "card_arrival": {
+              "activate_my_card": 0,
+              "card_arrival": 30,
+              "card_delivery_estimate": 9,
+              "card_not_working": 1,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "card_delivery_estimate": {
+              "activate_my_card": 0,
+              "card_arrival": 5,
+              "card_delivery_estimate": 35,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "card_not_working": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 38,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 1,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 1,
+              "invalid": 0
+            },
+            "card_payment_not_recognised": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 14,
+              "card_payment_not_recognised": 22,
+              "lost_or_stolen_card": 3,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 1,
+              "invalid": 0
+            },
+            "lost_or_stolen_card": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 1,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 39,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "pin_blocked": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 3,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 33,
+              "change_pin": 4,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "change_pin": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 40,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "pending_card_payment": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 2,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 37,
+              "declined_card_payment": 1,
+              "invalid": 0
+            },
+            "declined_card_payment": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 3,
+              "card_payment_not_recognised": 11,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 2,
+              "declined_card_payment": 24,
+              "invalid": 0
+            }
+          },
+          "minimum_class_recall": 0.55,
+          "top_confusions": [
+            {
+              "reference": "card_payment_not_recognised",
+              "predicted": "card_not_working",
+              "count": 14
+            },
+            {
+              "reference": "declined_card_payment",
+              "predicted": "card_payment_not_recognised",
+              "count": 11
+            },
+            {
+              "reference": "card_arrival",
+              "predicted": "card_delivery_estimate",
+              "count": 9
+            },
+            {
+              "reference": "card_delivery_estimate",
+              "predicted": "card_arrival",
+              "count": 5
+            },
+            {
+              "reference": "pin_blocked",
+              "predicted": "change_pin",
+              "count": 4
+            },
+            {
+              "reference": "card_payment_not_recognised",
+              "predicted": "lost_or_stolen_card",
+              "count": 3
+            },
+            {
+              "reference": "declined_card_payment",
+              "predicted": "card_not_working",
+              "count": 3
+            },
+            {
+              "reference": "pin_blocked",
+              "predicted": "card_not_working",
+              "count": 3
+            },
+            {
+              "reference": "activate_my_card",
+              "predicted": "card_not_working",
+              "count": 2
+            },
+            {
+              "reference": "declined_card_payment",
+              "predicted": "pending_card_payment",
+              "count": 2
+            }
+          ],
+          "acceptance_gates": {
+            "macro_f1_at_least_085": false,
+            "minimum_class_recall_at_least_060": false,
+            "zero_invalid": true
+          },
+          "all_absolute_gates_passed": false,
+          "correct_records": 335
+        },
+        "adapter": {
+          "samples": 400,
+          "labels": [
+            "activate_my_card",
+            "card_arrival",
+            "card_delivery_estimate",
+            "card_not_working",
+            "card_payment_not_recognised",
+            "lost_or_stolen_card",
+            "pin_blocked",
+            "change_pin",
+            "pending_card_payment",
+            "declined_card_payment"
+          ],
+          "accuracy": 0.8925,
+          "macro_f1": 0.891920915878768,
+          "per_class": {
+            "activate_my_card": {
+              "support": 40,
+              "precision": 1.0,
+              "recall": 0.925,
+              "f1": 0.961038961038961
+            },
+            "card_arrival": {
+              "support": 40,
+              "precision": 0.9285714285714286,
+              "recall": 0.65,
+              "f1": 0.7647058823529411
+            },
+            "card_delivery_estimate": {
+              "support": 40,
+              "precision": 0.7450980392156863,
+              "recall": 0.95,
+              "f1": 0.8351648351648352
+            },
+            "card_not_working": {
+              "support": 40,
+              "precision": 0.7551020408163265,
+              "recall": 0.925,
+              "f1": 0.8314606741573034
+            },
+            "card_payment_not_recognised": {
+              "support": 40,
+              "precision": 0.9166666666666666,
+              "recall": 0.825,
+              "f1": 0.868421052631579
+            },
+            "lost_or_stolen_card": {
+              "support": 40,
+              "precision": 0.8863636363636364,
+              "recall": 0.975,
+              "f1": 0.9285714285714286
+            },
+            "pin_blocked": {
+              "support": 40,
+              "precision": 0.9714285714285714,
+              "recall": 0.85,
+              "f1": 0.9066666666666666
+            },
+            "change_pin": {
+              "support": 40,
+              "precision": 0.9302325581395349,
+              "recall": 1.0,
+              "f1": 0.963855421686747
+            },
+            "pending_card_payment": {
+              "support": 40,
+              "precision": 0.926829268292683,
+              "recall": 0.95,
+              "f1": 0.9382716049382716
+            },
+            "declined_card_payment": {
+              "support": 40,
+              "precision": 0.9722222222222222,
+              "recall": 0.875,
+              "f1": 0.9210526315789473
+            }
+          },
+          "invalid_outputs": 0,
+          "invalid_rate": 0.0,
+          "confusion": {
+            "activate_my_card": {
+              "activate_my_card": 37,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 2,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 1,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "card_arrival": {
+              "activate_my_card": 0,
+              "card_arrival": 26,
+              "card_delivery_estimate": 13,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 1,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "card_delivery_estimate": {
+              "activate_my_card": 0,
+              "card_arrival": 2,
+              "card_delivery_estimate": 38,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "card_not_working": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 37,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 1,
+              "pin_blocked": 1,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 1,
+              "invalid": 0
+            },
+            "card_payment_not_recognised": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 5,
+              "card_payment_not_recognised": 33,
+              "lost_or_stolen_card": 2,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "lost_or_stolen_card": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 1,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 39,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "pin_blocked": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 3,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 34,
+              "change_pin": 3,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "change_pin": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 40,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "pending_card_payment": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 2,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 38,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "declined_card_payment": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 1,
+              "card_payment_not_recognised": 1,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 3,
+              "declined_card_payment": 35,
+              "invalid": 0
+            }
+          },
+          "minimum_class_recall": 0.65,
+          "top_confusions": [
+            {
+              "reference": "card_arrival",
+              "predicted": "card_delivery_estimate",
+              "count": 13
+            },
+            {
+              "reference": "card_payment_not_recognised",
+              "predicted": "card_not_working",
+              "count": 5
+            },
+            {
+              "reference": "declined_card_payment",
+              "predicted": "pending_card_payment",
+              "count": 3
+            },
+            {
+              "reference": "pin_blocked",
+              "predicted": "card_not_working",
+              "count": 3
+            },
+            {
+              "reference": "pin_blocked",
+              "predicted": "change_pin",
+              "count": 3
+            },
+            {
+              "reference": "activate_my_card",
+              "predicted": "card_not_working",
+              "count": 2
+            },
+            {
+              "reference": "card_delivery_estimate",
+              "predicted": "card_arrival",
+              "count": 2
+            },
+            {
+              "reference": "card_payment_not_recognised",
+              "predicted": "lost_or_stolen_card",
+              "count": 2
+            },
+            {
+              "reference": "pending_card_payment",
+              "predicted": "card_payment_not_recognised",
+              "count": 2
+            },
+            {
+              "reference": "activate_my_card",
+              "predicted": "lost_or_stolen_card",
+              "count": 1
+            }
+          ],
+          "acceptance_gates": {
+            "macro_f1_at_least_085": true,
+            "minimum_class_recall_at_least_060": true,
+            "zero_invalid": true
+          },
+          "all_absolute_gates_passed": true,
+          "correct_records": 357
+        }
+      },
+      "centroid": {
+        "samples": 400,
+        "labels": [
+          "activate_my_card",
+          "card_arrival",
+          "card_delivery_estimate",
+          "card_not_working",
+          "card_payment_not_recognised",
+          "lost_or_stolen_card",
+          "pin_blocked",
+          "change_pin",
+          "pending_card_payment",
+          "declined_card_payment"
+        ],
+        "accuracy": 0.8725,
+        "macro_f1": 0.8723360973628408,
+        "per_class": {
+          "activate_my_card": {
+            "support": 40,
+            "precision": 0.9,
+            "recall": 0.9,
+            "f1": 0.9
+          },
+          "card_arrival": {
+            "support": 40,
+            "precision": 0.7391304347826086,
+            "recall": 0.85,
+            "f1": 0.7906976744186046
+          },
+          "card_delivery_estimate": {
+            "support": 40,
+            "precision": 0.8648648648648649,
+            "recall": 0.8,
+            "f1": 0.8311688311688312
+          },
+          "card_not_working": {
+            "support": 40,
+            "precision": 0.868421052631579,
+            "recall": 0.825,
+            "f1": 0.8461538461538461
+          },
+          "card_payment_not_recognised": {
+            "support": 40,
+            "precision": 0.9444444444444444,
+            "recall": 0.85,
+            "f1": 0.8947368421052632
+          },
+          "lost_or_stolen_card": {
+            "support": 40,
+            "precision": 0.8636363636363636,
+            "recall": 0.95,
+            "f1": 0.9047619047619048
+          },
+          "pin_blocked": {
+            "support": 40,
+            "precision": 0.9393939393939394,
+            "recall": 0.775,
+            "f1": 0.8493150684931506
+          },
+          "change_pin": {
+            "support": 40,
+            "precision": 0.9210526315789473,
+            "recall": 0.875,
+            "f1": 0.8974358974358975
+          },
+          "pending_card_payment": {
+            "support": 40,
+            "precision": 0.9,
+            "recall": 0.9,
+            "f1": 0.9
+          },
+          "declined_card_payment": {
+            "support": 40,
+            "precision": 0.8333333333333334,
+            "recall": 1.0,
+            "f1": 0.9090909090909091
+          }
+        },
+        "invalid_outputs": 0,
+        "invalid_rate": 0.0,
+        "confusion": {
+          "activate_my_card": {
+            "activate_my_card": 36,
+            "card_arrival": 3,
+            "card_delivery_estimate": 0,
+            "card_not_working": 1,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 0,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 0,
+            "declined_card_payment": 0,
+            "invalid": 0
+          },
+          "card_arrival": {
+            "activate_my_card": 1,
+            "card_arrival": 34,
+            "card_delivery_estimate": 3,
+            "card_not_working": 0,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 1,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 0,
+            "declined_card_payment": 1,
+            "invalid": 0
+          },
+          "card_delivery_estimate": {
+            "activate_my_card": 0,
+            "card_arrival": 4,
+            "card_delivery_estimate": 32,
+            "card_not_working": 0,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 3,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 0,
+            "declined_card_payment": 1,
+            "invalid": 0
+          },
+          "card_not_working": {
+            "activate_my_card": 1,
+            "card_arrival": 1,
+            "card_delivery_estimate": 0,
+            "card_not_working": 33,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 0,
+            "pin_blocked": 1,
+            "change_pin": 0,
+            "pending_card_payment": 0,
+            "declined_card_payment": 4,
+            "invalid": 0
+          },
+          "card_payment_not_recognised": {
+            "activate_my_card": 0,
+            "card_arrival": 1,
+            "card_delivery_estimate": 0,
+            "card_not_working": 0,
+            "card_payment_not_recognised": 34,
+            "lost_or_stolen_card": 1,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 3,
+            "declined_card_payment": 1,
+            "invalid": 0
+          },
+          "lost_or_stolen_card": {
+            "activate_my_card": 0,
+            "card_arrival": 1,
+            "card_delivery_estimate": 0,
+            "card_not_working": 0,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 38,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 1,
+            "declined_card_payment": 0,
+            "invalid": 0
+          },
+          "pin_blocked": {
+            "activate_my_card": 1,
+            "card_arrival": 0,
+            "card_delivery_estimate": 0,
+            "card_not_working": 4,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 1,
+            "pin_blocked": 31,
+            "change_pin": 3,
+            "pending_card_payment": 0,
+            "declined_card_payment": 0,
+            "invalid": 0
+          },
+          "change_pin": {
+            "activate_my_card": 1,
+            "card_arrival": 2,
+            "card_delivery_estimate": 0,
+            "card_not_working": 0,
+            "card_payment_not_recognised": 1,
+            "lost_or_stolen_card": 0,
+            "pin_blocked": 1,
+            "change_pin": 35,
+            "pending_card_payment": 0,
+            "declined_card_payment": 0,
+            "invalid": 0
+          },
+          "pending_card_payment": {
+            "activate_my_card": 0,
+            "card_arrival": 0,
+            "card_delivery_estimate": 2,
+            "card_not_working": 0,
+            "card_payment_not_recognised": 1,
+            "lost_or_stolen_card": 0,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 36,
+            "declined_card_payment": 1,
+            "invalid": 0
+          },
+          "declined_card_payment": {
+            "activate_my_card": 0,
+            "card_arrival": 0,
+            "card_delivery_estimate": 0,
+            "card_not_working": 0,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 0,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 0,
+            "declined_card_payment": 40,
+            "invalid": 0
+          }
+        },
+        "minimum_class_recall": 0.775,
+        "top_confusions": [
+          {
+            "reference": "card_delivery_estimate",
+            "predicted": "card_arrival",
+            "count": 4
+          },
+          {
+            "reference": "card_not_working",
+            "predicted": "declined_card_payment",
+            "count": 4
+          },
+          {
+            "reference": "pin_blocked",
+            "predicted": "card_not_working",
+            "count": 4
+          },
+          {
+            "reference": "activate_my_card",
+            "predicted": "card_arrival",
+            "count": 3
+          },
+          {
+            "reference": "card_arrival",
+            "predicted": "card_delivery_estimate",
+            "count": 3
+          },
+          {
+            "reference": "card_delivery_estimate",
+            "predicted": "lost_or_stolen_card",
+            "count": 3
+          },
+          {
+            "reference": "card_payment_not_recognised",
+            "predicted": "pending_card_payment",
+            "count": 3
+          },
+          {
+            "reference": "pin_blocked",
+            "predicted": "change_pin",
+            "count": 3
+          },
+          {
+            "reference": "change_pin",
+            "predicted": "card_arrival",
+            "count": 2
+          },
+          {
+            "reference": "pending_card_payment",
+            "predicted": "card_delivery_estimate",
+            "count": 2
+          }
+        ],
+        "acceptance_gates": {
+          "macro_f1_at_least_085": true,
+          "minimum_class_recall_at_least_060": true,
+          "zero_invalid": true
+        },
+        "all_absolute_gates_passed": true,
+        "correct_records": 349
+      },
+      "best_step": 32,
+      "best_dev_loss": 0.061781588941812515,
+      "evaluations": [
+        {
+          "step": 16,
+          "loss": 0.12268342822790146
+        },
+        {
+          "step": 32,
+          "loss": 0.061781588941812515
+        },
+        {
+          "step": 48,
+          "loss": 0.06662052124738693
+        },
+        {
+          "step": 64,
+          "loss": 0.06281419098377228
+        },
+        {
+          "step": 80,
+          "loss": 0.06421710550785065
+        },
+        {
+          "step": 96,
+          "loss": 0.06689373403787613
+        },
+        {
+          "step": 112,
+          "loss": 0.06798510998487473
+        },
+        {
+          "step": 128,
+          "loss": 0.06815174221992493
+        }
+      ],
+      "resources": {
+        "device": "NVIDIA GeForce RTX 3090",
+        "trainable_parameters": 16515072,
+        "total_parameters": 4038983168,
+        "python": "3.12.3",
+        "torch": "2.11.0+cu128",
+        "allocated_gib": 8.297248840332031,
+        "reserved_gib": 9.599609375,
+        "session_minutes": 15.55467048883438
+      },
+      "adapter_sha256": "1dd9cfa95a2cd3a062ed243e6c5dd8144e903809fca9f6bd20a1f814df483c30",
+      "checkpoint_evidence": {
+        "best": {
+          "step": 32,
+          "files_sha256": {
+            "adapter_config.json": "bd7d25c8ae27e3a81b61c457c76563333c7e88784d46bb79ac3c9f0d2d675539",
+            "adapter_model.safetensors": "1dd9cfa95a2cd3a062ed243e6c5dd8144e903809fca9f6bd20a1f814df483c30",
+            "optimizer.pt": "42c93e7685498862ee5ab9290be0f01ed77601331ccc8f701598ee3d8d4fa3ca",
+            "rng_state.pth": "55f822d986e084031267361d140fa8122892abebc517e8f9ed362fe119041185",
+            "scheduler.pt": "3f8ea3bb48a46a6a02b5e17ff80c2f8507b0cf87876f7f913a548bb7c94ea4bc",
+            "trainer_state.json": "5e5210687abe390c5e444d2bbd950af02768374f5b275f7050e9721a588b9c0e"
+          }
+        },
+        "final": {
+          "step": 128,
+          "files_sha256": {
+            "adapter_config.json": "bd7d25c8ae27e3a81b61c457c76563333c7e88784d46bb79ac3c9f0d2d675539",
+            "adapter_model.safetensors": "b7110b5275aa4b73a1ddaf802c1b97cbde6e51da7d4bfe42850ab8adaffab9f7",
+            "optimizer.pt": "be13e6cb7a5fd4d44e6cf319645d00df24f4bd3708a957a8fdb4735f563d6843",
+            "rng_state.pth": "c8735f0240b1bdb6656a8975a397a4b4682b4658546e017b9e15037d804899fc",
+            "scheduler.pt": "de90c63ee77d93f59fb4ac9d8c3568e471d993ccf17f2631afe5cd16a32be326",
+            "trainer_state.json": "8f2f4b39ee00fa4d3c9455346873b873caf7e164d024bf5e53b6f4442da666d1"
+          }
+        }
+      },
+      "recorded_cloud_evidence_sha256": {
+        "experiments/intenttune_banking77_v1/n200/run/training_summary.json": "546d11d6568ec8883503a0caed1dbe93af2fe47a45f2760c72192862c028f81b",
+        "experiments/intenttune_banking77_v1/n200/run/run_inputs.json": "4d8ad3a4d56955b37d1f5d458f4a24e1042ba83e471db211010cf110606d296b",
+        "experiments/intenttune_banking77_v1/n200/run/progress.jsonl": "5af871a01e70b1ee34409c113b205476e72e0570d046dc4078d6aba78efb1942",
+        "experiments/intenttune_banking77_v1/n200/base_scores.json": "6c314d50acaf13ce4b9f54a4aea64d3cec866106cbdc4cd7c423a7dc1d6a0043",
+        "experiments/intenttune_banking77_v1/n200/run/evaluation/base_metrics.json": "f81d9ada257e985b290de9a7735fdd66c3f3efb364f9ecb34a8c5803b6ebd293",
+        "experiments/intenttune_banking77_v1/n200/run/evaluation/base_metrics.receipt.json": "2c2a551f0f3b1f4b2433def5f41d3ef18241c1aad29b1d34b43264117843b014",
+        "experiments/intenttune_banking77_v1/n200/run/evaluation/base_metrics.predictions.jsonl": "cd8234c8dd09127dbbb8ef22ccd5b427b76174e5acae6a537b8212b4897ed657",
+        "experiments/intenttune_banking77_v1/n200/adapter_scores.json": "3bba01845da288ceef4bdb58485ae7c72c6ac0c20715f4cea5e9aa41cf14f195",
+        "experiments/intenttune_banking77_v1/n200/run/evaluation/adapter_metrics.json": "40e65043e41967750a46747be964eec8347024e17fe62a77dd62608f99f8cc20",
+        "experiments/intenttune_banking77_v1/n200/run/evaluation/adapter_metrics.receipt.json": "5d21e9165138e3203ff5d6cea53af4e6c6a093f95f6c2d0a81be5acc8c416ea5",
+        "experiments/intenttune_banking77_v1/n200/run/evaluation/adapter_metrics.predictions.jsonl": "46a914bde8b86e6d1f57e98fba8c66228e4ad9d53665333acda51f638fcb5c44"
+      },
+      "macro_f1_differences": {
+        "vs_base": 0.05592202925088641,
+        "vs_fewshot": 0.00034311896435246236,
+        "vs_centroid": 0.019584818515927194
+      }
+    },
+    "500": {
+      "counts": {
+        "train": 500,
+        "dev": 100,
+        "test": 400
+      },
+      "quality": {
+        "base": {
+          "samples": 400,
+          "labels": [
+            "activate_my_card",
+            "card_arrival",
+            "card_delivery_estimate",
+            "card_not_working",
+            "card_payment_not_recognised",
+            "lost_or_stolen_card",
+            "pin_blocked",
+            "change_pin",
+            "pending_card_payment",
+            "declined_card_payment"
+          ],
+          "accuracy": 0.8375,
+          "macro_f1": 0.8359988866278816,
+          "per_class": {
+            "activate_my_card": {
+              "support": 40,
+              "precision": 1.0,
+              "recall": 0.925,
+              "f1": 0.961038961038961
+            },
+            "card_arrival": {
+              "support": 40,
+              "precision": 0.8571428571428571,
+              "recall": 0.75,
+              "f1": 0.8
+            },
+            "card_delivery_estimate": {
+              "support": 40,
+              "precision": 0.7608695652173914,
+              "recall": 0.875,
+              "f1": 0.813953488372093
+            },
+            "card_not_working": {
+              "support": 40,
+              "precision": 0.6129032258064516,
+              "recall": 0.95,
+              "f1": 0.7450980392156863
+            },
+            "card_payment_not_recognised": {
+              "support": 40,
+              "precision": 0.6666666666666666,
+              "recall": 0.55,
+              "f1": 0.6027397260273972
+            },
+            "lost_or_stolen_card": {
+              "support": 40,
+              "precision": 0.9069767441860465,
+              "recall": 0.975,
+              "f1": 0.9397590361445783
+            },
+            "pin_blocked": {
+              "support": 40,
+              "precision": 0.9705882352941176,
+              "recall": 0.825,
+              "f1": 0.8918918918918919
+            },
+            "change_pin": {
+              "support": 40,
+              "precision": 0.9090909090909091,
+              "recall": 1.0,
+              "f1": 0.9523809523809523
+            },
+            "pending_card_payment": {
+              "support": 40,
+              "precision": 0.9487179487179487,
+              "recall": 0.925,
+              "f1": 0.9367088607594937
+            },
+            "declined_card_payment": {
+              "support": 40,
+              "precision": 0.8888888888888888,
+              "recall": 0.6,
+              "f1": 0.7164179104477612
+            }
+          },
+          "invalid_outputs": 0,
+          "invalid_rate": 0.0,
+          "confusion": {
+            "activate_my_card": {
+              "activate_my_card": 37,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 2,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 1,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "card_arrival": {
+              "activate_my_card": 0,
+              "card_arrival": 30,
+              "card_delivery_estimate": 9,
+              "card_not_working": 1,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "card_delivery_estimate": {
+              "activate_my_card": 0,
+              "card_arrival": 5,
+              "card_delivery_estimate": 35,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "card_not_working": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 38,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 1,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 1,
+              "invalid": 0
+            },
+            "card_payment_not_recognised": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 14,
+              "card_payment_not_recognised": 22,
+              "lost_or_stolen_card": 3,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 1,
+              "invalid": 0
+            },
+            "lost_or_stolen_card": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 1,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 39,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "pin_blocked": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 3,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 33,
+              "change_pin": 4,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "change_pin": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 40,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "pending_card_payment": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 2,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 37,
+              "declined_card_payment": 1,
+              "invalid": 0
+            },
+            "declined_card_payment": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 3,
+              "card_payment_not_recognised": 11,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 2,
+              "declined_card_payment": 24,
+              "invalid": 0
+            }
+          },
+          "minimum_class_recall": 0.55,
+          "top_confusions": [
+            {
+              "reference": "card_payment_not_recognised",
+              "predicted": "card_not_working",
+              "count": 14
+            },
+            {
+              "reference": "declined_card_payment",
+              "predicted": "card_payment_not_recognised",
+              "count": 11
+            },
+            {
+              "reference": "card_arrival",
+              "predicted": "card_delivery_estimate",
+              "count": 9
+            },
+            {
+              "reference": "card_delivery_estimate",
+              "predicted": "card_arrival",
+              "count": 5
+            },
+            {
+              "reference": "pin_blocked",
+              "predicted": "change_pin",
+              "count": 4
+            },
+            {
+              "reference": "card_payment_not_recognised",
+              "predicted": "lost_or_stolen_card",
+              "count": 3
+            },
+            {
+              "reference": "declined_card_payment",
+              "predicted": "card_not_working",
+              "count": 3
+            },
+            {
+              "reference": "pin_blocked",
+              "predicted": "card_not_working",
+              "count": 3
+            },
+            {
+              "reference": "activate_my_card",
+              "predicted": "card_not_working",
+              "count": 2
+            },
+            {
+              "reference": "declined_card_payment",
+              "predicted": "pending_card_payment",
+              "count": 2
+            }
+          ],
+          "acceptance_gates": {
+            "macro_f1_at_least_085": false,
+            "minimum_class_recall_at_least_060": false,
+            "zero_invalid": true
+          },
+          "all_absolute_gates_passed": false,
+          "correct_records": 335
+        },
+        "adapter": {
+          "samples": 400,
+          "labels": [
+            "activate_my_card",
+            "card_arrival",
+            "card_delivery_estimate",
+            "card_not_working",
+            "card_payment_not_recognised",
+            "lost_or_stolen_card",
+            "pin_blocked",
+            "change_pin",
+            "pending_card_payment",
+            "declined_card_payment"
+          ],
+          "accuracy": 0.94,
+          "macro_f1": 0.9401477993114691,
+          "per_class": {
+            "activate_my_card": {
+              "support": 40,
+              "precision": 1.0,
+              "recall": 0.925,
+              "f1": 0.961038961038961
+            },
+            "card_arrival": {
+              "support": 40,
+              "precision": 0.9166666666666666,
+              "recall": 0.825,
+              "f1": 0.868421052631579
+            },
+            "card_delivery_estimate": {
+              "support": 40,
+              "precision": 0.8260869565217391,
+              "recall": 0.95,
+              "f1": 0.8837209302325582
+            },
+            "card_not_working": {
+              "support": 40,
+              "precision": 0.8837209302325582,
+              "recall": 0.95,
+              "f1": 0.9156626506024096
+            },
+            "card_payment_not_recognised": {
+              "support": 40,
+              "precision": 1.0,
+              "recall": 0.975,
+              "f1": 0.9873417721518988
+            },
+            "lost_or_stolen_card": {
+              "support": 40,
+              "precision": 0.9302325581395349,
+              "recall": 1.0,
+              "f1": 0.963855421686747
+            },
+            "pin_blocked": {
+              "support": 40,
+              "precision": 0.972972972972973,
+              "recall": 0.9,
+              "f1": 0.935064935064935
+            },
+            "change_pin": {
+              "support": 40,
+              "precision": 0.975609756097561,
+              "recall": 1.0,
+              "f1": 0.9876543209876543
+            },
+            "pending_card_payment": {
+              "support": 40,
+              "precision": 0.95,
+              "recall": 0.95,
+              "f1": 0.95
+            },
+            "declined_card_payment": {
+              "support": 40,
+              "precision": 0.9736842105263158,
+              "recall": 0.925,
+              "f1": 0.9487179487179487
+            }
+          },
+          "invalid_outputs": 0,
+          "invalid_rate": 0.0,
+          "confusion": {
+            "activate_my_card": {
+              "activate_my_card": 37,
+              "card_arrival": 1,
+              "card_delivery_estimate": 0,
+              "card_not_working": 1,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 1,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "card_arrival": {
+              "activate_my_card": 0,
+              "card_arrival": 33,
+              "card_delivery_estimate": 6,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 1,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "card_delivery_estimate": {
+              "activate_my_card": 0,
+              "card_arrival": 2,
+              "card_delivery_estimate": 38,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "card_not_working": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 38,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 1,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 1,
+              "invalid": 0
+            },
+            "card_payment_not_recognised": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 39,
+              "lost_or_stolen_card": 1,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "lost_or_stolen_card": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 40,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "pin_blocked": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 3,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 36,
+              "change_pin": 1,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "change_pin": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 40,
+              "pending_card_payment": 0,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "pending_card_payment": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 2,
+              "card_not_working": 0,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 38,
+              "declined_card_payment": 0,
+              "invalid": 0
+            },
+            "declined_card_payment": {
+              "activate_my_card": 0,
+              "card_arrival": 0,
+              "card_delivery_estimate": 0,
+              "card_not_working": 1,
+              "card_payment_not_recognised": 0,
+              "lost_or_stolen_card": 0,
+              "pin_blocked": 0,
+              "change_pin": 0,
+              "pending_card_payment": 2,
+              "declined_card_payment": 37,
+              "invalid": 0
+            }
+          },
+          "minimum_class_recall": 0.825,
+          "top_confusions": [
+            {
+              "reference": "card_arrival",
+              "predicted": "card_delivery_estimate",
+              "count": 6
+            },
+            {
+              "reference": "pin_blocked",
+              "predicted": "card_not_working",
+              "count": 3
+            },
+            {
+              "reference": "card_delivery_estimate",
+              "predicted": "card_arrival",
+              "count": 2
+            },
+            {
+              "reference": "declined_card_payment",
+              "predicted": "pending_card_payment",
+              "count": 2
+            },
+            {
+              "reference": "pending_card_payment",
+              "predicted": "card_delivery_estimate",
+              "count": 2
+            },
+            {
+              "reference": "activate_my_card",
+              "predicted": "card_arrival",
+              "count": 1
+            },
+            {
+              "reference": "activate_my_card",
+              "predicted": "card_not_working",
+              "count": 1
+            },
+            {
+              "reference": "activate_my_card",
+              "predicted": "lost_or_stolen_card",
+              "count": 1
+            },
+            {
+              "reference": "card_arrival",
+              "predicted": "lost_or_stolen_card",
+              "count": 1
+            },
+            {
+              "reference": "card_not_working",
+              "predicted": "declined_card_payment",
+              "count": 1
+            }
+          ],
+          "acceptance_gates": {
+            "macro_f1_at_least_085": true,
+            "minimum_class_recall_at_least_060": true,
+            "zero_invalid": true
+          },
+          "all_absolute_gates_passed": true,
+          "correct_records": 376
+        }
+      },
+      "centroid": {
+        "samples": 400,
+        "labels": [
+          "activate_my_card",
+          "card_arrival",
+          "card_delivery_estimate",
+          "card_not_working",
+          "card_payment_not_recognised",
+          "lost_or_stolen_card",
+          "pin_blocked",
+          "change_pin",
+          "pending_card_payment",
+          "declined_card_payment"
+        ],
+        "accuracy": 0.895,
+        "macro_f1": 0.8947338559096775,
+        "per_class": {
+          "activate_my_card": {
+            "support": 40,
+            "precision": 0.926829268292683,
+            "recall": 0.95,
+            "f1": 0.9382716049382716
+          },
+          "card_arrival": {
+            "support": 40,
+            "precision": 0.7804878048780488,
+            "recall": 0.8,
+            "f1": 0.7901234567901234
+          },
+          "card_delivery_estimate": {
+            "support": 40,
+            "precision": 0.8421052631578947,
+            "recall": 0.8,
+            "f1": 0.8205128205128205
+          },
+          "card_not_working": {
+            "support": 40,
+            "precision": 0.8604651162790697,
+            "recall": 0.925,
+            "f1": 0.891566265060241
+          },
+          "card_payment_not_recognised": {
+            "support": 40,
+            "precision": 0.9722222222222222,
+            "recall": 0.875,
+            "f1": 0.9210526315789473
+          },
+          "lost_or_stolen_card": {
+            "support": 40,
+            "precision": 0.8444444444444444,
+            "recall": 0.95,
+            "f1": 0.8941176470588236
+          },
+          "pin_blocked": {
+            "support": 40,
+            "precision": 0.9411764705882353,
+            "recall": 0.8,
+            "f1": 0.8648648648648649
+          },
+          "change_pin": {
+            "support": 40,
+            "precision": 0.95,
+            "recall": 0.95,
+            "f1": 0.95
+          },
+          "pending_card_payment": {
+            "support": 40,
+            "precision": 0.9047619047619048,
+            "recall": 0.95,
+            "f1": 0.926829268292683
+          },
+          "declined_card_payment": {
+            "support": 40,
+            "precision": 0.95,
+            "recall": 0.95,
+            "f1": 0.95
+          }
+        },
+        "invalid_outputs": 0,
+        "invalid_rate": 0.0,
+        "confusion": {
+          "activate_my_card": {
+            "activate_my_card": 38,
+            "card_arrival": 1,
+            "card_delivery_estimate": 0,
+            "card_not_working": 0,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 1,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 0,
+            "declined_card_payment": 0,
+            "invalid": 0
+          },
+          "card_arrival": {
+            "activate_my_card": 1,
+            "card_arrival": 32,
+            "card_delivery_estimate": 5,
+            "card_not_working": 0,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 1,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 1,
+            "declined_card_payment": 0,
+            "invalid": 0
+          },
+          "card_delivery_estimate": {
+            "activate_my_card": 0,
+            "card_arrival": 5,
+            "card_delivery_estimate": 32,
+            "card_not_working": 0,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 3,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 0,
+            "declined_card_payment": 0,
+            "invalid": 0
+          },
+          "card_not_working": {
+            "activate_my_card": 0,
+            "card_arrival": 0,
+            "card_delivery_estimate": 0,
+            "card_not_working": 37,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 0,
+            "pin_blocked": 1,
+            "change_pin": 0,
+            "pending_card_payment": 1,
+            "declined_card_payment": 1,
+            "invalid": 0
+          },
+          "card_payment_not_recognised": {
+            "activate_my_card": 0,
+            "card_arrival": 2,
+            "card_delivery_estimate": 0,
+            "card_not_working": 1,
+            "card_payment_not_recognised": 35,
+            "lost_or_stolen_card": 0,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 1,
+            "declined_card_payment": 1,
+            "invalid": 0
+          },
+          "lost_or_stolen_card": {
+            "activate_my_card": 1,
+            "card_arrival": 0,
+            "card_delivery_estimate": 0,
+            "card_not_working": 0,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 38,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 1,
+            "declined_card_payment": 0,
+            "invalid": 0
+          },
+          "pin_blocked": {
+            "activate_my_card": 1,
+            "card_arrival": 0,
+            "card_delivery_estimate": 0,
+            "card_not_working": 4,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 1,
+            "pin_blocked": 32,
+            "change_pin": 2,
+            "pending_card_payment": 0,
+            "declined_card_payment": 0,
+            "invalid": 0
+          },
+          "change_pin": {
+            "activate_my_card": 0,
+            "card_arrival": 1,
+            "card_delivery_estimate": 0,
+            "card_not_working": 0,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 0,
+            "pin_blocked": 1,
+            "change_pin": 38,
+            "pending_card_payment": 0,
+            "declined_card_payment": 0,
+            "invalid": 0
+          },
+          "pending_card_payment": {
+            "activate_my_card": 0,
+            "card_arrival": 0,
+            "card_delivery_estimate": 1,
+            "card_not_working": 0,
+            "card_payment_not_recognised": 1,
+            "lost_or_stolen_card": 0,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 38,
+            "declined_card_payment": 0,
+            "invalid": 0
+          },
+          "declined_card_payment": {
+            "activate_my_card": 0,
+            "card_arrival": 0,
+            "card_delivery_estimate": 0,
+            "card_not_working": 1,
+            "card_payment_not_recognised": 0,
+            "lost_or_stolen_card": 1,
+            "pin_blocked": 0,
+            "change_pin": 0,
+            "pending_card_payment": 0,
+            "declined_card_payment": 38,
+            "invalid": 0
+          }
+        },
+        "minimum_class_recall": 0.8,
+        "top_confusions": [
+          {
+            "reference": "card_arrival",
+            "predicted": "card_delivery_estimate",
+            "count": 5
+          },
+          {
+            "reference": "card_delivery_estimate",
+            "predicted": "card_arrival",
+            "count": 5
+          },
+          {
+            "reference": "pin_blocked",
+            "predicted": "card_not_working",
+            "count": 4
+          },
+          {
+            "reference": "card_delivery_estimate",
+            "predicted": "lost_or_stolen_card",
+            "count": 3
+          },
+          {
+            "reference": "card_payment_not_recognised",
+            "predicted": "card_arrival",
+            "count": 2
+          },
+          {
+            "reference": "pin_blocked",
+            "predicted": "change_pin",
+            "count": 2
+          },
+          {
+            "reference": "activate_my_card",
+            "predicted": "card_arrival",
+            "count": 1
+          },
+          {
+            "reference": "activate_my_card",
+            "predicted": "lost_or_stolen_card",
+            "count": 1
+          },
+          {
+            "reference": "card_arrival",
+            "predicted": "activate_my_card",
+            "count": 1
+          },
+          {
+            "reference": "card_arrival",
+            "predicted": "lost_or_stolen_card",
+            "count": 1
+          }
+        ],
+        "acceptance_gates": {
+          "macro_f1_at_least_085": true,
+          "minimum_class_recall_at_least_060": true,
+          "zero_invalid": true
+        },
+        "all_absolute_gates_passed": true,
+        "correct_records": 358
+      },
+      "best_step": 128,
+      "best_dev_loss": 0.03650353103876114,
+      "evaluations": [
+        {
+          "step": 16,
+          "loss": 0.141274094581604
+        },
+        {
+          "step": 32,
+          "loss": 0.05262354016304016
+        },
+        {
+          "step": 48,
+          "loss": 0.04655345529317856
+        },
+        {
+          "step": 64,
+          "loss": 0.0397440567612648
+        },
+        {
+          "step": 80,
+          "loss": 0.03907332569360733
+        },
+        {
+          "step": 96,
+          "loss": 0.038311172276735306
+        },
+        {
+          "step": 112,
+          "loss": 0.03702812269330025
+        },
+        {
+          "step": 128,
+          "loss": 0.03650353103876114
+        }
+      ],
+      "resources": {
+        "device": "NVIDIA GeForce RTX 3090",
+        "trainable_parameters": 16515072,
+        "total_parameters": 4038983168,
+        "python": "3.12.3",
+        "torch": "2.11.0+cu128",
+        "allocated_gib": 8.32212495803833,
+        "reserved_gib": 10.986328125,
+        "session_minutes": 15.549307334423066
+      },
+      "adapter_sha256": "054ae82b25407fe87ae35b7077398a1847f72154db393b470b3230549dbdbde3",
+      "checkpoint_evidence": {
+        "best": {
+          "step": 128,
+          "files_sha256": {
+            "adapter_config.json": "e5d928e090c0443e874e48607107f93275f3389b2dd1a826bb0cba25542096ea",
+            "adapter_model.safetensors": "054ae82b25407fe87ae35b7077398a1847f72154db393b470b3230549dbdbde3",
+            "optimizer.pt": "4b708d8db3e853a6882e5cbde886119fa88c3d71b047fbd3b106cd11f44481d5",
+            "rng_state.pth": "fa133ecfd1407945edbc815244b693b53c9e11112cf4327f0e88d65c9ec1e928",
+            "scheduler.pt": "de90c63ee77d93f59fb4ac9d8c3568e471d993ccf17f2631afe5cd16a32be326",
+            "trainer_state.json": "422bbfd26ba1b8276dd76e406f3bbd0334a0572da70ef237933fe98388f44542"
+          }
+        },
+        "final": {
+          "step": 128,
+          "files_sha256": {
+            "adapter_config.json": "e5d928e090c0443e874e48607107f93275f3389b2dd1a826bb0cba25542096ea",
+            "adapter_model.safetensors": "054ae82b25407fe87ae35b7077398a1847f72154db393b470b3230549dbdbde3",
+            "optimizer.pt": "4b708d8db3e853a6882e5cbde886119fa88c3d71b047fbd3b106cd11f44481d5",
+            "rng_state.pth": "fa133ecfd1407945edbc815244b693b53c9e11112cf4327f0e88d65c9ec1e928",
+            "scheduler.pt": "de90c63ee77d93f59fb4ac9d8c3568e471d993ccf17f2631afe5cd16a32be326",
+            "trainer_state.json": "422bbfd26ba1b8276dd76e406f3bbd0334a0572da70ef237933fe98388f44542"
+          }
+        }
+      },
+      "recorded_cloud_evidence_sha256": {
+        "experiments/intenttune_banking77_v1/n500/run/training_summary.json": "bcedb1d2730014ffe66326063363ff7cfdb32fe6096c2aef5618b72786a1e72e",
+        "experiments/intenttune_banking77_v1/n500/run/run_inputs.json": "1d8b8313cd30574a07aa49bf312451f1c544aa141fe3fc6a2690c1aa76dbbead",
+        "experiments/intenttune_banking77_v1/n500/run/progress.jsonl": "ac55062f8ffa8a85e5eb3ff661ed906cbeb4bfe17995211d8dbe9691c27d82ce",
+        "experiments/intenttune_banking77_v1/n500/base_scores.json": "b8a330d69f4dbff49749ed450312aa58a312046f36ed48597a812fa8b416a653",
+        "experiments/intenttune_banking77_v1/n500/run/evaluation/base_metrics.json": "64addcec0f558a284fe465532ece1943966e893f7f4ab5bdf745497bafd3b072",
+        "experiments/intenttune_banking77_v1/n500/run/evaluation/base_metrics.receipt.json": "93bef415a5f0a20a2886e3c8d881ce58551595075a46537df88e67212967b0f4",
+        "experiments/intenttune_banking77_v1/n500/run/evaluation/base_metrics.predictions.jsonl": "cd8234c8dd09127dbbb8ef22ccd5b427b76174e5acae6a537b8212b4897ed657",
+        "experiments/intenttune_banking77_v1/n500/adapter_scores.json": "b8aeab0565a3fd1a9d391762c23287e527eb14c7f7cbe9c0ac9aeae6f1d27689",
+        "experiments/intenttune_banking77_v1/n500/run/evaluation/adapter_metrics.json": "399447e343d50d2297d7d90075dec8ef9b586bb4d233fef4d166ffb065ec7519",
+        "experiments/intenttune_banking77_v1/n500/run/evaluation/adapter_metrics.receipt.json": "270eb658b0917d474302c73b22c017ff8178a54cf34fb890d89356ad091e2fdb",
+        "experiments/intenttune_banking77_v1/n500/run/evaluation/adapter_metrics.predictions.jsonl": "9d0475bd5e79e79e02c292f678598e76e7b47c2942c501d49021e84bbc09fb2a"
+      },
+      "macro_f1_differences": {
+        "vs_base": 0.1041489126835875,
+        "vs_fewshot": 0.04857000239705356,
+        "vs_centroid": 0.04541394340179161
+      }
+    }
+  },
+  "verification": {
+    "confusion_metric_sets_recomputed": 10,
+    "declared_hashes_matched_to_local_assets": 75,
+    "scheduled_dev_evaluations_checked": 24,
+    "best_final_export_declarations_checked": 3,
+    "cloud_reported_stages": 22,
+    "local_prediction_files_available": false,
+    "local_checkpoint_files_available": false,
+    "local_stage_receipts_available": false,
+    "independent_cloud_file_hash_recheck": false
+  },
+  "limitations": [
+    "Single seed and fixed ten-intent subset; not full BANKING77 or OOS validation",
+    "400 test records are shared across all comparisons; repeated base scores are not independent tests",
+    "Only the aggregate cloud result was imported. Metric arithmetic and recorded local asset identities were checked; individual predictions/checkpoints/22 receipts remain on the cloud",
+    "No new significance/noninferiority/bootstrap analysis; do not claim universal improvements",
+    "Training label counts exclude the additional 100 dev/400 test labels; larger sample size is not a monotonic effect",
+    "CUDA allocator peaks and per-process session time are not whole-machine or end-to-end cost"
+  ]
+}

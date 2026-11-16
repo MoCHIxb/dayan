@@ -47,3 +47,19 @@ class ResearchPreflightTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError,'requirements-tokenizers.lock'):m.tokenizer_dependencies('mistral7b')
     def test_other_models_do_not_require_sentencepiece_conversion(self):
         self.assertEqual(m.tokenizer_dependencies('qwen3_8b'),{})
+
+    def test_mistral_last_message_system_template_regression(self):
+        class LastMessageTemplate(TokenizerFixture):
+            # Reproduces the official conditional behavior, not model inference.
+            def apply_chat_template(self,messages,**kwargs):
+                has_system=messages[0]['role']=='system'
+                request=messages[1]['content'] if has_system else messages[0]['content']
+                rendered=((messages[0]['content']+'\n\n') if has_system and messages[-1]['role']=='user' else '')+request
+                prefix=[ord(c) for c in rendered]
+                return prefix if kwargs['add_generation_prompt'] else prefix+[999,1000]
+        row=dict(messages=[dict(role='system',content='CATALOG'),dict(role='user',content='REQUEST'),dict(role='assistant',content='{"label":"fixture"}')])
+        with self.assertRaises(ValueError):m.encode_record(LastMessageTemplate(),row)
+        self.assertEqual(m.encode_record(LastMessageTemplate(),row,model_key='mistral7b')['target_tokens'],2)
+    def test_mistral_does_not_relax_original_label_validation(self):
+        row=dict(messages=[dict(role='system',content='CATALOG'),dict(role='user',content='REQUEST'),dict(role='assistant',content='WRONG')])
+        with self.assertRaisesRegex(ValueError,'supervision differs'):m.encode_record(TokenizerFixture(),row,model_key='mistral7b')

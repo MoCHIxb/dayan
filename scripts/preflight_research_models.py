@@ -7,11 +7,13 @@ import shutil
 from pathlib import Path
 from personal_llm_data.personal_data import read_rows,sha
 from deploy_research_models import ROOT,OUT,catalog,backend
+from personal_llm_data.research_chat import message_view,POLICIES
 
 
-def encode_record(tokenizer,row,max_length=1536,max_new=64):
-    prompt=tokenizer.apply_chat_template(row['messages'][:-1],tokenize=True,add_generation_prompt=True,enable_thinking=False)
-    complete=tokenizer.apply_chat_template(row['messages'],tokenize=True,add_generation_prompt=False,enable_thinking=False)
+def encode_record(tokenizer,row,max_length=1536,max_new=64,model_key=None):
+    messages=message_view(row['messages'],model_key)
+    prompt=tokenizer.apply_chat_template(messages[:-1],tokenize=True,add_generation_prompt=True,enable_thinking=False)
+    complete=tokenizer.apply_chat_template(messages,tokenize=True,add_generation_prompt=False,enable_thinking=False)
     if complete[:len(prompt)]!=prompt or len(complete)<=len(prompt):raise ValueError('Native assistant prefix/target boundary mismatch')
     target=complete[len(prompt):]
     decoded=tokenizer.decode(target,skip_special_tokens=True).strip()
@@ -62,7 +64,7 @@ def check(output):
             for split,rows in records.items():
                 sizes=[]
                 for row in rows:
-                    try:sizes.append(encode_record(tokenizer,row))
+                    try:sizes.append(encode_record(tokenizer,row,model_key=key))
                     except Exception as error:issues.append(dict(split=split,id=row['id'],error=str(error)))
                 stats[split]=dict(expected=len(rows),checked=len(sizes),max_sequence=max((v['sequence_tokens'] for v in sizes),default=0),max_target=max((v['target_tokens'] for v in sizes),default=0))
             cfg=AutoConfig.from_pretrained(str(directory),local_files_only=True,trust_remote_code=False)
@@ -72,12 +74,12 @@ def check(output):
             counts={leaf:sum(name.rsplit('.',1)[-1]==leaf for name in names) for leaf in entry['lora_projections']}
             meta_only=all(p.is_meta for p in model.parameters());parameters=sum(p.numel() for p in model.parameters());del model
             if not meta_only or not all(counts.values()):raise ValueError('Missing LoRA modules or non-meta model allocation')
-            reports[key]=dict(status='native_cpu_contract_passed' if not issues else 'requires_explicit_adapter_revision',splits=stats,issues=issues,projection_module_counts=counts,total_parameters=parameters,meta_only=True,tokenizer_config_sha256=sha(directory/'tokenizer_config.json'),model_config_sha256=sha(directory/'config.json'),asset_lock_sha256=sha(OUT/'assets'/f'{key}.json'),asset_receipt_sha256=sha(OUT/'assets'/f'{key}.verified.json'),eos_token_id=tokenizer.eos_token_id,model_weights_loaded=False,tokenizer_dependency_versions=dependency_versions)
+            reports[key]=dict(status=('cpu_contract_passed_with_explicit_adapter' if key=='mistral7b' else 'native_cpu_contract_passed') if not issues else 'requires_explicit_adapter_revision',chat_policy=POLICIES[key],chat_adapter_sha256=sha(ROOT/'src/personal_llm_data/research_chat.py'),splits=stats,issues=issues,projection_module_counts=counts,total_parameters=parameters,meta_only=True,tokenizer_config_sha256=sha(directory/'tokenizer_config.json'),model_config_sha256=sha(directory/'config.json'),asset_lock_sha256=sha(OUT/'assets'/f'{key}.json'),asset_receipt_sha256=sha(OUT/'assets'/f'{key}.verified.json'),eos_token_id=tokenizer.eos_token_id,model_weights_loaded=False,tokenizer_dependency_versions=dependency_versions)
             save_evidence(output.with_name(output.stem+'.'+key+'.json'),reports[key])
         except Exception as error:
             failure_evidence(output,key,reports,error)
             raise
-    passed=all(v['status']=='native_cpu_contract_passed' for v in reports.values())
+    passed=all(v['status'] in ('native_cpu_contract_passed','cpu_contract_passed_with_explicit_adapter') for v in reports.values())
     result=dict(status='cpu_contracts_passed_gpu_unverified' if passed else 'cpu_contract_issues_gpu_blocked',models=reports,registry_sha256=sha(ROOT/'configs/research_models.json'),preflight_code_sha256=sha(Path(__file__)),data_manifest_sha256=sha(DATA/'n500/manifest.json'),free_disk_bytes=shutil.disk_usage(ROOT).free,training_ready=False,cuda_context_created=torch.cuda.is_initialized(),source='all actual BANKING500/dev100/test400/fixed10shot400; no synthetic train samples')
     output.parent.mkdir(parents=True,exist_ok=True)
     with output.open('x',encoding='utf-8') as f:json.dump(result,f,indent=2)

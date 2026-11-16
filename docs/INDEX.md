@@ -21,3 +21,5 @@
 - [58：数据集、环境、CPU预检完整命令](58_complete_preparation_commands.md)：当前GPU忙时可做的步骤及LaMP私有传输，新机/GPU空闲步骤分列，不启动训练。
 
 - [59：Mistral tokenizer依赖修复](59_mistral_tokenizer_dependency_fix.md)：补SentencePiece/protobuf，不改官方分词参数；新预检进度/失败证据和显式v2报告。
+
+- [60：Mistral显式system消息视图](60_mistral_chat_policy.md)：修复loop.last造成训练/推理目录内容不一致，保留严格检查及v2证据，云端v3待验。

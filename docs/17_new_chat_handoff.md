@@ -214,3 +214,10 @@ LaMP完整1496test/1500dev、原corpus_score2000次配对统计与辅助指标�
 云端CPU预检在Mistral实例化失败，尚未GPU/训练。已核对官方配置LlamaTokenizer/add_prefix_space=true/legacy=false与Transformers4.57.6源码：该配置触发from_slow SentencePiece转换，此前环境遗漏SentencePiece/protobuf。新增requirements-tokenizers.lock（sentencepiece0.2.1、protobuf4.25.8）并加入cloud依赖，不修改模型文件、分词参数或原始锁。59号为补依赖、pip check及独立v2报告一次显式重试命令；不是自动重试或训练恢复。
 
 预检新增每模型进度与failure报告，保留前序结果并继续抛错，不吞掉失败或跳过Mistral。141项本地CPU测试通过，尚无云端修复成功证据，接下来仍须核验原生模板/标签边界、融合模块和真实GPU兼容。
+
+
+## 2026-11-16 Mistral1400条模板边界问题修订
+
+用户v2报告Qwen/Phi完整各1400通过、Mistral投影正常但全1400边界不匹配。已核对官方模板：system仅user为loop.last时插入，导致prompt有system而含assistant完整训练序列不含。新增research_chat.py版本化mistral_system_prefix_in_user_v1，单轮视图复制完整system前置原user，再用原生模板，确保训练/推理一致，不改JSONL/标签/官方文件，不放宽严格检查。预检记录policy和源码SHA，Mistral适配通过状态单列。
+
+60号为云端独立v3一次显式重试命令，保留v2与此前failure。148项CPU测试通过，但无云端v3结果；统一训练/推理必须复用同一message_view，当前GPU训练接口仍待实现，不因为预检修订就宣称正式训练已可全模型运行。原4B冻结核心与统计未改，无GPU启动。

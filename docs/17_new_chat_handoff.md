@@ -221,3 +221,10 @@ LaMP完整1496test/1500dev、原corpus_score2000次配对统计与辅助指标�
 用户v2报告Qwen/Phi完整各1400通过、Mistral投影正常但全1400边界不匹配。已核对官方模板：system仅user为loop.last时插入，导致prompt有system而含assistant完整训练序列不含。新增research_chat.py版本化mistral_system_prefix_in_user_v1，单轮视图复制完整system前置原user，再用原生模板，确保训练/推理一致，不改JSONL/标签/官方文件，不放宽严格检查。预检记录policy和源码SHA，Mistral适配通过状态单列。
 
 60号为云端独立v3一次显式重试命令，保留v2与此前failure。148项CPU测试通过，但无云端v3结果；统一训练/推理必须复用同一message_view，当前GPU训练接口仍待实现，不因为预检修订就宣称正式训练已可全模型运行。原4B冻结核心与统计未改，无GPU启动。
+
+
+## 2026-11-16 v3 CPU通过，下一步独立GPU诊断
+
+用户提供v3总状态cpu_contracts_passed_gpu_unverified，三模型资产与真实数据/原生或显式模板契约通过，但没有GPU/正式训练证据。61号新增gpu_probe_research.sh默认plan、--execute仅9条件诊断：3模型×BF16/NF4/int8，各取既有前2条真实train一步更新保存，然后独立新进程核验哈希并恢复optimizer/scheduler/torch/Python/NumPy RNG，推进第2步和一条真实训练prompt生成。绝不计test成绩/正式训练次数。
+
+所有GPU在云端显式串行、全局锁保护；已有目录拒绝重复执行，失败停留日志不自动重试/降精度。CPU v3/registry/模型锁/数据/核心/消息视图及依赖版本绑定，原始资料不改。诊断成功也不证明全长度/完整训练显存或不中断等价；统一正式矩阵仍待后续冻结。用户云端尚未反馈GPU诊断结果，本地仅CPU逻辑测试，无GPU执行。

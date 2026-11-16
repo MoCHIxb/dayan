@@ -4,7 +4,7 @@
   "guide": "docs/53_cloud_4090_dual_8b_setup.md",
   "config": "configs/cloud_8b_4090/environment.json",
   "entry": "scripts/cloud/prepare_8b_4090.sh",
-  "tests_passed": 148,
+  "tests_passed": 153,
   "torch_policy": "reuse_image_2.12.1_cuda13.0_exact_constraint_no_downgrade",
   "model_downloaded_locally": false,
   "cloud_setup_executed": true,
@@ -28,7 +28,9 @@
   },
   "disk_expansion": "owner reports +50G; actual mount/free capacity pending df",
   "cpu_preflight_entry": "scripts/cloud/preflight_research_models.sh",
-  "cpu_preflight_cloud_status": "owner v2: Qwen/Phi native contracts passed; Mistral1400 prefix mismatch; explicit message view fix awaiting v3",
+  "cpu_preflight_cloud_status": "owner v3: all3 CPU contracts passed, GPU unverified",
   "tokenizer_repair": "docs/59_mistral_tokenizer_dependency_fix.md",
-  "mistral_chat_policy": "docs/60_mistral_chat_policy.md"
+  "mistral_chat_policy": "docs/60_mistral_chat_policy.md",
+  "gpu_diagnostic_entry": "scripts/cloud/gpu_probe_research.sh",
+  "gpu_diagnostic_status": "local CPU logic tested only; nine condition diagnostics not executed on cloud yet"
 }

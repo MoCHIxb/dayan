@@ -159,3 +159,8 @@ LaMP新8B完整1500dev/1496test、画像/无画像、原始全指标/PPL/BERTSco
 所有者重新租用Ubuntu22.04/Python3.12/PyTorch2.12.1/CUDA13.0、单RTX4090 24GB、16vCPU/62GB RAM。后续Qwen3-8B与Meta-Llama-3-8B-Instruct均以此环境为目标，覆盖52/51中未来3090硬件；旧4B/3090结果不改。准备入口为53号、configs/cloud_8b_4090/environment.json及scripts/cloud/prepare_8b_4090.sh。独立.venv-cloud8b复用镜像torch，不直接安装含旧torch的requirements-train.lock。
 
 已实现plan/bootstrap/check/pin/download/verify，无训练动作；模型锁固定官方commit/checksum、私有保存、已有错字节拒绝覆盖。当前仅本地CPU验证，不宣称云端安装、bitsandbytes CUDA13计算、模板或模型训练通过。双模型训练/评价执行器仍待实现，不直接调用旧Qwen专用执行器。全部历史8B范围保持，失败保留、无自动GPU重试；只由所有者云端命令行执行，不请求SSH或token。
+
+
+### 2026-11-16双8B下载来源更新
+
+所有者因官方速度过慢明确授权ModelScope候选下载。prepare_8b_4090.py新增download --source modelscope，Qwen/Qwen3-8B与LLM-Research/Meta-Llama-3-8B-Instruct的大权重仍按既有官方LFS SHA256逐文件验收，小config/tokenizer/许可保持官方commit；不能重新pin改掉官方锁。复用旧安全Range/SHA传输原语而非4B资产清单，保留HF缓存和候选独立partial，失败即停无自动重试；不向候选发送HF凭据。121项本地CPU测试通过，尚无候选云端验收结果，未启动模型。53号第4节为最新命令。

@@ -45,7 +45,7 @@ bash scripts/cloud/prepare_8b_4090.sh verify --model llama3_8b
 
 pin仅从https://huggingface.co官方端点取得完整commit及文件checksum元数据，在experiments/cloud_8b_4090/assets创建一次模型锁；存在时拒绝覆盖。以后下载始终按固定commit，不继续跟踪main。权重检查LFS SHA256，普通文件检查Git blob SHA1，再为全部实际文件记录SHA256。已存在文件先核验，不匹配立即停并保留；下载库缓存保留，没有外围自动重试循环。准备期间全局GPU保护拒绝已有计算进程，不能在训练中修补模型。首次pin之后查看并私有备份两个模型锁；后续正式实验输入冻结还需把它们与配置/代码/数据一起绑定。
 
-固定模型目录为models/Qwen3-8B、models/Meta-Llama-3-8B-Instruct。云端已有8B模型也只能在核验固定版本/字节一致后使用，不能仅靠目录名称复用。当前不提供镜像候选回退；网络或权限失败先保留输出定位，不绕过TLS或通过无授权来源取Llama权重。原Qwen4B专用ModelScope恢复和13文件清单不适用这里。
+固定模型目录为models/Qwen3-8B、models/Meta-Llama-3-8B-Instruct。云端已有8B模型也只能在核验固定版本/字节一致后使用，不能仅靠目录名称复用。现已提供显式ModelScope权重候选，见第4节；网络、权限或SHA失败先保留输出定位，不绕过TLS。原Qwen4B专用ModelScope恢复和13文件清单不适用这里。
 
 ## 3. 新环境下的训练配置范围
 
@@ -56,3 +56,28 @@ configs/cloud_8b_4090/environment.json记录两个模型身份、目录、五PEF
 8B BF16、NF4、int8均须先独立云端功能/保存恢复检查；4090与3090同为24GB，换卡不能保证原先不确定的显存条件必然可行。OOM保留证据即停，不自动换精度/减少长度或删测试。后续运行资产与输出独立于旧4B目录，失败不自动重试。
 
 下一步请提供check的输出及两个verify的摘要（不含token）。这能确认云端准备到哪一步；尚不能据此宣布训练就绪。代码许可证未指定不阻塞维护仓库；模型各自的许可/访问要求独立适用。
+
+
+## 4. 官方大权重下载过慢：显式ModelScope候选
+
+所有者已授权使用候选来源。Qwen候选为Qwen/Qwen3-8B，Llama候选为LLM-Research/Meta-Llama-3-8B-Instruct；候选master不冒充官方commit，接受条件仍是既有官方锁中每个大权重的完整SHA256。候选仓库可能有不同tokenizer/config/README，因此只对.safetensors切换来源，小文件仍从已固定官方版本获取。不是重新pin到ModelScope或忽略差异。
+
+先在旧下载终端按一次Ctrl+C并等待退出，保留HF缓存/incomplete/已完成文件，再更新代码。不要在另一下载或训练进程运行时更新运行脚本。
+
+```bash
+cd /root/autodl-tmp/dayan
+git -c http.version=HTTP/1.1 pull --ff-only
+source .venv-cloud8b/bin/activate
+# 两份pin已成功时不要重做pin；不存在时先按第2节固定官方版本。
+bash scripts/cloud/prepare_8b_4090.sh download --model qwen3_8b --source modelscope &&
+bash scripts/cloud/prepare_8b_4090.sh download --model llama3_8b --source modelscope
+```
+
+候选下载不增加依赖，不需安装ModelScope SDK。利用既有Range/SHA传输原语，独立partial位于各模型目录.cache/intenttune_download，不删除/拼接HF的不同格式断点。已完成文件逐项核验后跳过；候选SHA不匹配保留partial并停止，不能去掉校验继续。手动再次执行同命令只续传同一候选partial；无外围自动重试。HF令牌不发送给ModelScope候选请求；Llama上游访问与许可仍需满足。没有在本地下载权重，云端候选实际通过以verify摘要为准。
+
+```bash
+bash scripts/cloud/prepare_8b_4090.sh verify --model qwen3_8b &&
+bash scripts/cloud/prepare_8b_4090.sh verify --model llama3_8b
+```
+
+这仍只认证资产，不表示模型加载、模板/低比特计算或训练已经通过。

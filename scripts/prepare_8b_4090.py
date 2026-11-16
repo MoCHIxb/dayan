@@ -59,7 +59,28 @@ def pin(key):
     save_new(path,dict(repo_id=model['repo_id'],revision=info.sha,files=files))
     print(json.dumps(dict(model=key,revision=info.sha,files=len(files),bytes=sum(x['size'] for x in files.values()))))
 
-def assets(key,download=False):
+MODELSCOPE_CANDIDATES={
+    'qwen3_8b':'Qwen/Qwen3-8B',
+    'llama3_8b':'LLM-Research/Meta-Llama-3-8B-Instruct',
+}
+
+def candidate_url(key,name):
+    filename(name)
+    if not name.endswith('.safetensors'):raise ValueError('ModelScope candidates are weight files only')
+    return f'https://modelscope.cn/models/{MODELSCOPE_CANDIDATES[key]}/resolve/master/{name}'
+
+def candidate_download(key,name,path,entry):
+    # Reuse the tested Range/SHA transfer primitive, not the4B model inventory.
+    import importlib.util
+    spec=importlib.util.spec_from_file_location('fixed_sha_transfer',ROOT/'scripts/prepare_model_assets.py')
+    transfer=importlib.util.module_from_spec(spec);spec.loader.exec_module(transfer)
+    expected=entry.get('sha256')
+    if not isinstance(expected,str) or not re.fullmatch('[0-9a-f]{64}',expected):
+        raise ValueError('Frozen official LFS SHA256 required for candidate weight')
+    transfer.download_one(candidate_url(key,name),path,expected)
+    return verify_file(path,entry)
+
+def assets(key,download=False,source='huggingface'):
     model=read_spec()['models'][key];lock=ROOT/'experiments/cloud_8b_4090/assets'/f'{key}.json'
     value=json.loads(lock.read_text(encoding='utf-8'))
     if value['repo_id']!=model['repo_id'] or not re.fullmatch('[0-9a-f]{40}',value['revision']):raise ValueError('Asset lock identity mismatch')
@@ -67,8 +88,13 @@ def assets(key,download=False):
     for name,entry in value['files'].items():
         path=directory/filename(name)
         if not path.exists() and download:
-            from huggingface_hub import hf_hub_download
-            hf_hub_download(repo_id=value['repo_id'],filename=name,revision=value['revision'],local_dir=directory,endpoint='https://huggingface.co')
+            if source=='modelscope' and name.endswith('.safetensors'):
+                candidate_download(key,name,path,entry)
+            else:
+                # Keep official small config/tokenizer/license bytes: candidate
+                # repositories may format these differently despite same weights.
+                from huggingface_hub import hf_hub_download
+                hf_hub_download(repo_id=value['repo_id'],filename=name,revision=value['revision'],local_dir=directory,endpoint='https://huggingface.co')
         hashes[name]=verify_file(path,entry)
     cfg=json.loads((directory/'config.json').read_text(encoding='utf-8'))
     if cfg['model_type']!=model['model_type']:raise ValueError('Model architecture mismatch')
@@ -95,7 +121,8 @@ def check_environment():
     print(json.dumps(result))
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('action',choices=['plan','check','pin','download','verify']);p.add_argument('--model',choices=list(read_spec()['models']));a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('action',choices=['plan','check','pin','download','verify']);p.add_argument('--model',choices=list(read_spec()['models']));p.add_argument('--source',choices=['huggingface','modelscope'],default='huggingface');a=p.parse_args()
+    if a.source!='huggingface' and a.action!='download':p.error('--source is only for download; pin always uses official metadata')
     if a.action=='plan':print(json.dumps(read_spec(),indent=2));return
     if platform.system()!='Linux':raise RuntimeError('New assets/preflight run on designated Linux cloud only')
     if a.action=='check':check_environment();return
@@ -103,7 +130,7 @@ def main():
     if a.action=='pin':pin(a.model)
     elif a.action=='download':
         from personal_llm_data.personal_runtime import gpu_guard
-        with gpu_guard(ROOT):assets(a.model,True)
+        with gpu_guard(ROOT):assets(a.model,True,a.source)
     else:assets(a.model)
 
 if __name__=='__main__':main()

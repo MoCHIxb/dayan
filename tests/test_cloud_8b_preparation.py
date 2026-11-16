@@ -37,3 +37,25 @@ class Cloud8BPreparationTests(unittest.TestCase):
         self.assertEqual(s['environment']['cuda'],'13.0')
         self.assertEqual(len(s['models']),2)
         self.assertEqual(len(s['recipes']),5)
+
+    def test_candidate_mapping_and_path_validation(self):
+        self.assertEqual(m.candidate_url('qwen3_8b','model.safetensors'),'https://modelscope.cn/models/Qwen/Qwen3-8B/resolve/master/model.safetensors')
+        self.assertIn('LLM-Research/Meta-Llama-3-8B-Instruct',m.candidate_url('llama3_8b','part.safetensors'))
+        for name in ('config.json','../model.safetensors'):
+            with self.assertRaises(ValueError):m.candidate_url('qwen3_8b',name)
+    def test_candidate_requires_official_sha(self):
+        with tempfile.TemporaryDirectory() as d:
+            with self.assertRaises(ValueError):m.candidate_download('qwen3_8b','model.safetensors',Path(d)/'model.safetensors',dict(size=5,sha256=None))
+    def test_candidate_transfer_bound_to_official_sha(self):
+        import importlib.util
+        from unittest.mock import patch
+        import types
+        with tempfile.TemporaryDirectory() as d:
+            path=Path(d)/'model.safetensors';expected=hashlib.sha256(b'asset').hexdigest();calls=[]
+            def transfer(url,destination,sha):
+                calls.append((url,sha));destination.write_bytes(b'asset')
+            fake=types.SimpleNamespace(download_one=transfer)
+            loader=types.SimpleNamespace(exec_module=lambda module:None)
+            with patch.object(importlib.util,'spec_from_file_location',return_value=types.SimpleNamespace(loader=loader)),patch.object(importlib.util,'module_from_spec',return_value=fake):
+                self.assertEqual(m.candidate_download('qwen3_8b',path.name,path,dict(size=5,sha256=expected)),expected)
+            self.assertEqual(calls,[(m.candidate_url('qwen3_8b',path.name),expected)])

@@ -1,14 +1,16 @@
 {
   "date": "2026-11-16",
-  "status": "local_cpu_preparation_verified_cloud_unexecuted",
+  "status": "owner_cloud_environment_checked_candidate_recovery_cpu_tested_models_unverified",
   "guide": "docs/53_cloud_4090_dual_8b_setup.md",
   "config": "configs/cloud_8b_4090/environment.json",
   "entry": "scripts/cloud/prepare_8b_4090.sh",
-  "tests_passed": 118,
+  "tests_passed": 121,
   "torch_policy": "reuse_image_2.12.1_cuda13.0_exact_constraint_no_downgrade",
   "model_downloaded_locally": false,
-  "cloud_setup_executed": false,
+  "cloud_setup_executed": true,
   "model_compute_compatibility_verified": false,
   "training_runner_ready": false,
-  "scope": "plan/bootstrap/check and official commit/checksum pin/download/verify only; no model execution"
+  "scope": "plan/bootstrap/check and official commit/checksum pin/download/verify only; no model execution",
+  "candidate_recovery": "explicit --source modelscope for weight files only; exact frozen official SHA; independent partials",
+  "cloud_setup_evidence": "owner terminal: pip check and environment inventory passed Torch2.12.1+cu130/CUDA13.0/RTX4090; not model compute"
 }

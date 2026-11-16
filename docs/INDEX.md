@@ -25,3 +25,5 @@
 - [60：Mistral显式system消息视图](60_mistral_chat_policy.md)：修复loop.last造成训练/推理目录内容不一致，保留严格检查及v2证据，云端v3待验。
 
 - [61：三模型九条件GPU功能诊断](61_gpu_functional_probe.md)：真实train小型前后向/保存/新进程恢复/生成，显式执行，非正式成绩或队列。
+
+- [62：九条件GPU诊断云端回报](62_gpu_probe_results.md)：功能与原收据由用户核验，峰值非正式训练，云端原文件未本地重审。

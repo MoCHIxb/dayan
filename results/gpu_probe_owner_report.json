@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-16",
+  "status": "owner_reports_all_nine_gpu_probe_receipts_verified",
+  "source": "owner pasted cloud stdout; raw cloud files not imported/rehashed locally",
+  "models": {
+    "qwen3_8b": {
+      "none": 16.05,
+      "nf4": 9.14,
+      "int8": 13.39
+    },
+    "mistral7b": {
+      "none": 14.01,
+      "nf4": 6.63,
+      "int8": 10.56
+    },
+    "phi4mini": {
+      "none": 7.85,
+      "nf4": 4.98,
+      "int8": 6.78
+    }
+  },
+  "metric": "rounded_peak_allocated_gib_max_of_train_and_restore_processes",
+  "recipe": {
+    "rank": 8,
+    "alpha": 16,
+    "steps": "diagnostic step1 then fresh-process restored step2",
+    "records": "same first2existing BANKING train rows",
+    "generation": "one train prompt, not test score"
+  },
+  "formal_experiments_complete": false,
+  "local_independent_cloud_file_audit": false,
+  "limitations": [
+    "Not full128step/dev/test evaluation",
+    "Not full1536token stress or formalrank16 memory guarantee",
+    "No quality,throughput or noninferiority results",
+    "Restoration not proven equivalent to uninterrupted training"
+  ]
+}

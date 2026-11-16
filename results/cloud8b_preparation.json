@@ -32,5 +32,7 @@
   "tokenizer_repair": "docs/59_mistral_tokenizer_dependency_fix.md",
   "mistral_chat_policy": "docs/60_mistral_chat_policy.md",
   "gpu_diagnostic_entry": "scripts/cloud/gpu_probe_research.sh",
-  "gpu_diagnostic_status": "local CPU logic tested only; nine condition diagnostics not executed on cloud yet"
+  "gpu_diagnostic_status": "owner reports all9 GPU probes and receipts verified",
+  "gpu_diagnostic_report": "results/gpu_probe_owner_report.json",
+  "formal_experiment_status": "not_started"
 }

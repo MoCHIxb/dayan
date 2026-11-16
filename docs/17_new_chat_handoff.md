@@ -228,3 +228,10 @@ LaMP完整1496test/1500dev、原corpus_score2000次配对统计与辅助指标�
 用户提供v3总状态cpu_contracts_passed_gpu_unverified，三模型资产与真实数据/原生或显式模板契约通过，但没有GPU/正式训练证据。61号新增gpu_probe_research.sh默认plan、--execute仅9条件诊断：3模型×BF16/NF4/int8，各取既有前2条真实train一步更新保存，然后独立新进程核验哈希并恢复optimizer/scheduler/torch/Python/NumPy RNG，推进第2步和一条真实训练prompt生成。绝不计test成绩/正式训练次数。
 
 所有GPU在云端显式串行、全局锁保护；已有目录拒绝重复执行，失败停留日志不自动重试/降精度。CPU v3/registry/模型锁/数据/核心/消息视图及依赖版本绑定，原始资料不改。诊断成功也不证明全长度/完整训练显存或不中断等价；统一正式矩阵仍待后续冻结。用户云端尚未反馈GPU诊断结果，本地仅CPU逻辑测试，无GPU执行。
+
+
+## 2026-11-16九条件GPU诊断及收据核验通过（云端回报）
+
+用户报告九条件GPU诊断完成且all_conditions=true，随后只读校验所有inputs、train/restore收据、checkpoint文件和生成SHA，All 9 diagnostic receipts verified。诊断allocated GiB：Qwen BF16/NF4/int8=16.05/9.14/13.39，Mistral=14.01/6.63/10.56，Phi=7.85/4.98/6.78。62号及results/gpu_probe_owner_report.json只记录所有者回报，本地没有原云端文件，不宣称本地独立重审。
+
+功能检查已完成，不再重复；诊断r8/a16、2条train、步骤1保存/新进程恢复步骤2，不算正式128步/完整dev/test，不提供质量结论，不证明完整1536长度/r16显存或与不中断数值等价。下一步实现并冻结正式统一训练/评价/审计入口，遵守55号研究主线与三模型不同模块/原生渲染；当前不自行运行旧Qwen或大队列。保留GPU诊断目录/收据私有备份。

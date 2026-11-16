@@ -4,7 +4,7 @@
   "guide": "docs/53_cloud_4090_dual_8b_setup.md",
   "config": "configs/cloud_8b_4090/environment.json",
   "entry": "scripts/cloud/prepare_8b_4090.sh",
-  "tests_passed": 121,
+  "tests_passed": 125,
   "torch_policy": "reuse_image_2.12.1_cuda13.0_exact_constraint_no_downgrade",
   "model_downloaded_locally": false,
   "cloud_setup_executed": true,
@@ -12,5 +12,9 @@
   "training_runner_ready": false,
   "scope": "plan/bootstrap/check and official commit/checksum pin/download/verify only; no model execution",
   "candidate_recovery": "explicit --source modelscope for weight files only; exact frozen official SHA; independent partials",
-  "cloud_setup_evidence": "owner terminal: pip check and environment inventory passed Torch2.12.1+cu130/CUDA13.0/RTX4090; not model compute"
+  "cloud_setup_evidence": "owner terminal: pip check and environment inventory passed Torch2.12.1+cu130/CUDA13.0/RTX4090; not model compute",
+  "qwen_asset_verification": "owner reports14files verified",
+  "first_qwen_runner": "scripts/cloud/run_qwen8b_banking500.sh",
+  "first_qwen_run_status": "code_cpu_tested_cloud_execution_pending",
+  "training_runner_scope": "Qwen3 BF16 single BANKING500 finite entry available; full campaign/Llama/int8 runner not complete"
 }

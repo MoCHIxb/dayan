@@ -164,3 +164,10 @@ LaMP新8B完整1500dev/1496test、画像/无画像、原始全指标/PPL/BERTSco
 ### 2026-11-16双8B下载来源更新
 
 所有者因官方速度过慢明确授权ModelScope候选下载。prepare_8b_4090.py新增download --source modelscope，Qwen/Qwen3-8B与LLM-Research/Meta-Llama-3-8B-Instruct的大权重仍按既有官方LFS SHA256逐文件验收，小config/tokenizer/许可保持官方commit；不能重新pin改掉官方锁。复用旧安全Range/SHA传输原语而非4B资产清单，保留HF缓存和候选独立partial，失败即停无自动重试；不向候选发送HF凭据。121项本地CPU测试通过，尚无候选云端验收结果，未启动模型。53号第4节为最新命令。
+
+
+## 2026-11-16先运行Qwen8B首轮BANKING500
+
+所有者报告Qwen8B14文件asset_bytes_verified_not_training_ready，授权先做Qwen实验。54号为新入口，run_qwen8b_banking500.sh只运行BF16 r8/a16/seed20261113的一个500/100/400、128步/8dev完整四参照实验，独立数据/输出，不启动全部大矩阵。复用Qwen3支持的冻结训练/评价核心，不改其源码；Llama/int8仍另待兼容。prepare以8B tokenizer重建后强制十份原JSONL SHA与4B一致，再完整源回放及长度检查；新tokenizer manifest独立。
+
+新增入口包含8阶段收据、源码/数据/模型/环境版本冻结、完整测试评分与审计、暂停/完整checkpoint显式恢复，失败无自动重试。125项本地CPU测试通过；首轮尚未在云端实测，OOM须保留日志停止，不自动改精度/长度。下一步由所有者云端prepare/check/run执行，运行后冻结期间不再pull。完成后提供本轮results.json，不把状态文件或资产校验当训练完成。

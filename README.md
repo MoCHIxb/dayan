@@ -7,7 +7,7 @@
 - [55：研究目标、模型选择、有限矩阵及评价重规划](docs/55_research_realignment.md)。
 - [17：最新交接](docs/17_new_chat_handoff.md)、[文档索引](docs/INDEX.md)、[脚本分类](scripts/README.md)。
 - 主比较Qwen3-8B与Mistral-7B-Instruct-v0.3，Phi-4-mini作为规模补充；Llama访问被拒、LLaVA取消。三模型资产、CPUv3及九项GPU诊断已由所有者回报通过，原始云端文件未本地导入。
-- 正式首批入口：[63号协议与命令](docs/63_research_banking_formal_protocol.md)，三模型各五配方、15次128步训练和完整评价，共58阶段。代码经CPU测试，正式云端结果尚无；54号旧Qwen单条件入口保留，不与新入口同时运行。
+- 当前正式入口：[65号全因子协议与命令](docs/65_full_factorial_banking_protocol.md)：Rank五档×Alpha五档×三精度×三模型×五种子，共1125训练/3388阶段，支持25次分块与磁盘预算。原63号15次、64号72次作为历史，不先跑旧小矩阵。新r64探针及正式训练待云端执行。
 - 目标服务器为所有者RTX4090 24GB／PyTorch2.12.1／CUDA13.0；[53号](docs/53_cloud_4090_dual_8b_setup.md)保留历史Qwen/Llama准备操作，只复用已核验的Qwen资产，不再要求取得Llama权限。
 
 ## 已有研究证据
@@ -31,4 +31,4 @@
 
 当前纯文本模型清单与一次性ModelScope资产部署见[56号](docs/56_text_model_roster_and_deployment.md)；LLaVA已按最新指示取消，部署不等于训练完成。
 
-后续参数与稳定性设计见[64号](docs/64_rank_alpha_multiseed_plan.md)：Rank四档、Alpha缩放三档、三种子，合计72次BANKING500规划（含首批15），扩充执行器尚待实现；当前正式云端状态尚未回报。
+所有者已要求扩大参数分辨率并接受长时间训练；当前[65号](docs/65_full_factorial_banking_protocol.md)覆盖64号72次建议，五档Rank/Alpha完整交叉和五种子入口已实现并经CPU测试。云端实际进度尚未回报，不宣称已启动或完成。

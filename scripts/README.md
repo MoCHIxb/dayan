@@ -14,3 +14,5 @@
 其余脚本保留为历史分析实现。未删除模型/数据/逐条预测/统计，也未为了清爽而移动训练/评价核心。一次一个云端GPU过程，失败留证、无自动重试；本地仅CPU检查。
 
 - 正式首批：cloud/run_research_banking.sh → run_research_banking.py，独立train_research_adapter.py/evaluate_research_adapter.py/audit_research_banking.py；configs/research_banking_v1的15配置，详见63号。plan默认不执行，check为CPU/字节核验，run才显式启动有限GPU批次；不复用诊断adapter。
+
+- 最新所有者指示：cloud/run_research_grid.sh → run_research_grid.py，独立research_grid.py/train_research_grid.py/evaluate_research_grid.py/audit_research_grid.py/gpu_probe_grid.py；五档Rank×五档Alpha×三精度×三模型×五种子（1125训练）。当前用65号与configs/research_banking_v2/grid.json；旧15次入口和旧GPU诊断源码保持原字节，不再作为新实验起步队列。新prepare/check为CPU；probe/run在云端显式执行，空间不足停止，不删证据。

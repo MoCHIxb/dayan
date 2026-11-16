@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-16",
+  "status": "large_grid_implemented_cpu_tested_cloud_unexecuted_by_agent",
+  "protocol": "docs/65_full_factorial_banking_protocol.md",
+  "entry": "scripts/cloud/run_research_grid.sh",
+  "specification": "configs/research_banking_v2/grid.json",
+  "models": 3,
+  "precisions": 3,
+  "ranks": [
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "alphas": [
+    8,
+    16,
+    32,
+    64,
+    128
+  ],
+  "training_seeds": [
+    20261113,
+    20261117,
+    20261123,
+    20261129,
+    20261205
+  ],
+  "data_seed": 20261113,
+  "formal_trainings": 1125,
+  "cells": 225,
+  "seeds_per_cell": 5,
+  "model_generations": 1137,
+  "formal_stages": 3388,
+  "trainings_per_model_precision_rank_block": 25,
+  "current_cloud_progress": "unknown_no_formal_run_evidence_received",
+  "rank64_probe_status": "not_executed_locally_or_reported_by_owner",
+  "old_source_and_results": "byte_preserved_not_current_queue",
+  "disk_policy": "header-based budget; TB-scale full retention; explicit blocks; no evidence deletion",
+  "seed_interpretation": "adapter initialization/dropout/training order; data split fixed; no base reinitialization; not test resampling",
+  "tests_run": 180,
+  "tests_skipped": 5,
+  "new_grid_tests": 14,
+  "cpu_tests_only": true
+}

@@ -1,6 +1,6 @@
 {
   "date": "2026-11-16",
-  "status": "recommended_design_recorded_not_implemented_or_launched",
+  "status": "superseded_by_owner_full_factorial_v2",
   "scope": "BANKING500 only; independent extension of immutable research_banking_v1",
   "guide": "docs/64_rank_alpha_multiseed_plan.md",
   "current_entry": "scripts/cloud/run_research_banking.sh",
@@ -80,5 +80,7 @@
     "cross-version source-aware reuse audit",
     "frozen commands, seed list and output paths"
   ],
-  "preserve_current_pipeline": true
+  "preserve_current_pipeline": true,
+  "superseded_by": "docs/65_full_factorial_banking_protocol.md",
+  "note": "Original72-run budget remains historical; do not launch it or require first15 before v2."
 }

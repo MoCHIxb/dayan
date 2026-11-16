@@ -31,3 +31,5 @@
 - [63：三模型BANKING500首种子正式实验协议与命令](63_research_banking_formal_protocol.md)：15次训练、27组完整生成、58阶段；独立原生训练/评价/审计，正式云端结果待执行。
 
 - [64：Rank/Alpha与多种子扩充方案、当前进度](64_rank_alpha_multiseed_plan.md)：72次BANKING500推荐设计，包含首批15；独立扩充执行器待实现，非已启动队列。
+
+- **当前执行入口：[65：五档Rank×五档Alpha×三精度×三模型×五种子全因子实验](65_full_factorial_banking_protocol.md)**。1125训练/3388阶段，25训练分块、r64独立探针及容量预算；替代63/64为当前方案，旧证据保留。

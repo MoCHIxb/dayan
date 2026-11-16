@@ -1,0 +1,48 @@
+{
+  "protocol_id": "research_banking_v2",
+  "models": [
+    "qwen3_8b",
+    "mistral7b",
+    "phi4mini"
+  ],
+  "quantizations": [
+    "none",
+    "nf4",
+    "int8"
+  ],
+  "ranks": [
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "alphas": [
+    8,
+    16,
+    32,
+    64,
+    128
+  ],
+  "training_seeds": [
+    20261113,
+    20261117,
+    20261123,
+    20261129,
+    20261205
+  ],
+  "data_selection_seed": 20261113,
+  "schedule_seed": 20261116,
+  "data_dir": "data/processed/banking77_8b_v1/n500",
+  "output_root": "experiments/research_banking_v2",
+  "fixed": {
+    "max_length": 1536,
+    "max_new_tokens": 64,
+    "max_steps": 128,
+    "eval_steps": 16,
+    "learning_rate": 0.0001,
+    "gradient_accumulation_steps": 16,
+    "lora_dropout": 0.05
+  },
+  "old_small_matrix": "historical_only_not_required_or_reused_as_v2_results"
+}

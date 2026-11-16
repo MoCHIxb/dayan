@@ -193,3 +193,10 @@ LaMP完整1496test/1500dev、原corpus_score2000次配对统计与辅助指标�
 新增cloud/deploy_research_models.sh默认plan，显式deploy/verify串行复用已有Qwen官方锁和已校验文件，再固定/准备Mistral与Phi。大权重ModelScope候选精确对官方SHA，小元数据保留官方commit；失败即停/保留partial，不绕过授权。模型仓库存在和文件名只读核查已完成，候选全部字节/云端下载尚未核验。全局GPU锁保护，原Qwen单条件科学源码不改。
 
 资产准备不等于统一训练器完成，Mistral/Phi的模板、target mask、终止、融合projection/量化和显存仍需验证。不得直接套旧Qwen专用入口或宣称训练已跑通。LLaVA从未部署，取消VLM来源仍禁用。当前仍无GPU模型任务由本助手启动。
+
+
+## 2026-11-16资产齐备、扩容与下一步CPU预检
+
+所有者提供Qwen14/Mistral12/Phi13文件及all_roster=true的云端验收摘要；GPU4090空闲，原磁盘剩14GiB后又报告扩容50G，尚待df确认实际挂载容量。三个模型均仅资产通过，training_ready=false；当前无正式8B训练结果。57号新增真实数据/模板/监督/长度及meta模型LoRA投影CPU预检，先复用prepare构建并核对原BANKING划分，不恢复旧run。
+
+预检不加载模型权重或使用GPU，全部本地逻辑测试通过不等于真实三tokenizer/meta兼容已通过。云端结果compatibility_preflight.json需核对；若原生Mistral模板或Phi融合投影失败，记录后固定适配规则，不能静默更改数据。CPU成功仍需独立GPU功能/保存恢复/资源预检与新统一训练入口，当前不启动大矩阵。

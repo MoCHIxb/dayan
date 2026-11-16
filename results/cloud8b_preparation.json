@@ -4,7 +4,7 @@
   "guide": "docs/53_cloud_4090_dual_8b_setup.md",
   "config": "configs/cloud_8b_4090/environment.json",
   "entry": "scripts/cloud/prepare_8b_4090.sh",
-  "tests_passed": 130,
+  "tests_passed": 134,
   "torch_policy": "reuse_image_2.12.1_cuda13.0_exact_constraint_no_downgrade",
   "model_downloaded_locally": false,
   "cloud_setup_executed": true,
@@ -20,5 +20,13 @@
   "research_roster": "configs/research_models.json",
   "serial_deployment": "scripts/cloud/deploy_research_models.sh",
   "llava": "owner_canceled_before_deployment",
-  "roster_deployment_status": "CPU_tested; ModelScope repos/file names checked read-only; actual model bytes/compute not verified except owner Qwen asset report"
+  "roster_deployment_status": "CPU_tested; ModelScope repos/file names checked read-only; actual model bytes/compute not verified except owner Qwen asset report",
+  "owner_cloud_assets_verified": {
+    "qwen3_8b": 14,
+    "mistral7b": 12,
+    "phi4mini": 13
+  },
+  "disk_expansion": "owner reports +50G; actual mount/free capacity pending df",
+  "cpu_preflight_entry": "scripts/cloud/preflight_research_models.sh",
+  "cpu_preflight_cloud_status": "not yet received; local logic tests only"
 }

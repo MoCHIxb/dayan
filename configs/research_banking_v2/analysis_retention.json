@@ -1,0 +1,34 @@
+{
+  "name": "analysis_after_full_audit_v1",
+  "scope": "new runs owned by research_banking_analysis_v1 only",
+  "keep_representative_export": {
+    "rank": 16,
+    "alpha": 32,
+    "seed": 20261113,
+    "each_model_and_precision": true
+  },
+  "delete_only_after": [
+    "128-step full-state audit",
+    "8 complete dev evaluations and checkpoint selection",
+    "full400 test predictions and independent scoring",
+    "all train/test/audit stage receipts verified",
+    "retained-file snapshot and exact deletion ledger saved"
+  ],
+  "checkpoint_binary_names": [
+    "adapter_model.safetensors",
+    "optimizer.pt",
+    "scheduler.pt",
+    "rng_state.pth"
+  ],
+  "preserve": [
+    "all data and official base models",
+    "all failed or paused runs",
+    "full predictions and references",
+    "all config/manifest/receipts",
+    "all progress/trainer state/checkpoint metadata",
+    "original audit and resource/session evidence",
+    "9 predefined exported adapters",
+    "historical4B and old full-retention outputs"
+  ],
+  "post_cleanup_limit": "metrics/selection/curve reanalysis, not replay of deleted checkpoints or binary-level reaudit"
+}

@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-16",
+  "status": "analysis_retention_implemented_cpu_tested_cloud_unverified",
+  "entry": "scripts/cloud/run_research_analysis.sh",
+  "guide": "docs/66_analysis_evidence_retention.md",
+  "policy": "configs/research_banking_v2/analysis_retention.json",
+  "science_trainings": 1125,
+  "control_stages": 4513,
+  "retention_tests": 9,
+  "tests_run": 189,
+  "tests_skipped": 5,
+  "production_files_deleted": 0,
+  "cloud_execution": "unknown_no_current_state_received; new cleanup unexecuted",
+  "preserves_original_v2_source": true,
+  "old_full_retention_manifest": "refuse_automatic_migration_or_cleanup",
+  "after_pruning_limit": "Only retained metadata/prediction/metric audit; deleted original checkpoints cannot be rehashed or replayed"
+}

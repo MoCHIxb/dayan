@@ -268,3 +268,14 @@ cloud/run_research_banking.sh check核验已有CPUv3、九项GPU诊断原收据�
 180项CPU测试运行、5项环境条件跳过；新增14项验证1125完整交叉/3388数量、私有配置防覆盖、五seed/配对统计、磁盘预算、失败禁止重试、暂停会话累计和partial报告不冒充完成。没有本地GPU训练，新r64/正式云端结果未提供，当前实际进程/阶段未知。旧GPU探针、v1训练/评价/审计及20/24/46源码保持原SHA，未覆盖诊断数据或运行中脚本；第一次批量生成被自动审批误判会改旧探针而拒绝，未执行，后改成明确只新建独立副本并核验原SHA。
 
 种子是伪随机起点：变化LoRA新增矩阵初始化、dropout和训练采样顺序，不随机重建基座、不换数据集，也不是同一训练5个checkpoint。保持相同记录测试5次独立优化随机性；不替代LaMP原始corpus_score配对bootstrap的测试样本不确定性。更多网格/种子不弥补单任务500/400限制，LaMP生成、多维主观评价、50/200规模与论文仍为后续独立工作，不把1125批次当整个课题完成。若原v1在云端运行，先原入口pause/核验退出再更新，不先重跑旧15；旧结果保留且不当v2额外seed。
+
+
+## 2026-11-16 最新保存偏好：分析证据即可，不永久留1125套检查点
+
+所有者询问是否必须全量保留并明确本轮只需足够分析的数据。新增66号/analysis_retention.json及scripts/cloud/run_research_analysis.sh（独立run_research_analysis.py、compact_research_grid.py），1125科学训练/五种子/原数据和原v2训练评价核心不变。每条件训练→完整400test→原始全状态/8次dev/选模/预测独立审计→写保留文件SHA和精确删除意图→释放checkpoint的adapter_model.safetensors/optimizer.pt/scheduler.pt/rng_state.pth及非代表导出权重；保留r16/a32/seed20261113的每模型/精度9套export。新控制总阶段4513，完整分析完成标签complete_grid1125_analysis_evidence_verified，不冒充原二进制仍可重审。
+
+全部预测ID/reference/严格JSON评分、loss/dev曲线、checkpoint JSON metadata、配置、输入/模型/源码hash、命令、资源/会话与审计/删除收据保留。每次report重核保留元数据/完整预测和指标；被释放模型不再能继续训练/逐个重生成/重新核验原二进制。只保留SHA不能恢复权重。9套代表预先固定而非按test挑赢家。无需再累加TB级训练状态；新预算按分析文件余量+9代表export+一个活动run估算，不能保证任意150G盘必然够。
+
+新控制器记录在experiments/research_banking_analysis_v1，科学run/config/probe仍在research_banking_v2并复用不变native脚本。共享v2流程锁/GPU锁。新控制器仅清理自己训练前记录ownership的新run，若旧v2 full-retention manifest存在，明确拒绝自动接管或删除；未知当前云端是否已启动旧入口，若已有旧任务先原入口暂停并按实际状态另做迁移，不能手删文件或重跑已完成结果。本次仅写新代码和文档，没有删除任何真实项目文件，没有动失败/暂停/旧4B/20/24/46/原始LaMP统计及原v2科学源码。
+
+189项CPU测试运行、5项环境条件跳过；新增9项临时夹具验证无执行计划、审计后删除/预测复算、代表export保留、未归属/暂停/篡改拒绝、路径越界拒绝、清理中断必须显式finish和旧manifest保护。清理事务中断保留plan并报错，支持明确--finish-cleanup，不自动重试GPU。新r64/正式云端/真实清理均无成功回报。当前新批次推荐66号分析入口；65号仍为科学矩阵定义，full-retention旧脚本和冻结输入保持字节一致。

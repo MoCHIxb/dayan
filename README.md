@@ -7,7 +7,7 @@
 - [55：研究目标、模型选择、有限矩阵及评价重规划](docs/55_research_realignment.md)。
 - [17：最新交接](docs/17_new_chat_handoff.md)、[文档索引](docs/INDEX.md)、[脚本分类](scripts/README.md)。
 - 主比较Qwen3-8B与Mistral-7B-Instruct-v0.3，Phi-4-mini作为规模补充；Llama访问被拒、LLaVA取消。三模型资产、CPUv3及九项GPU诊断已由所有者回报通过，原始云端文件未本地导入。
-- 当前正式入口：[65号全因子协议与命令](docs/65_full_factorial_banking_protocol.md)：Rank五档×Alpha五档×三精度×三模型×五种子，共1125训练/3388阶段，支持25次分块与磁盘预算。原63号15次、64号72次作为历史，不先跑旧小矩阵。新r64探针及正式训练待云端执行。
+- 当前设计：[65号全因子协议](docs/65_full_factorial_banking_protocol.md)，1125次训练不变；新批次推荐[66号分析保留入口](docs/66_analysis_evidence_retention.md)，逐条件完整评价/审计后释放大状态，保留预测/曲线/指标/收据和9套代表adapter，4513控制阶段。原全量保留入口保持原源码，不对已启动旧任务自动迁移或删文件。新r64探针及正式训练仍待云端回报。
 - 目标服务器为所有者RTX4090 24GB／PyTorch2.12.1／CUDA13.0；[53号](docs/53_cloud_4090_dual_8b_setup.md)保留历史Qwen/Llama准备操作，只复用已核验的Qwen资产，不再要求取得Llama权限。
 
 ## 已有研究证据

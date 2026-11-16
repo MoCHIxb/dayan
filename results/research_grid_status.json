@@ -39,8 +39,14 @@
   "old_source_and_results": "byte_preserved_not_current_queue",
   "disk_policy": "header-based budget; TB-scale full retention; explicit blocks; no evidence deletion",
   "seed_interpretation": "adapter initialization/dropout/training order; data split fixed; no base reinitialization; not test resampling",
-  "tests_run": 180,
+  "tests_run": 189,
   "tests_skipped": 5,
   "new_grid_tests": 14,
-  "cpu_tests_only": true
+  "cpu_tests_only": true,
+  "analysis_retention_entry": "scripts/cloud/run_research_analysis.sh",
+  "analysis_retention_guide": "docs/66_analysis_evidence_retention.md",
+  "retention_policy": "analysis_after_original_full_state_and_full_test_audit",
+  "analysis_control_stages": 4513,
+  "retained_representative_exports": 9,
+  "retention_cloud_validation": "not_run_or_reported; local temporary-fixture CPU tests only"
 }

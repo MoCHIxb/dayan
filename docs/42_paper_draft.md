@@ -1,3 +1,5 @@
+> 2026-11-16：本稿为历史工作稿。当前主线以[55号研究方案](55_research_realignment.md)为准：多基座PEFT与主客观多维评价，不再以通用/专业框架为主要贡献。保留全部原数值，后续正文、摘要与结论需统一修订；不得将旧框架定位或4B成绩写成8B新成果。
+
 # 基于低资源微调的大模型个性化适配方法探索
 
 Exploration of Personalized Adaptation Methods for LLMs via Low-Resource Fine-Tuning

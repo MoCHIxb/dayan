@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-16",
-  "status": "review_draft_not_frozen_or_executable",
+  "status": "superseded_by_research_realignment_20261116_not_executable",
   "primary_model": "Qwen/Qwen3-8B",
   "comparison_model": "meta-llama/Meta-Llama-3-8B-Instruct",
   "primary_model_revision": null,
@@ -196,5 +196,7 @@
     "classification_bootstrap": "not added",
     "old_two_epoch_comparisons": "Need corresponding8B original-schedule baseline, not silently substitute4B baseline or call cross-platform/model changes training-strategy effects"
   },
-  "cloud_preparation": "docs/53_cloud_4090_dual_8b_setup.md"
+  "cloud_preparation": "docs/53_cloud_4090_dual_8b_setup.md",
+  "superseded_by": "docs/55_research_realignment.md",
+  "note": "Historical counts retained for provenance; not current training requirement or authorized queue."
 }

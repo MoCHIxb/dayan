@@ -1,39 +1,15 @@
-# 文档索引与优先级
+# 当前文档索引
 
-当前最高优先级：[45：IntentTune领域方案](45_intenttune_plan.md)、[46：BANKING77固定协议](46_banking77_protocol.md)、[47：AutoDL RTX3090全部步骤](47_autodl3090_intenttune.md)、[48：数据卡](48_banking77_data_card.md)。[49：首轮RTX3090结果与审计边界](49_banking77_results.md)已完成聚合导入复算。旧安全扩充暂停，39号不再是当前主入口。
+最高优先级为所有者开题原文与最新指示；[55号研究重规划](55_research_realignment.md)覆盖旧框架、IntentTune和全历史大队列的后续目标。[17号交接](17_new_chat_handoff.md)记录事实与最新覆盖。
 
-开题计划与所有者最新指示优先；历史记录不是自动重启任务的授权。
+- 研究规划：[55](55_research_realignment.md)。模型为Qwen8B＋Mistral7B候选，主客观多维评价，不以软件框架为贡献。
+- 当前8B状态：[53准备记录](53_cloud_4090_dual_8b_setup.md)、[54单条件Qwen入口](54_qwen8b_first_banking500.md)。云端尚未运行，Llama访问被拒后不再要求继续准备它；不自动执行旧队列。
+- 历史LaMP科学协议：[20](20_small_sample_protocol.md)、[24](24_small_sample_peft_protocol.md)，结果23/25/31，原始完整统计保留。
+- 历史辅助诊断：29/30。表层风格/复制不是主观深层风格证明。
+- 历史分类证据：36本地安全功能、37/38 SMS、46/48 BANKING协议数据卡、49结果。数据覆盖/风险边界按原报告保留。
+- 论文：42历史工作稿、43证据映射、44历史主表；需按55重新整合，不是新主线已完成的论文。
+- 维护：40归档恢复；本次[无损整理清单](../results/research_cleanup_20261116.json)。
+- 32/33/41/45/50/51/52已移出活跃规划，其原路径保留指向docs/history/replanning_20261116的完整原文。归档内相对引用沿用原文件上下文，核对original路径及SHA后阅读；不是新执行依据。
+- [脚本分类索引](../scripts/README.md)区分科学核心、已完成历史调度、当前待启动入口与归档工具。
 
-- [39：历史4090单轮SMS指南](39_cloud_4090_sms_guide.md)、[40：清理与恢复记录](40_workspace_maintenance.md)：云端尚未执行；原始证据保留和归档位置。
-- [37：SMS新领域协议](37_sms_spam_protocol.md)、[38：完整结果](38_sms_spam_results.md)：私有500/200/1000真实数据、128步、严格分类评分与实际效果边界。
-- [36：本地框架功能验证](36_local_framework_validation.md)：32步真实训练、暂停恢复、完整test与资源/误报取舍；云端仍未执行。
-- [35：三类纯文本审查数据](35_three_domain_text_safety.md)：当前医学/金融/公共安全来源、实际数据规模、标签边界和独立云端命令。
-- 34及MMDS来源报告：已取消的历史方案，不能恢复。
-
-- [33：开发者启动与接口指南](33_developer_framework_guide.md)：本轮命令集、真实配对格式、配置、暂停/恢复与实现边界。
-- [32：框架总方案](32_framework_master_plan.md)：当前目标、已有证据、开发者仓库范围、架构和分阶段验收。
-- [17：当前交接](17_new_chat_handoff.md)、[28：执行清单](28_next_work_plan.md)：接手入口与已完成/待实现边界。
-- [31：最终质量/资源解释](31_peft_quality_cost_analysis.md)：18/18原始统计后的最终本轮解释；`results/peft_quality_cost_analysis.json`为聚合机器证据。
-- 29/30：探索性客观风格/内容协议与28条件结果；表层代理不证明深层风格或事实正确。
-- 20/21/23：冻结小样本协议、结果与解释；24/25：冻结PEFT协议与结果。两轮本地训练和统计均完成。
-- [27：Linux/RTX4090指南](27_cloud_4090_reproduction.md)：平台复现尚未实机验证。
-- 22/26：本地工程与历史验证记录；其中“运行中”等历史措辞不是当前状态。
-- 19：去重、复制与风格证据审计；01–16/18和`history/`：文献与历史研究背景。
-
-当前机器进度见`results/local_progress.json`；`results/local_pause_status.json`保留为历史暂停快照。本地已完成监控已删除，不自动重建。
-
-公开仓库仅包含所有者授权的examples/text_safety_v1选定数据；不含全量原始语料、旧LaMP数据、权重、checkpoint和逐条模型预测。文档内`experiments/`路径指向本地私有证据，干净克隆中不存在属于预期。代码尚未指定许可证，不把公开研究快照称为正式开源发布。
-
-- [41：框架迭代与CPU诊断](41_framework_iteration.md)、[42：论文初稿](42_paper_draft.md)、[43：论文证据映射](43_paper_evidence_map.md)：2026-11-04新增，云端仍未执行，非正式定稿。
-
-- [44：可重现论文主表](44_paper_tables.md)：export_paper_tables从四份公开聚合JSON提取，附SHA，不重算统计。
-
-- [50：现有跨任务证据对齐与多领域验证草案](50_multi_domain_validation_plan.md)：统一展示既有结果，提出同任务多领域对照；新来源/子集/运行协议尚未冻结，未启动训练。
-
-- [51：Llama-3/Qwen跨基座PEFT方案](51_cross_backbone_peft_plan.md)：2026-11-16新增云端研究方向；方案已加入，模型资产和兼容/运行入口待验证，未启动实验。
-
-- [52：Qwen3-8B主线完整方案审阅稿](52_qwen3_8b_campaign_plan.md)：最新主基座调整；主线54次；所有者已确认全部历史也以8B重跑，已清点总预算下界82次、早期研究待逐项清点；未冻结或启动。
-
-- [53：RTX4090双8B准备指南](53_cloud_4090_dual_8b_setup.md)：最新PyTorch2.12.1/CUDA13.0镜像，环境及官方模型锁/下载/核验；训练执行器尚待完成。
-
-- [54：先跑Qwen8B银行500条完整对照](54_qwen8b_first_banking500.md)：独立8阶段云端入口，完整128步/100dev/400test；本地CPU测试通过，GPU路径待实测。
+没有删除实验数据、模型、checkpoint、预测或失败证据。只公开窄范围授权示例、代码和聚合；模型访问/许可各自遵守，来源与结果不可混用。

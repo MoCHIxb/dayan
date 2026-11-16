@@ -1,0 +1,78 @@
+{
+  "cloud_status": "owner confirms not running; no GPU started",
+  "status": "reversible_scope_cleanup_no_experiment_data_deleted",
+  "preserved": "All datasets/model weights/checkpoints/predictions/statistics/failure evidence/frozen core and active Qwen8 runner",
+  "deferred_scripts": "Old queues and scientific scripts retained at original paths because of receipts/dependencies; not current execution entry",
+  "date": "2026-11-16",
+  "files": [
+    {
+      "archive": "docs/history/replanning_20261116/32_framework_master_plan.md",
+      "action": "byte_preserved_archive_with_original_path_pointer",
+      "original": "docs/32_framework_master_plan.md",
+      "sha256": "d633df07a8203e449ac9cdb54e6a132107a9a0f5b5cba0259afb61aebb990cf2"
+    },
+    {
+      "archive": "docs/history/replanning_20261116/33_developer_framework_guide.md",
+      "action": "byte_preserved_archive_with_original_path_pointer",
+      "original": "docs/33_developer_framework_guide.md",
+      "sha256": "f0fbfade16305d9f049cc06af976da7cc67e9b748d9d5da5a77ed612d0ea03db"
+    },
+    {
+      "archive": "docs/history/replanning_20261116/41_framework_iteration.md",
+      "action": "byte_preserved_archive_with_original_path_pointer",
+      "original": "docs/41_framework_iteration.md",
+      "sha256": "c192f174fcb3d854e893cb89fcb861a3e2a3a9091d063d25b6e438729e2f0f1b"
+    },
+    {
+      "archive": "docs/history/replanning_20261116/45_intenttune_plan.md",
+      "action": "byte_preserved_archive_with_original_path_pointer",
+      "original": "docs/45_intenttune_plan.md",
+      "sha256": "503d4028e621542ad9edf9032024423eb51dc4d8bd8dad3fb5f6f3d6f7dd864e"
+    },
+    {
+      "archive": "docs/history/replanning_20261116/50_multi_domain_validation_plan.md",
+      "action": "byte_preserved_archive_with_original_path_pointer",
+      "original": "docs/50_multi_domain_validation_plan.md",
+      "sha256": "1b9bc6121c655888b65c1c51bb26af56a9d57cb9cd96cb7a1aa8b5ff84bf803c"
+    },
+    {
+      "archive": "docs/history/replanning_20261116/51_cross_backbone_peft_plan.md",
+      "action": "byte_preserved_archive_with_original_path_pointer",
+      "original": "docs/51_cross_backbone_peft_plan.md",
+      "sha256": "02a1cf3be54f40833d50bc147ba6f0e3569322f9bc460d845066ebebbf4019b6"
+    },
+    {
+      "archive": "docs/history/replanning_20261116/52_qwen3_8b_campaign_plan.md",
+      "action": "byte_preserved_archive_with_original_path_pointer",
+      "original": "docs/52_qwen3_8b_campaign_plan.md",
+      "sha256": "5edd5f989fa1859612b0df041e312ba86cfff473b251952c1dd3ca2b46f3585b"
+    },
+    {
+      "archive": "docs/history/replanning_20261116/prepare_blind_review.py.txt",
+      "action": "unused_old_blind_review_script_nonexecuting_text_archive",
+      "original": "scripts/prepare_blind_review.py",
+      "sha256": "01a12f7b88e140b69983604aa855d84ac4e0f97de02efbff3bf3f914a8a5c69e"
+    },
+    {
+      "archive": "docs/history/replanning_20261116/analyze_blind_review.py.txt",
+      "action": "unused_old_blind_review_script_nonexecuting_text_archive",
+      "original": "scripts/analyze_blind_review.py",
+      "sha256": "2f004161bfcf2589dc0d32eb1fcf770a3e772a8a5756827236806b573f328a74"
+    },
+    {
+      "archive": "docs/history/replanning_20261116/README.md",
+      "action": "original_navigation_snapshot_before_rewrite",
+      "original": "README.md",
+      "sha256": "af54fc0e242b113a68d039f2fbbf7ee84fd0ef26291dfe320a79a135f6afc4c9"
+    },
+    {
+      "archive": "docs/history/replanning_20261116/docs_INDEX.md",
+      "action": "original_navigation_snapshot_before_rewrite",
+      "original": "docs/INDEX.md",
+      "sha256": "d5d7dac54a6bfd95bcd303f6b6d0e87cb9773b1e30433f68613afb1acbdfb72f"
+    }
+  ],
+  "archive_files_verified": 11,
+  "cpu_tests_passed": 125,
+  "scope_plan": "docs/55_research_realignment.md"
+}

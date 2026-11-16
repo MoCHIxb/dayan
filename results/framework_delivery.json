@@ -131,5 +131,23 @@
       "preserve private cloud predictions/checkpoints/stage receipts",
       "author review of paper; independent protocol before model extension"
     ]
+  },
+  "current_research_scope": {
+    "date": "2026-11-16",
+    "status": "objective_realignment_only_no_cloud_model_runs",
+    "plan": "docs/55_research_realignment.md",
+    "priority": [
+      "cross_backbone_peft_quality_resource_comparison",
+      "multidimensional_objective_and_subjective_evaluation"
+    ],
+    "primary_candidates": [
+      "Qwen/Qwen3-8B",
+      "mistralai/Mistral-7B-Instruct-v0.3"
+    ],
+    "framework_as_main_contribution": false,
+    "previous_scope_fields": "historical snapshots superseded by current_research_scope",
+    "old_82_run_queue": "withdrawn_from_current_plan",
+    "gpu_started": false,
+    "cpu_tests": 125
   }
 }

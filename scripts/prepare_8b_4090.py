@@ -45,10 +45,10 @@ def pin(key):
     info=HfApi(endpoint='https://huggingface.co').model_info(model['repo_id'],files_metadata=True)
     if not re.fullmatch('[0-9a-f]{40}',info.sha):raise ValueError('Full commit required')
     files={}
-    allowed={'config.json','generation_config.json','tokenizer.json','tokenizer_config.json','special_tokens_map.json','added_tokens.json','merges.txt','vocab.json','tokenizer.model','LICENSE','LICENSE.txt','USE_POLICY.md','README.md','model.safetensors.index.json'}
+    allowed={'config.json','generation_config.json','tokenizer.json','tokenizer_config.json','special_tokens_map.json','added_tokens.json','merges.txt','vocab.json','tokenizer.model','LICENSE','LICENSE.txt','USE_POLICY.md','README.md','model.safetensors.index.json','pytorch_model.safetensors.index.json','tokenizer.model.v3','processor_config.json','preprocessor_config.json','chat_template.json','chat_template.jinja'}
     for item in info.siblings:
         name=item.rfilename
-        if name not in allowed and not (name.endswith('.safetensors') and '/' not in name):continue
+        if name not in allowed and not re.fullmatch(r'(?:model|pytorch_model)(?:-\d+-of-\d+)?\.safetensors',name):continue
         filename(name);lfs=item.lfs
         checksum=(lfs.get('sha256') if isinstance(lfs,dict) else getattr(lfs,'sha256',None)) if lfs else None
         entry=dict(size=item.size,sha256=checksum,blob_id=item.blob_id)
@@ -56,6 +56,7 @@ def pin(key):
             raise ValueError('Missing remote checksum metadata')
         files[name]=entry
     if not {'config.json','tokenizer_config.json','tokenizer.json'}<=set(files) or not any(n.endswith('.safetensors') for n in files):raise ValueError('Incomplete model inventory')
+    if not set(model.get('required_files',[]))<=set(files):raise ValueError('Missing required processor metadata')
     save_new(path,dict(repo_id=model['repo_id'],revision=info.sha,files=files))
     print(json.dumps(dict(model=key,revision=info.sha,files=len(files),bytes=sum(x['size'] for x in files.values()))))
 

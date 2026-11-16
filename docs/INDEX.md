@@ -13,3 +13,5 @@
 - [脚本分类索引](../scripts/README.md)区分科学核心、已完成历史调度、当前待启动入口与归档工具。
 
 没有删除实验数据、模型、checkpoint、预测或失败证据。只公开窄范围授权示例、代码和聚合；模型访问/许可各自遵守，来源与结果不可混用。
+
+- [56：纯文本主流模型选择与ModelScope统一部署](56_text_model_roster_and_deployment.md)：最新取消LLaVA；Qwen/Mistral/Phi资产入口，统一训练器仍待验证。

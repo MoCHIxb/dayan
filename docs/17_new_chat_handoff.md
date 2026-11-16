@@ -184,3 +184,12 @@ LaMP完整1496test/1500dev、原corpus_score2000次配对统计与辅助指标�
 已无损归档7份过时规划，原路径保留指针，README与INDEX换成研究入口；旧2份未被当前代码/测试调用的盲评脚本转为.py.txt历史原文。记录results/research_cleanup_20261116.json含原路径/归档路径/SHA；冻结核心、当前Qwen8单条件入口、原始数据/模型/checkpoint/预测/统计/失败现场均不动。旧队列因依赖和哈希保留原路径，在scripts/README.md明确非当前启动入口。本次不是磁盘清空，没有删实验资产。
 
 当前无GPU任务由本助手启动。下一步先审阅55号研究问题、模型/任务与评价定义，再冻结新跨模型/量化协议与实现，不直接恢复旧54/82次队列。
+
+
+## 2026-11-16最新模型清单与统一部署
+
+所有者要求更新远程并使用ModelScope一次性准备模型；提出LLaVA后又明确取消，不做多模态。56号为当前模型选择与部署入口，configs/research_models.json选Qwen3-8B/Mistral7Bv0.3/Phi4mini三个纯文本模型，Phi作为规模补充；DeepSeek蒸馏与Granite8B仅可选，未加入下载。主流品牌不代表独立架构，DeepSeek7B蒸馏基于Qwen，需披露。
+
+新增cloud/deploy_research_models.sh默认plan，显式deploy/verify串行复用已有Qwen官方锁和已校验文件，再固定/准备Mistral与Phi。大权重ModelScope候选精确对官方SHA，小元数据保留官方commit；失败即停/保留partial，不绕过授权。模型仓库存在和文件名只读核查已完成，候选全部字节/云端下载尚未核验。全局GPU锁保护，原Qwen单条件科学源码不改。
+
+资产准备不等于统一训练器完成，Mistral/Phi的模板、target mask、终止、融合projection/量化和显存仍需验证。不得直接套旧Qwen专用入口或宣称训练已跑通。LLaVA从未部署，取消VLM来源仍禁用。当前仍无GPU模型任务由本助手启动。

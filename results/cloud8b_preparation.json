@@ -4,7 +4,7 @@
   "guide": "docs/53_cloud_4090_dual_8b_setup.md",
   "config": "configs/cloud_8b_4090/environment.json",
   "entry": "scripts/cloud/prepare_8b_4090.sh",
-  "tests_passed": 125,
+  "tests_passed": 130,
   "torch_policy": "reuse_image_2.12.1_cuda13.0_exact_constraint_no_downgrade",
   "model_downloaded_locally": false,
   "cloud_setup_executed": true,
@@ -16,5 +16,9 @@
   "qwen_asset_verification": "owner reports14files verified",
   "first_qwen_runner": "scripts/cloud/run_qwen8b_banking500.sh",
   "first_qwen_run_status": "code_cpu_tested_cloud_execution_pending",
-  "training_runner_scope": "Qwen3 BF16 single BANKING500 finite entry available; full campaign/Llama/int8 runner not complete"
+  "training_runner_scope": "Qwen3 BF16 single BANKING500 finite entry available; full campaign/Llama/int8 runner not complete",
+  "research_roster": "configs/research_models.json",
+  "serial_deployment": "scripts/cloud/deploy_research_models.sh",
+  "llava": "owner_canceled_before_deployment",
+  "roster_deployment_status": "CPU_tested; ModelScope repos/file names checked read-only; actual model bytes/compute not verified except owner Qwen asset report"
 }

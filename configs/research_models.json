@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "status": "three_text_models_asset_deployment_training_adapters_pending",
+  "environment": {
+    "python": "3.12",
+    "torch_prefix": "2.12.1",
+    "cuda": "13.0",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_count": 1,
+    "minimum_memory_gib": 23
+  },
+  "models": {
+    "qwen3_8b": {
+      "repo_id": "Qwen/Qwen3-8B",
+      "model_type": "qwen3",
+      "directory": "models/Qwen3-8B",
+      "thinking": false,
+      "modelscope": "Qwen/Qwen3-8B",
+      "group": "primary_text",
+      "loader": "AutoModelForCausalLM",
+      "lora_projections": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ]
+    },
+    "mistral7b": {
+      "repo_id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "modelscope": "mistralai/Mistral-7B-Instruct-v0.3",
+      "model_type": "mistral",
+      "directory": "models/Mistral-7B-Instruct-v0.3",
+      "group": "primary_text",
+      "loader": "AutoModelForCausalLM",
+      "lora_projections": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ]
+    },
+    "phi4mini": {
+      "repo_id": "microsoft/Phi-4-mini-instruct",
+      "modelscope": "LLM-Research/Phi-4-mini-instruct",
+      "model_type": "phi3",
+      "directory": "models/Phi-4-mini-instruct",
+      "group": "smaller_text_supplement",
+      "loader": "AutoModelForCausalLM",
+      "lora_projections": [
+        "qkv_proj",
+        "o_proj",
+        "gate_up_proj",
+        "down_proj"
+      ],
+      "actual_modules_must_be_checked": true
+    }
+  },
+  "training_ready": false,
+  "asset_locks": "experiments/cloud_8b_4090/assets",
+  "outputs": "experiments/cloud_8b_4090",
+  "recipes": [
+    {
+      "id": "A",
+      "quantization": "none",
+      "rank": 8,
+      "alpha": 16
+    },
+    {
+      "id": "B",
+      "quantization": "none",
+      "rank": 16,
+      "alpha": 16
+    },
+    {
+      "id": "C",
+      "quantization": "none",
+      "rank": 16,
+      "alpha": 32
+    },
+    {
+      "id": "D",
+      "quantization": "nf4",
+      "rank": 16,
+      "alpha": 32
+    },
+    {
+      "id": "E",
+      "quantization": "int8",
+      "rank": 16,
+      "alpha": 32
+    }
+  ],
+  "excluded_models": {
+    "llava": "owner explicitly canceled before deployment; no multimodal work",
+    "llama3": "owner access denied; no permission bypass"
+  }
+}

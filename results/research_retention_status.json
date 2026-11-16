@@ -10,8 +10,9 @@
   "tests_run": 189,
   "tests_skipped": 5,
   "production_files_deleted": 0,
-  "cloud_execution": "unknown_no_current_state_received; new cleanup unexecuted",
+  "cloud_execution": "owner confirms old full-retention run not started; new analysis run not yet reported",
   "preserves_original_v2_source": true,
   "old_full_retention_manifest": "refuse_automatic_migration_or_cleanup",
-  "after_pruning_limit": "Only retained metadata/prediction/metric audit; deleted original checkpoints cannot be rehashed or replayed"
+  "after_pruning_limit": "Only retained metadata/prediction/metric audit; deleted original checkpoints cannot be rehashed or replayed",
+  "owner_confirmed_old_full_retention_run": "not_started; owner statement in latest chat"
 }

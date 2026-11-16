@@ -279,3 +279,8 @@ cloud/run_research_banking.sh check核验已有CPUv3、九项GPU诊断原收据�
 新控制器记录在experiments/research_banking_analysis_v1，科学run/config/probe仍在research_banking_v2并复用不变native脚本。共享v2流程锁/GPU锁。新控制器仅清理自己训练前记录ownership的新run，若旧v2 full-retention manifest存在，明确拒绝自动接管或删除；未知当前云端是否已启动旧入口，若已有旧任务先原入口暂停并按实际状态另做迁移，不能手删文件或重跑已完成结果。本次仅写新代码和文档，没有删除任何真实项目文件，没有动失败/暂停/旧4B/20/24/46/原始LaMP统计及原v2科学源码。
 
 189项CPU测试运行、5项环境条件跳过；新增9项临时夹具验证无执行计划、审计后删除/预测复算、代表export保留、未归属/暂停/篡改拒绝、路径越界拒绝、清理中断必须显式finish和旧manifest保护。清理事务中断保留plan并报错，支持明确--finish-cleanup，不自动重试GPU。新r64/正式云端/真实清理均无成功回报。当前新批次推荐66号分析入口；65号仍为科学矩阵定义，full-retention旧脚本和冻结输入保持字节一致。
+
+
+## 最新状态确认：旧全量保留实验尚未运行
+
+所有者在说明当前实验流程/产物/空间占用之前明确：旧实验还未运行。记录为所有者确认旧full-retention正式run未启动，不是远程进程独立核验；新analysis入口亦尚无运行成功回报。因而当前无需先做旧manifest迁移，直接按66号新批次准备/探针/启动；不据此否定此前r8 GPU诊断已通过的回报，r64是否运行仍以真实证据为准。当前解释重点：1125次单卡串行；每次128步/八次完整100dev选模/完整400test与原文件审计后精确释放大二进制，分析产物在analysis_v1汇总、科学run/config在research_banking_v2。1125×64MiB=70.3125GiB是保守分析文件余量预算，不是预占/实测量；另加9代表adapter、一个活动run余量与10GiB保留，模型/诊断/缓存占用以云端du/df为准，不能保证150G必定够。

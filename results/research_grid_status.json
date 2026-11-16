@@ -48,5 +48,6 @@
   "retention_policy": "analysis_after_original_full_state_and_full_test_audit",
   "analysis_control_stages": 4513,
   "retained_representative_exports": 9,
-  "retention_cloud_validation": "not_run_or_reported; local temporary-fixture CPU tests only"
+  "retention_cloud_validation": "not_run_or_reported; local temporary-fixture CPU tests only",
+  "owner_confirmed_old_full_retention_run": "not_started; owner statement in latest chat"
 }

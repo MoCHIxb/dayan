@@ -34,7 +34,7 @@
   "gpu_diagnostic_entry": "scripts/cloud/gpu_probe_research.sh",
   "gpu_diagnostic_status": "owner reports all9 GPU probes and receipts verified",
   "gpu_diagnostic_report": "results/gpu_probe_owner_report.json",
-  "formal_experiment_status": "owner_actual_progress_unknown_no_formal_receipts_received",
+  "formal_experiment_status": "owner confirms old full-retention run not started; analysis mode awaits execution report",
   "tests_skipped": 5,
   "formal_entry": "scripts/cloud/run_research_analysis.sh",
   "formal_protocol": "docs/65_full_factorial_banking_protocol.md",
@@ -49,5 +49,6 @@
   "retained_representative_exports": 9,
   "retention_cloud_validation": "not_run_or_reported; local temporary-fixture CPU tests only",
   "tests_run": 189,
-  "full_retention_entry": "scripts/cloud/run_research_grid.sh"
+  "full_retention_entry": "scripts/cloud/run_research_grid.sh",
+  "owner_confirmed_old_full_retention_run": "not_started; owner statement in latest chat"
 }

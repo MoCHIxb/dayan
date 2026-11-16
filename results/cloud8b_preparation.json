@@ -34,9 +34,11 @@
   "gpu_diagnostic_entry": "scripts/cloud/gpu_probe_research.sh",
   "gpu_diagnostic_status": "owner reports all9 GPU probes and receipts verified",
   "gpu_diagnostic_report": "results/gpu_probe_owner_report.json",
-  "formal_experiment_status": "not_started",
+  "formal_experiment_status": "owner_formal_run_status_not_reported_after_a24b57e_actual_progress_unknown",
   "tests_skipped": 5,
   "formal_entry": "scripts/cloud/run_research_banking.sh",
   "formal_protocol": "docs/63_research_banking_formal_protocol.md",
-  "first_qwen_runner_status": "historical_single_condition_entry_retained_do_not_run_alongside_new_pipeline"
+  "first_qwen_runner_status": "historical_single_condition_entry_retained_do_not_run_alongside_new_pipeline",
+  "extension_plan": "results/research_extension_plan.json",
+  "extension_implementation_status": "planning_only_current15_configs_unchanged"
 }

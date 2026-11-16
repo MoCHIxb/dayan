@@ -29,3 +29,5 @@
 - [62：九条件GPU诊断云端回报](62_gpu_probe_results.md)：功能与原收据由用户核验，峰值非正式训练，云端原文件未本地重审。
 
 - [63：三模型BANKING500首种子正式实验协议与命令](63_research_banking_formal_protocol.md)：15次训练、27组完整生成、58阶段；独立原生训练/评价/审计，正式云端结果待执行。
+
+- [64：Rank/Alpha与多种子扩充方案、当前进度](64_rank_alpha_multiseed_plan.md)：72次BANKING500推荐设计，包含首批15；独立扩充执行器待实现，非已启动队列。

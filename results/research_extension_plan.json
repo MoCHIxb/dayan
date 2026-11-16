@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-16",
+  "status": "recommended_design_recorded_not_implemented_or_launched",
+  "scope": "BANKING500 only; independent extension of immutable research_banking_v1",
+  "guide": "docs/64_rank_alpha_multiseed_plan.md",
+  "current_entry": "scripts/cloud/run_research_banking.sh",
+  "current_supported_training_seeds": [
+    20261113
+  ],
+  "planned_training_seeds": [
+    20261113,
+    20261117,
+    20261123
+  ],
+  "data_selection_seed": 20261113,
+  "models": [
+    "qwen3_8b",
+    "mistral7b",
+    "phi4mini"
+  ],
+  "bf16_rank_curve": [
+    {
+      "r": 4,
+      "alpha": 8
+    },
+    {
+      "r": 8,
+      "alpha": 16
+    },
+    {
+      "r": 16,
+      "alpha": 32
+    },
+    {
+      "r": 32,
+      "alpha": 64
+    }
+  ],
+  "bf16_alpha_curve": [
+    {
+      "r": 16,
+      "alpha": 16
+    },
+    {
+      "r": 16,
+      "alpha": 32
+    },
+    {
+      "r": 16,
+      "alpha": 64
+    }
+  ],
+  "quantization_controls": [
+    {
+      "mode": "nf4",
+      "r": 16,
+      "alpha": 32
+    },
+    {
+      "mode": "int8",
+      "r": 16,
+      "alpha": 32
+    }
+  ],
+  "counts": {
+    "unique_recipes_per_model": 8,
+    "first_seed_existing_recipe_trainings": 15,
+    "additional_seeds_existing_recipe_trainings": 30,
+    "rank_alpha_extension_trainings": 27,
+    "total_planned_trainings": 72,
+    "additional_if_first15_audited": 57,
+    "adapter_full_test_generations": 72,
+    "reusable_model_baseline_generations": 12
+  },
+  "cloud_formal_status": "no_owner_formal_run_evidence_received_after_a24b57e; actual_start_and_progress_unknown",
+  "reuse": "Audit original-source receipts and exact scientific input identity; do not retrain completed valid conditions or overwrite old code/receipts",
+  "required_before_execution": [
+    "independent extension configs and runner",
+    "rank32 resource and full-state probe",
+    "cross-version source-aware reuse audit",
+    "frozen commands, seed list and output paths"
+  ],
+  "preserve_current_pipeline": true
+}

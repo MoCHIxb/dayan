@@ -30,3 +30,5 @@
 本地只做CPU准备与测试，新增模型实验均在所有者云端显式串行执行，失败留证，不自动重试。下一步先确认55号模型/任务/评价定义，再准备新实验配置；当前未启动GPU任务。
 
 当前纯文本模型清单与一次性ModelScope资产部署见[56号](docs/56_text_model_roster_and_deployment.md)；LLaVA已按最新指示取消，部署不等于训练完成。
+
+后续参数与稳定性设计见[64号](docs/64_rank_alpha_multiseed_plan.md)：Rank四档、Alpha缩放三档、三种子，合计72次BANKING500规划（含首批15），扩充执行器尚待实现；当前正式云端状态尚未回报。

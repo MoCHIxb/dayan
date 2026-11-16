@@ -10,9 +10,19 @@
   "tests_run": 189,
   "tests_skipped": 5,
   "production_files_deleted": 0,
-  "cloud_execution": "owner confirms old full-retention run not started; new analysis run not yet reported",
+  "cloud_execution": "owner reported analysis prepare passed; rank64 probe/formal training/real compaction not yet reported",
   "preserves_original_v2_source": true,
   "old_full_retention_manifest": "refuse_automatic_migration_or_cleanup",
   "after_pruning_limit": "Only retained metadata/prediction/metric audit; deleted original checkpoints cannot be rehashed or replayed",
-  "owner_confirmed_old_full_retention_run": "not_started; owner statement in latest chat"
+  "owner_confirmed_old_full_retention_run": "not_started; owner statement in latest chat",
+  "analysis_prepare_cloud_report": {
+    "source": "owner terminal output at commit4f41383; cloud originals not imported locally",
+    "status": "prepare_passed_cpu_model_bytes_data_native_contracts_and_disk_budget",
+    "free_bytes": 119625474048,
+    "forecast_required_bytes": 96617365504,
+    "planned_trainings": 1125,
+    "control_stages": 4513,
+    "formal_training": "not_shown_started_in_this_output",
+    "next": "independent rank64 probes then explicit run; run repeats disk guard"
+  }
 }

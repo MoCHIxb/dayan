@@ -284,3 +284,8 @@ cloud/run_research_banking.sh check核验已有CPUv3、九项GPU诊断原收据�
 ## 最新状态确认：旧全量保留实验尚未运行
 
 所有者在说明当前实验流程/产物/空间占用之前明确：旧实验还未运行。记录为所有者确认旧full-retention正式run未启动，不是远程进程独立核验；新analysis入口亦尚无运行成功回报。因而当前无需先做旧manifest迁移，直接按66号新批次准备/探针/启动；不据此否定此前r8 GPU诊断已通过的回报，r64是否运行仍以真实证据为准。当前解释重点：1125次单卡串行；每次128步/八次完整100dev选模/完整400test与原文件审计后精确释放大二进制，分析产物在analysis_v1汇总、科学run/config在research_banking_v2。1125×64MiB=70.3125GiB是保守分析文件余量预算，不是预占/实测量；另加9代表adapter、一个活动run余量与10GiB保留，模型/诊断/缓存占用以云端du/df为准，不能保证150G必定够。
+
+
+## 云端分析保留prepare已通过（所有者终端回报）
+
+用户提供4f41383上的完整prepare输出：150G挂载39G已用/112G可用，4090空闲；plan1125训练/4513阶段，Qwen14/Mistral12/Phi13资产字节验收通过，grid_cpu_inputs_verified_formal_gpu_unexecuted_by_this_check。实际空闲119625474048 bytes（约111.4GiB），分析余量75497472000、9代表adapter预算1303904256、活动run与保留19815989248，合计所需96617365504 bytes（约90.0GiB），prepare空间检查通过。此为所有者CLI回报，不是本地重跑或导入云端原文件；不改任何运行源码/协议。输出未出现r64探针或正式训练启动，下一步分析入口probe再run，run会按探针后的实际空闲量重查。executable:false属于plan输出，asset_bytes_verified_not_training_ready是资产层状态，不是报错。

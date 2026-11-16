@@ -50,5 +50,15 @@
   "retention_cloud_validation": "not_run_or_reported; local temporary-fixture CPU tests only",
   "tests_run": 189,
   "full_retention_entry": "scripts/cloud/run_research_grid.sh",
-  "owner_confirmed_old_full_retention_run": "not_started; owner statement in latest chat"
+  "owner_confirmed_old_full_retention_run": "not_started; owner statement in latest chat",
+  "analysis_prepare_cloud_report": {
+    "source": "owner terminal output at commit4f41383; cloud originals not imported locally",
+    "status": "prepare_passed_cpu_model_bytes_data_native_contracts_and_disk_budget",
+    "free_bytes": 119625474048,
+    "forecast_required_bytes": 96617365504,
+    "planned_trainings": 1125,
+    "control_stages": 4513,
+    "formal_training": "not_shown_started_in_this_output",
+    "next": "independent rank64 probes then explicit run; run repeats disk guard"
+  }
 }

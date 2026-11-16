@@ -235,3 +235,14 @@ LaMP完整1496test/1500dev、原corpus_score2000次配对统计与辅助指标�
 用户报告九条件GPU诊断完成且all_conditions=true，随后只读校验所有inputs、train/restore收据、checkpoint文件和生成SHA，All 9 diagnostic receipts verified。诊断allocated GiB：Qwen BF16/NF4/int8=16.05/9.14/13.39，Mistral=14.01/6.63/10.56，Phi=7.85/4.98/6.78。62号及results/gpu_probe_owner_report.json只记录所有者回报，本地没有原云端文件，不宣称本地独立重审。
 
 功能检查已完成，不再重复；诊断r8/a16、2条train、步骤1保存/新进程恢复步骤2，不算正式128步/完整dev/test，不提供质量结论，不证明完整1536长度/r16显存或与不中断数值等价。下一步实现并冻结正式统一训练/评价/审计入口，遵守55号研究主线与三模型不同模块/原生渲染；当前不自行运行旧Qwen或大队列。保留GPU诊断目录/收据私有备份。
+
+
+## 2026-11-16 三模型正式BANKING500首种子入口已实现
+
+所有者请求提供直接运行的正式实验命令。新增63号独立协议与configs/research_banking_v1共15配置：Qwen/Mistral/Phi各A–E，BF16 r8a16/r16a16/r16a32及同r16a32 NF4/int8。固定真实500/100/400，128步、每16步完整dev、八次最早最小loss选模；原生目标含EOS、prompt mask、Mistral既定视图、无截断。Qwen/Mistral七投影、Phi融合四投影，不声称等参数或架构因果。
+
+cloud/run_research_banking.sh check核验已有CPUv3、九项GPU诊断原收据与保存文件、模型实际SHA、真实来源回放及三模型4200条编码与探针实现一致；run显式串行58阶段：1CPU质心+12基座/fewshot+15训练+15完整test+15审计。输入/原命令/输出冻结，保留最终128步与最佳全状态，导出adapter SHA一致，逐条ID/reference与严格JSON指标重算。失败不自动重试，显式暂停在既定16步保存，不增加dev选择次数；生成整组完成后暂停。仅阶段间或已核验的显式暂停可恢复。
+
+新增166项CPU测试（5项环境条件跳过）通过，包括掩码/探针一致、长度拒绝、八次选模、防篡改、失败留证和禁止自动重试、阶段间暂停。正式云端训练未执行，未宣称Linux完整128步/r16资源/Trainer恢复已验证；此前r8两步诊断与新正式证据区分。原registry/chat/probe/20/24/46和4B科学文件未变，GPU未本地启动。LaMP全dev/test及原始bootstrap、多种子/50/200训练、主观评价仍待后续独立方案，不恢复旧82队列。
+
+云端先git pull，再bash scripts/cloud/run_research_banking.sh check、plan、run。manifest冻结后不要更新代码或改环境；查看experiments/research_banking_v1/execution_state.json与attempt日志。完成后同入口report重核，机读results.json/可读results.md均私有。下一位不得将首批完成等同整个课题完成。

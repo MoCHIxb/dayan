@@ -1,0 +1,28 @@
+{
+  "protocol_id": "research_banking_v1",
+  "model_key": "qwen3_8b",
+  "recipe_id": "E",
+  "model_name_or_path": "models/Qwen3-8B",
+  "data_dir": "data/processed/banking77_8b_v1/n500",
+  "output_dir": "experiments/research_banking_v1/qwen3_8b_E_seed20261113/run",
+  "seed": 20261113,
+  "max_length": 1536,
+  "max_new_tokens": 64,
+  "max_steps": 128,
+  "eval_steps": 16,
+  "learning_rate": 0.0001,
+  "gradient_accumulation_steps": 16,
+  "quantization": "int8",
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ]
+}

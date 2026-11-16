@@ -1,0 +1,28 @@
+{
+  "protocol_id": "research_banking_v1",
+  "model_key": "mistral7b",
+  "recipe_id": "A",
+  "model_name_or_path": "models/Mistral-7B-Instruct-v0.3",
+  "data_dir": "data/processed/banking77_8b_v1/n500",
+  "output_dir": "experiments/research_banking_v1/mistral7b_A_seed20261113/run",
+  "seed": 20261113,
+  "max_length": 1536,
+  "max_new_tokens": 64,
+  "max_steps": 128,
+  "eval_steps": 16,
+  "learning_rate": 0.0001,
+  "gradient_accumulation_steps": 16,
+  "quantization": "none",
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.05,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ]
+}

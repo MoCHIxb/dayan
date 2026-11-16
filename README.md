@@ -6,8 +6,8 @@
 
 - [55：研究目标、模型选择、有限矩阵及评价重规划](docs/55_research_realignment.md)。
 - [17：最新交接](docs/17_new_chat_handoff.md)、[文档索引](docs/INDEX.md)、[脚本分类](scripts/README.md)。
-- 建议主基座：Qwen3-8B与Mistral-7B-Instruct-v0.3；Llama因所有者访问被拒而退出当前计划。Mistral适配/资产锁尚待验证，不直接替换Qwen专用配置运行。
-- Qwen8B资产14文件已由所有者报告通过；云端尚未运行实验，未收到8B BF16/4bit/8bit结果。现有[54号单条件Qwen入口](docs/54_qwen8b_first_banking500.md)保留，先调整目标与冻结新协议，不自动启动它或旧大队列。
+- 主比较Qwen3-8B与Mistral-7B-Instruct-v0.3，Phi-4-mini作为规模补充；Llama访问被拒、LLaVA取消。三模型资产、CPUv3及九项GPU诊断已由所有者回报通过，原始云端文件未本地导入。
+- 正式首批入口：[63号协议与命令](docs/63_research_banking_formal_protocol.md)，三模型各五配方、15次128步训练和完整评价，共58阶段。代码经CPU测试，正式云端结果尚无；54号旧Qwen单条件入口保留，不与新入口同时运行。
 - 目标服务器为所有者RTX4090 24GB／PyTorch2.12.1／CUDA13.0；[53号](docs/53_cloud_4090_dual_8b_setup.md)保留历史Qwen/Llama准备操作，只复用已核验的Qwen资产，不再要求取得Llama权限。
 
 ## 已有研究证据
@@ -17,7 +17,7 @@
 | LaMP4B小样本与PEFT | 完整训练、评价和原始bootstrap完成 | 小样本适配与质量/资源取舍；非深层风格或无遗忘保证 |
 | SMS及联合安全功能验证 | 已完成，历史证据保留 | 分类任务结果，不证明通用安全或专业事实正确 |
 | BANKING77 card10／Qwen4B／3090 | 云端聚合已导入复算 | macro-F1：基座0.8360、10示例0.8916、500条LoRA0.9401；原始云端文件未本地重审 |
-| Qwen8B／4090 | 环境与模型资产通过，实验尚未运行 | 不能将4B分数改名为8B结果 |
+| 三模型／4090 | CPUv3及九项两步GPU诊断通过；正式15次训练待执行 | 诊断峰值不是完整训练资源或质量成绩 |
 
 完整历史证据见[23](docs/23_small_sample_interpretation.md)、[25](docs/25_small_sample_peft_results.md)、[31](docs/31_peft_quality_cost_analysis.md)、[38](docs/38_sms_spam_results.md)、[49](docs/49_banking77_results.md)。旧论文[42号](docs/42_paper_draft.md)是历史工作稿，需按新研究主线修订，不能直接作为定稿。
 

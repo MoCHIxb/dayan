@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "status": "preparation_only_training_runner_pending",
+  "environment": {
+    "python": "3.12",
+    "torch_prefix": "2.12.1",
+    "cuda": "13.0",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_count": 1,
+    "minimum_memory_gib": 23
+  },
+  "models": {
+    "qwen3_8b": {
+      "repo_id": "Qwen/Qwen3-8B",
+      "model_type": "qwen3",
+      "directory": "models/Qwen3-8B",
+      "thinking": false
+    },
+    "llama3_8b": {
+      "repo_id": "meta-llama/Meta-Llama-3-8B-Instruct",
+      "model_type": "llama",
+      "directory": "models/Meta-Llama-3-8B-Instruct",
+      "end_of_turn": "<|eot_id|>"
+    }
+  },
+  "recipes": [
+    {
+      "id": "A",
+      "quantization": "none",
+      "rank": 8,
+      "alpha": 16
+    },
+    {
+      "id": "B",
+      "quantization": "none",
+      "rank": 16,
+      "alpha": 16
+    },
+    {
+      "id": "C",
+      "quantization": "none",
+      "rank": 16,
+      "alpha": 32
+    },
+    {
+      "id": "D",
+      "quantization": "nf4",
+      "rank": 16,
+      "alpha": 32
+    },
+    {
+      "id": "E",
+      "quantization": "int8",
+      "rank": 16,
+      "alpha": 32
+    }
+  ],
+  "asset_locks": "experiments/cloud_8b_4090/assets",
+  "outputs": "experiments/cloud_8b_4090",
+  "training_ready": false
+}

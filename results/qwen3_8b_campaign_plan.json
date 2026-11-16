@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-16",
+  "status": "review_draft_not_frozen_or_executable",
+  "primary_model": "Qwen/Qwen3-8B",
+  "comparison_model": "meta-llama/Meta-Llama-3-8B-Instruct",
+  "primary_model_revision": null,
+  "comparison_model_revision": null,
+  "historical_4b_results": "preserved_not_8b_evidence",
+  "historical_rerun_scope": "owner_confirmed_all_historical_experiments_on_qwen3_8b; inventory/preparation only, no GPU execution",
+  "domains": [
+    {
+      "id": "banking_card10",
+      "source": "BANKING77",
+      "train_sizes": [
+        50,
+        200,
+        500
+      ],
+      "dev": 100,
+      "test": 400,
+      "status": "existing_fixed_raw_records_preserved"
+    },
+    {
+      "id": "travel_intent10",
+      "source": "CLINC150 travel",
+      "train_sizes": [
+        50,
+        200,
+        500
+      ],
+      "dev": 100,
+      "test": 300,
+      "status": "proposed_not_built_or_source_locked"
+    },
+    {
+      "id": "work_intent10",
+      "source": "CLINC150 work",
+      "train_sizes": [
+        50,
+        200,
+        500
+      ],
+      "dev": 100,
+      "test": 300,
+      "status": "proposed_not_built_or_source_locked"
+    }
+  ],
+  "recipe_candidates": [
+    {
+      "id": "A",
+      "quantization": "none",
+      "r": 8,
+      "alpha": 16
+    },
+    {
+      "id": "B",
+      "quantization": "none",
+      "r": 16,
+      "alpha": 16
+    },
+    {
+      "id": "C",
+      "quantization": "none",
+      "r": 16,
+      "alpha": 32
+    },
+    {
+      "id": "D",
+      "quantization": "nf4",
+      "r": 16,
+      "alpha": 32
+    },
+    {
+      "id": "E",
+      "quantization": "int8",
+      "r": 16,
+      "alpha": 32
+    }
+  ],
+  "training_seeds": [
+    20261113,
+    20261114,
+    20261115
+  ],
+  "data_split_seed": "fixed separately; training seeds never rebuild dataset",
+  "training_budget": {
+    "optimizer_steps": 128,
+    "eval_every": 16,
+    "dev_evaluations_per_run": 8,
+    "lr": 0.0001,
+    "microbatch": 1,
+    "gradient_accumulation": 16,
+    "input_tokens_candidate": 1536,
+    "new_tokens_candidate": 64
+  },
+  "matrix": {
+    "qwen_data_volume": 27,
+    "qwen_peft_additional_after_shared_A_runs": 12,
+    "llama_peft": 15,
+    "qwen_total": 39,
+    "first_seed_stage": 18,
+    "remaining_seed_stage": 36,
+    "historical_counted_minimum_additional": 28,
+    "all_counted_minimum_total": 82,
+    "qwen_counted_minimum_total": 67,
+    "count_status": "lower bound, not final all-history budget; early completed historical inventory and unmatched8B controls may add runs",
+    "intenttune_training_subtotal": 54,
+    "final_all_history_total": null
+  },
+  "resources": "Owner Linux RTX4090 24GB,16vCPU,62GB RAM; Python3.12/Torch2.12.1/CUDA13.0 image; BF16/quantized compute fit unverified",
+  "runner_ready": false,
+  "gpu_execution_started": false,
+  "source_docs": [
+    "docs/50_multi_domain_validation_plan.md",
+    "docs/51_cross_backbone_peft_plan.md",
+    "docs/20_small_sample_protocol.md",
+    "docs/24_small_sample_peft_protocol.md"
+  ],
+  "boundaries": [
+    "No Cartesian product of all models/domains/recipes",
+    "No local model experiments",
+    "No 4B artifact relabeling or frozen implementation changes",
+    "Historical scope confirmed; preparation now, no automatic GPU launch",
+    "New8B LaMP statistics use original corpus_score/2000resamples in independent outputs; never rerun or overwrite4B statistics",
+    "Historical task protocols stay task-specific; do not standardize all histories to100dev or128steps",
+    "Full history count pending completed-evidence inventory;82is a lower bound, not an exhaustive total"
+  ],
+  "historical_modules": [
+    {
+      "id": "lamp_small_sample_8b",
+      "training_count": 16,
+      "counts": {
+        "train": [
+          50,
+          100,
+          200,
+          500
+        ],
+        "dev": 1500,
+        "test": 1496
+      },
+      "selection": "Repeat both LR candidates on seed20251206 and select using new8B dev only; then two fixed-recipe seeds. Never inherit4B selected LR."
+    },
+    {
+      "id": "lamp_peft_8b",
+      "minimum_additional_training_count": 9,
+      "shared_controls": 3,
+      "reuse_rule": "Only fresh8B controls with identical configuration/seed/asset receipts; additional controls needed if incompatible."
+    },
+    {
+      "id": "sms_8b",
+      "training_count": 1,
+      "counts": {
+        "train": 500,
+        "dev": 200,
+        "test": 1000
+      },
+      "steps": 128
+    },
+    {
+      "id": "safety_8b_functional",
+      "training_count": 1,
+      "counts": {
+        "train": 150,
+        "dev": 60,
+        "test": 120
+      },
+      "steps": 32,
+      "pause_resume": "separate functional check, full-state checkpoint; paused/resumed segments are not separate independent training runs"
+    },
+    {
+      "id": "safety_8b_full",
+      "training_count": 1,
+      "counts": {
+        "train": 150,
+        "dev": 60,
+        "test": 120
+      },
+      "steps": 128,
+      "note": "complete planned formal safety run, separate from historical32step reproduction; no new safety data"
+    }
+  ],
+  "early_historical_inventory": {
+    "status": "required_not_complete",
+    "include": "Completed original LaMP full-data/rank/alpha/int8/NF4 and fixed-two-epoch data-size comparisons, if supported by actual run evidence; source-backed data/retrieval ablations and formal evaluations",
+    "exclude": "Do not re-execute canceled/unexecuted six-run confirmation or12run4090 queue, transient debug attempts, or canceled VLM sources; completed scientific conditions get new8B runs, not old queue restart",
+    "training_count": null
+  },
+  "historical_evaluation": {
+    "lamp_full_dev": 1500,
+    "lamp_full_test": 1496,
+    "raw_corpus_score_bootstrap_resamples": 2000,
+    "preserve_4b_statistics": true,
+    "new_8b_statistics": "new outputs using original frozen corpus_score implementation, paired only after prediction identity/reference/budget checks",
+    "classification_bootstrap": "not added",
+    "old_two_epoch_comparisons": "Need corresponding8B original-schedule baseline, not silently substitute4B baseline or call cross-platform/model changes training-strategy effects"
+  },
+  "cloud_preparation": "docs/53_cloud_4090_dual_8b_setup.md"
+}

@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-16",
+  "status": "local_cpu_preparation_verified_cloud_unexecuted",
+  "guide": "docs/53_cloud_4090_dual_8b_setup.md",
+  "config": "configs/cloud_8b_4090/environment.json",
+  "entry": "scripts/cloud/prepare_8b_4090.sh",
+  "tests_passed": 118,
+  "torch_policy": "reuse_image_2.12.1_cuda13.0_exact_constraint_no_downgrade",
+  "model_downloaded_locally": false,
+  "cloud_setup_executed": false,
+  "model_compute_compatibility_verified": false,
+  "training_runner_ready": false,
+  "scope": "plan/bootstrap/check and official commit/checksum pin/download/verify only; no model execution"
+}

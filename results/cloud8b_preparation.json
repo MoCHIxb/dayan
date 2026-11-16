@@ -4,7 +4,7 @@
   "guide": "docs/53_cloud_4090_dual_8b_setup.md",
   "config": "configs/cloud_8b_4090/environment.json",
   "entry": "scripts/cloud/prepare_8b_4090.sh",
-  "tests_passed": 134,
+  "tests_passed": 141,
   "torch_policy": "reuse_image_2.12.1_cuda13.0_exact_constraint_no_downgrade",
   "model_downloaded_locally": false,
   "cloud_setup_executed": true,
@@ -28,5 +28,6 @@
   },
   "disk_expansion": "owner reports +50G; actual mount/free capacity pending df",
   "cpu_preflight_entry": "scripts/cloud/preflight_research_models.sh",
-  "cpu_preflight_cloud_status": "not yet received; local logic tests only"
+  "cpu_preflight_cloud_status": "Mistral native tokenizer instantiation failed; missing conversion dependencies identified; fix not yet cloud verified",
+  "tokenizer_repair": "docs/59_mistral_tokenizer_dependency_fix.md"
 }

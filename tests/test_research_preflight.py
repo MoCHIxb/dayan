@@ -29,3 +29,21 @@ class ResearchPreflightTests(unittest.TestCase):
         class Wrong(TokenizerFixture):
             def apply_chat_template(self,messages,**kwargs):return [1,2] if kwargs['add_generation_prompt'] else [3,4,5]
         with self.assertRaises(ValueError):m.encode_record(Wrong(),self.row())
+
+    def test_failure_evidence_retains_prior_model_result(self):
+        import tempfile,json
+        with tempfile.TemporaryDirectory() as d:
+            output=Path(d)/'preflight.json';done={'qwen3_8b':{'status':'checked'}}
+            p=m.failure_evidence(output,'mistral7b',done,ValueError('tokenizer load failed'))
+            saved=json.loads(p.read_text())
+            self.assertEqual(saved['active_model'],'mistral7b')
+            self.assertEqual(saved['completed_models'],done)
+            self.assertFalse(saved['training_ready'])
+            with self.assertRaises(FileExistsError):m.failure_evidence(output,'mistral7b',{},ValueError('retry'))
+    def test_missing_mistral_dependency_fails_explicitly(self):
+        from unittest.mock import patch
+        from importlib.metadata import PackageNotFoundError
+        with patch('importlib.metadata.version',side_effect=PackageNotFoundError('sentencepiece')):
+            with self.assertRaisesRegex(RuntimeError,'requirements-tokenizers.lock'):m.tokenizer_dependencies('mistral7b')
+    def test_other_models_do_not_require_sentencepiece_conversion(self):
+        self.assertEqual(m.tokenizer_dependencies('qwen3_8b'),{})

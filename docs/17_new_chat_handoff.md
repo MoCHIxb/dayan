@@ -207,3 +207,10 @@ LaMP完整1496test/1500dev、原corpus_score2000次配对统计与辅助指标�
 58号集中当前服务器环境/隐藏GPU、BANKING固定源重建与三模型CPU预检、LaMP私有500/1500/1496导出上传导入、可选固定BERTScore快照、环境/容量记录、新机环境与GPU空闲后动作。新增import_cloud_data.py只接受repro/local_assets.json冻结的三数据文件与私有manifest，先全SHA核验再写，同SHA复用/不同文件不覆盖，拒绝越界/非普通/额外成员。没有创建或上传真实数据包。
 
 当前GPU忙，命令使用CUDA_VISIBLE_DEVICES空串与python直接CPU动作，不调用强制设置0的旧训练wrapper。LaMP不使用默认k8重新生成，不把BANKING预检当LaMP也通过；BERTScore只下载固定资产，实际评分的revision绑定仍待新入口实现。SMS/安全历史不自动纳入。主训练统一接口未完成，不提供伪一键全部训练。
+
+
+## 2026-11-16 Mistral tokenizer依赖故障与明确修复
+
+云端CPU预检在Mistral实例化失败，尚未GPU/训练。已核对官方配置LlamaTokenizer/add_prefix_space=true/legacy=false与Transformers4.57.6源码：该配置触发from_slow SentencePiece转换，此前环境遗漏SentencePiece/protobuf。新增requirements-tokenizers.lock（sentencepiece0.2.1、protobuf4.25.8）并加入cloud依赖，不修改模型文件、分词参数或原始锁。59号为补依赖、pip check及独立v2报告一次显式重试命令；不是自动重试或训练恢复。
+
+预检新增每模型进度与failure报告，保留前序结果并继续抛错，不吞掉失败或跳过Mistral。141项本地CPU测试通过，尚无云端修复成功证据，接下来仍须核验原生模板/标签边界、融合模块和真实GPU兼容。

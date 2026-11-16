@@ -17,3 +17,5 @@
 - [56：纯文本主流模型选择与ModelScope统一部署](56_text_model_roster_and_deployment.md)：最新取消LLaVA；Qwen/Mistral/Phi资产入口，统一训练器仍待验证。
 
 - [57：扩容后的三模型CPU兼容预检](57_cpu_model_preflight.md)：真实数据、原生模板/监督边界和meta投影检查；不加载权重、不启动训练。
+
+- [58：数据集、环境、CPU预检完整命令](58_complete_preparation_commands.md)：当前GPU忙时可做的步骤及LaMP私有传输，新机/GPU空闲步骤分列，不启动训练。

@@ -200,3 +200,10 @@ LaMP完整1496test/1500dev、原corpus_score2000次配对统计与辅助指标�
 所有者提供Qwen14/Mistral12/Phi13文件及all_roster=true的云端验收摘要；GPU4090空闲，原磁盘剩14GiB后又报告扩容50G，尚待df确认实际挂载容量。三个模型均仅资产通过，training_ready=false；当前无正式8B训练结果。57号新增真实数据/模板/监督/长度及meta模型LoRA投影CPU预检，先复用prepare构建并核对原BANKING划分，不恢复旧run。
 
 预检不加载模型权重或使用GPU，全部本地逻辑测试通过不等于真实三tokenizer/meta兼容已通过。云端结果compatibility_preflight.json需核对；若原生Mistral模板或Phi融合投影失败，记录后固定适配规则，不能静默更改数据。CPU成功仍需独立GPU功能/保存恢复/资源预检与新统一训练入口，当前不启动大矩阵。
+
+
+## 2026-11-16完整准备命令清单
+
+58号集中当前服务器环境/隐藏GPU、BANKING固定源重建与三模型CPU预检、LaMP私有500/1500/1496导出上传导入、可选固定BERTScore快照、环境/容量记录、新机环境与GPU空闲后动作。新增import_cloud_data.py只接受repro/local_assets.json冻结的三数据文件与私有manifest，先全SHA核验再写，同SHA复用/不同文件不覆盖，拒绝越界/非普通/额外成员。没有创建或上传真实数据包。
+
+当前GPU忙，命令使用CUDA_VISIBLE_DEVICES空串与python直接CPU动作，不调用强制设置0的旧训练wrapper。LaMP不使用默认k8重新生成，不把BANKING预检当LaMP也通过；BERTScore只下载固定资产，实际评分的revision绑定仍待新入口实现。SMS/安全历史不自动纳入。主训练统一接口未完成，不提供伪一键全部训练。

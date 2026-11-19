@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-19",
+  "status": "owner_confirmed_maintenance_interruption_recovery_tool_ready_cloud_pending",
+  "stage": "qwen3_8b_none_r64_a16_s20261205_train",
+  "last_logged_step": 88,
+  "expected_checkpoint_step": 80,
+  "checkpoint_verified_on_cloud": false,
+  "entry": "scripts/recover_research_maintenance.py",
+  "guide": "docs/67_maintenance_training_recovery.md",
+  "tests_run": 195,
+  "tests_skipped": 5,
+  "new_tests": 6,
+  "owner_authorized": "explicit restart after server maintenance emergency shutdown",
+  "preserves_original_scientific_sources": true,
+  "resources": "interrupted condition full time/peak incomplete; do not use resumed-only timing as full-run cost"
+}

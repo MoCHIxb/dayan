@@ -18,3 +18,5 @@
 - 最新所有者指示：cloud/run_research_grid.sh → run_research_grid.py，独立research_grid.py/train_research_grid.py/evaluate_research_grid.py/audit_research_grid.py/gpu_probe_grid.py；五档Rank×五档Alpha×三精度×三模型×五种子（1125训练）。当前用65号与configs/research_banking_v2/grid.json；旧15次入口和旧GPU诊断源码保持原字节，不再作为新实验起步队列。新prepare/check为CPU；probe/run在云端显式执行，空间不足停止，不删证据。
 
 - 当前新批次推荐cloud/run_research_analysis.sh，独立run_research_analysis.py与compact_research_grid.py；复用原v2科学训练/评价/数据和r64探针，逐条件完整审计后仅清理登记二进制，精确保留预测/元数据/曲线/收据/9代表adapter。旧full-retention manifest存在即拒绝自动迁移，旧训练/诊断源码未修改。详见66号。
+
+- 检修恢复：recover_research_maintenance.py默认只读；所有者确认检修并授权后--execute一次性恢复当前train，保存原进度尾部与异常证据后衔接原队列。详见67号，不用于自动重试任意失败。

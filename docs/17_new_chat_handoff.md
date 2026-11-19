@@ -289,3 +289,10 @@ cloud/run_research_banking.sh check核验已有CPUv3、九项GPU诊断原收据�
 ## 云端分析保留prepare已通过（所有者终端回报）
 
 用户提供4f41383上的完整prepare输出：150G挂载39G已用/112G可用，4090空闲；plan1125训练/4513阶段，Qwen14/Mistral12/Phi13资产字节验收通过，grid_cpu_inputs_verified_formal_gpu_unexecuted_by_this_check。实际空闲119625474048 bytes（约111.4GiB），分析余量75497472000、9代表adapter预算1303904256、活动run与保留19815989248，合计所需96617365504 bytes（约90.0GiB），prepare空间检查通过。此为所有者CLI回报，不是本地重跑或导入云端原文件；不改任何运行源码/协议。输出未出现r64探针或正式训练启动，下一步分析入口probe再run，run会按探针后的实际空闲量重查。executable:false属于plan输出，asset_bytes_verified_not_training_ready是资产层状态，不是报错。
+
+
+## 2026-11-19 检修紧急停机，所有者明确要求重启
+
+当前云端进程输出为空/GPU闲，state旧running指向qwen3_8b_none_r64_a16_s20261205_train attempt1；进度88/128，最后01:32:32。所有者确认服务器检修紧急停机，授权恢复。67号和独立recover_research_maintenance.py默认只读核验原manifest/inputs/origin和最高完整checkpoint（预期80但尚未实际核验）；--execute一次性从有效全状态续训，恢复到128后补原train阶段此前缺失收据，再原analysis入口run --resume接着test/audit/retain及剩余条件，不重跑已完成条件。原训练/评价/清理/协议源码字节不变，Git更新只新增未被旧manifest绑定的辅助文件。
+
+工具备份完整原progress和SHA，再恢复活动日志到保存点；81–88尾部保留并重算，后续残缺保存点移入受限恢复证据目录而非删除。保存真实检修恢复状态/原命令+实际resume命令，不伪造paused；存在恢复尝试则阻止自动重试。已完成128或已生成summary的情形拒绝续训，须finalization专门审计。中断会话完整时间/峰值不可知，run/maintenance_recovery.json及recoveries/.../cost_caveat.json明确标记，资源横向比较应排除或限定，不能把已测恢复段累计当全程成本；原质量评价仍需原128步/8dev/400test完整审计。195项CPU测试运行含5项条件跳过、新6项恢复测试通过；无本地GPU启动，无云端保存点核验或恢复成功回报。
